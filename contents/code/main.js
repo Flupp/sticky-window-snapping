@@ -20,7 +20,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *****************************************************************************/
 
 var config =
-	{ liveUpdate : true
+	{ enabledCurrently : true
+	, enabledUsually : true
+	, liveUpdate : true
 	, opacityOfSnapped : 0.75
 	};
 
@@ -46,6 +48,23 @@ function init() {
 	}
 	workspace.clientAdded.connect(connectClient);
 	workspace.clientRemoved.connect(clientRemoved);
+
+	var shortcutPrefix = "KWin Script: Sticky Window Snapping: ";
+	registerShortcut
+		( shortcutPrefix + "enable/disable"
+		, shortcutPrefix + "enable/disable"
+		, "Meta+Shift+S"
+		, function () {
+				config.enabledUsually = !config.enabledUsually;
+				config.enabledCurrently = config.enabledUsually;
+			}
+		)
+	registerShortcut
+		( shortcutPrefix + "enable/disable temporarily"
+		, shortcutPrefix + "enable/disable temporarily"
+		, "Ctrl+Shift+S"
+		, function () { config.enabledCurrently = !config.enabledCurrently; }
+		)
 }
 
 function connectClient(client) {
@@ -70,6 +89,7 @@ function clientRemoved(client) {
 }
 
 function clientStartUserMovedResized(client) {
+	if (!config.enabledCurrently) return;
 	if (!client.resize) return;
 	clear();
 	var l = client.geometry.x;
@@ -122,6 +142,7 @@ function clientFinishUserMovedResized(client) {
 			}
 		}
 	}
+	config.enabledCurrently = config.enabledUsually;
 	clear();
 }
 
