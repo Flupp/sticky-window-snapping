@@ -22,6 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 var config =
 	{ enabledCurrently : true
 	, enabledUsually : true
+	, ignoreMaximized : true
 	, liveUpdate : true
 	, opacityOfSnapped : 0.75
 	};
@@ -102,6 +103,7 @@ function clientStartUserMovedResized(client) {
 		if (clients[i].specialWindow) continue;
 		if (clients[i].fullScreen) continue;
 		if (clients[i].desktop != workspace.currentDesktop) continue;
+		if (config.ignoreMaximized && shallowEquals(clients[i].geometry, workspace.clientArea(workspace.MaximizeArea, clients[i]))) continue;
 		if (clients[i].activities.length != 0 && clients[i].activities.indexOf(workspace.currentActivity) == -1) continue;
 		var g = clients[i].geometry;
 		if (l == g.x + g.width ) snaps.lr.push(clients[i]);
