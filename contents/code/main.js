@@ -115,16 +115,8 @@ function clientStartUserMovedResized(client) {
 		if (b == g.y + g.height) snaps.bb.push(clients[i]);
 	}
 	if (config.opacityOfSnapped != 1) {
-		for (var snap in snaps) {
-			for (var i = 0; i < snaps[snap].length; ++i) {
-				snaps[snap][i].originalOpacity = snaps[snap][i].opacity;
-			}
-		}
-		for (var snap in snaps) {
-			for (var i = 0; i < snaps[snap].length; ++i) {
-				snaps[snap][i].opacity = config.opacityOfSnapped * snaps[snap][i].originalOpacity;
-			}
-		}
+		forallSnaps(function (c) { c.originalOpacity = c.opacity; });
+		forallSnaps(function (c) { c.opacity = config.opacityOfSnapped * c.originalOpacity; });
 	}
 }
 
@@ -136,11 +128,7 @@ function clientStepUserMovedResized(client, rect) {
 function clientFinishUserMovedResized(client) {
 	clientResized(client, client.geometry);
 	if (config.opacityOfSnapped != 1) {
-		for (var snap in snaps) {
-			for (var i = 0; i < snaps[snap].length; ++i) {
-				snaps[snap][i].opacity = snaps[snap][i].originalOpacity;
-			}
-		}
+		forallSnaps(function (c) { c.opacity = c.originalOpacity; });
 	}
 	config.enabledCurrently = config.enabledUsually;
 	clear();
@@ -202,4 +190,12 @@ function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop)
 	if (geometry.height > client.maxSize.h) geometry.height = client.maxSize.h;
 	if (pinBottomInsteadTop) geometry.y = geometry.y + old - geometry.height;
 	if (client.geometry != geometry) client.geometry = geometry;
+}
+
+function forallSnaps(f) {
+	for (var snap in snaps) {
+		for (var i = 0; i < snaps[snap].length; ++i) {
+			f(snaps[snap][i]);
+		}
+	}
 }
