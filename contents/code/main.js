@@ -102,8 +102,7 @@ function clientStartUserMovedResized(client) {
 		if (clients[i].specialWindow) continue;
 		if (clients[i].fullScreen) continue;
 		if (clients[i].desktop != workspace.currentDesktop) continue;
-		// TODO: check activity
-		// if (!clients[i].activities.contains(workspace.currentActivity)) continue;
+		if (clients[i].activities.length != 0 && clients[i].activities.indexOf(workspace.currentActivity) == -1) continue;
 		var g = clients[i].geometry;
 		if (l == g.x + g.width ) snaps.lr.push(clients[i]);
 		if (l == g.x           ) snaps.ll.push(clients[i]);
