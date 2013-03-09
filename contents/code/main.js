@@ -188,7 +188,7 @@ function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop)
 	if (geometry.height <        minSize.h) geometry.height =        minSize.h;
 	if (geometry.height > client.maxSize.h) geometry.height = client.maxSize.h;
 	if (pinBottomInsteadTop) geometry.y = geometry.y + old - geometry.height;
-	if (client.geometry != geometry) client.geometry = geometry;
+	if (!shallowEquals(client.geometry, geometry)) client.geometry = geometry;
 }
 
 function forallSnaps(f) {
@@ -197,4 +197,16 @@ function forallSnaps(f) {
 			f(snaps[snap][i]);
 		}
 	}
+}
+
+function shallowEquals(x, y) {
+	if (Object.keys(x).length !== Object.keys(y).length) {
+		return false;
+	}
+	for (var p in x) {
+		if (x[p] !== y[p]) {
+			return false;
+		}
+	}
+	return true;
 }
