@@ -183,15 +183,25 @@ function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop)
 		, h: Math.max(client.minSize.h, Math.min(50, client.geometry.height))
 		};
 
-	var old = geometry.width;
-	if (geometry.width  <        minSize.w) geometry.width  =        minSize.w;
-	if (geometry.width  > client.maxSize.w) geometry.width  = client.maxSize.w;
-	if (pinRightInsteadLeft) geometry.x = geometry.x + old - geometry.width;
+	function applySizeConstraints() {
+		var old = geometry.width;
+		if (geometry.width  <        minSize.w) geometry.width  =        minSize.w;
+		if (geometry.width  > client.maxSize.w) geometry.width  = client.maxSize.w;
+		if (pinRightInsteadLeft) geometry.x = geometry.x + old - geometry.width;
 
-	old = geometry.height;
-	if (geometry.height <        minSize.h) geometry.height =        minSize.h;
-	if (geometry.height > client.maxSize.h) geometry.height = client.maxSize.h;
-	if (pinBottomInsteadTop) geometry.y = geometry.y + old - geometry.height;
+		old = geometry.height;
+		if (geometry.height <        minSize.h) geometry.height =        minSize.h;
+		if (geometry.height > client.maxSize.h) geometry.height = client.maxSize.h;
+		if (pinBottomInsteadTop) geometry.y = geometry.y + old - geometry.height;
+	}
+
+	applySizeConstraints();
+	var ca = workspace.clientArea(workspace.MaximizeArea, client);
+	if (geometry.x < ca.x) { moveLto(geometry, ca.x); pinRightInsteadLeft = false; }
+	if (geometry.y < ca.y) { moveTto(geometry, ca.y); pinBottomInsteadTop = false; }
+	if (geometry.x + geometry.width  > ca.x + ca.width ) { moveRto(geometry, ca.x + ca.width ); pinRightInsteadLeft = true; }
+	if (geometry.y + geometry.height > ca.y + ca.height) { moveBto(geometry, ca.y + ca.height); pinBottomInsteadTop = true; }
+	applySizeConstraints();
 
 	if (!shallowEquals(client.geometry, geometry)) client.geometry = geometry;
 }
