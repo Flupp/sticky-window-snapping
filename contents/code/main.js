@@ -19,6 +19,9 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *****************************************************************************/
 
+(function () {
+"use strict";
+
 var config =
 	{ enabledCurrently : true
 	, enabledUsually : true
@@ -212,3 +215,5 @@ function shallowEquals(x, y) {
 	}
 	return true;
 }
+
+})()
