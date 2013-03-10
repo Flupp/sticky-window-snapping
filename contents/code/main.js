@@ -130,7 +130,11 @@ function clientStepUserMovedResized(client, rect) {
 function clientFinishUserMovedResized(client) {
 	clientResized(client, client.geometry);
 	if (config.opacityOfSnapped != 1) {
-		forallSnaps(function (c) { c.opacity = c.originalOpacity; });
+		forallSnaps(function (c) {
+			if (c.originalOpacity === undefined) return;
+			c.opacity = c.originalOpacity;
+			delete c.originalOpacity;
+		});
 	}
 	config.enabledCurrently = config.enabledUsually;
 	clear();
