@@ -26,6 +26,7 @@ var config =
 	{ enabledCurrently : true
 	, enabledUsually : true
 	, ignoreMaximized : true
+	, ignoreShaded : true
 	, liveUpdate : true
 	, opacityOfSnapped : 0.75
 	};
@@ -101,6 +102,7 @@ function clientStartUserMovedResized(client) {
 		if (c.fullScreen) continue;
 		if (c.desktop !== workspace.currentDesktop) continue;
 		if (c.screen !== client.screen) continue;
+		if (config.ignoreShaded && c.shade) continue;
 		if (config.ignoreMaximized && shallowEquals(g, workspace.clientArea(workspace.MaximizeArea, c))) continue;
 		if (c.activities.length !== 0 && c.activities.indexOf(workspace.currentActivity) === -1) continue;
 
