@@ -60,13 +60,13 @@ function init() {
 				config.enabledUsually = !config.enabledUsually;
 				config.enabledCurrently = config.enabledUsually;
 			}
-		)
+		);
 	registerShortcut
 		( shortcutPrefix + "enable/disable temporarily"
 		, shortcutPrefix + "enable/disable temporarily"
 		, "Ctrl+Shift+S"
 		, function () { config.enabledCurrently = !config.enabledCurrently; }
-		)
+		);
 }
 
 function connectClient(client) {
@@ -216,4 +216,4 @@ function shallowEquals(x, y) {
 
 init();
 
-})()
+})();
