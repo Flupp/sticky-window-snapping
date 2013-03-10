@@ -43,8 +43,6 @@ var snaps =
 	, bb : []
 	};
 
-init();
-
 function init() {
 	var clients = workspace.clientList(); 
 	for (var i = 0; i < clients.length; i++) {
@@ -215,5 +213,7 @@ function shallowEquals(x, y) {
 	}
 	return true;
 }
+
+init();
 
 })()
