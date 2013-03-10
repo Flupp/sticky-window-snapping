@@ -184,17 +184,21 @@ function moveBto(client, y, pinBottomInsteadTop) {
 }
 
 function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop) {
+	var minSize =
+		{ w: Math.max(client.minSize.w, Math.min(50, client.geometry.width))
+		, h: Math.max(client.minSize.h, Math.min(50, client.geometry.height))
+		};
+
 	var old = geometry.width;
-	minSize = client.minSize;
-	if (minSize.w < 50) minSize.w = 50;
-	if (minSize.h < 50) minSize.h = 50;
 	if (geometry.width  <        minSize.w) geometry.width  =        minSize.w;
 	if (geometry.width  > client.maxSize.w) geometry.width  = client.maxSize.w;
 	if (pinRightInsteadLeft) geometry.x = geometry.x + old - geometry.width;
+
 	old = geometry.height;
 	if (geometry.height <        minSize.h) geometry.height =        minSize.h;
 	if (geometry.height > client.maxSize.h) geometry.height = client.maxSize.h;
 	if (pinBottomInsteadTop) geometry.y = geometry.y + old - geometry.height;
+
 	if (!shallowEquals(client.geometry, geometry)) client.geometry = geometry;
 }
 
