@@ -32,16 +32,7 @@ var config =
 
 /****************************************************************************/
 
-var snaps =
-	{ ll : []
-	, lr : []
-	, rl : []
-	, rr : []
-	, tt : []
-	, tb : []
-	, bt : []
-	, bb : []
-	};
+var snaps = [];
 
 function init() {
 	var clients = workspace.clientList(); 
@@ -78,13 +69,12 @@ function connectClient(client) {
 }
 
 function clientRemoved(client) {
-	for (var snap in snaps) {
-		for (;;) {
-			var i = snaps[snap].indexOf(client);
-			if (i == -1)
-				break;
-			else
-				snaps[snap].splice(i, 1);
+	var i = 0;
+	while (i < snaps.length) {
+		if (snaps[i].client === client) {
+			snaps.splice(i, 1);
+		} else {
+			++i
 		}
 	}
 }
@@ -92,33 +82,47 @@ function clientRemoved(client) {
 function clientStartUserMovedResized(client) {
 	if (!config.enabledCurrently) return;
 	if (!client.resize) return;
-	clear();
-	var l = client.geometry.x;
-	var r = client.geometry.width + l;
-	var t = client.geometry.y;
-	var b = client.geometry.height + t;
+	snaps.length = 0;
+	var l1 = client.geometry.x;
+	var r1 = client.geometry.width + l1;
+	var t1 = client.geometry.y;
+	var b1 = client.geometry.height + t1;
 	var clients = workspace.clientList();
 	for (var i = 0; i < clients.length; i++) {
-		if (clients[i] == client) continue;
-		if (clients[i].specialWindow) continue;
-		if (clients[i].fullScreen) continue;
-		if (clients[i].desktop != workspace.currentDesktop) continue;
-		if (clients[i].screen !== client.screen) continue;
-		if (config.ignoreMaximized && shallowEquals(clients[i].geometry, workspace.clientArea(workspace.MaximizeArea, clients[i]))) continue;
-		if (clients[i].activities.length != 0 && clients[i].activities.indexOf(workspace.currentActivity) == -1) continue;
-		var g = clients[i].geometry;
-		if (l == g.x + g.width ) snaps.lr.push(clients[i]);
-		if (l == g.x           ) snaps.ll.push(clients[i]);
-		if (r == g.x           ) snaps.rl.push(clients[i]);
-		if (r == g.x + g.width ) snaps.rr.push(clients[i]);
-		if (t == g.y + g.height) snaps.tb.push(clients[i]);
-		if (t == g.y           ) snaps.tt.push(clients[i]);
-		if (b == g.y           ) snaps.bt.push(clients[i]);
-		if (b == g.y + g.height) snaps.bb.push(clients[i]);
-	}
-	if (config.opacityOfSnapped != 1) {
-		forallSnaps(function (c) { c.originalOpacity = c.opacity; });
-		forallSnaps(function (c) { c.opacity = config.opacityOfSnapped * c.originalOpacity; });
+		var c = clients[i];
+		var g = c.geometry;
+		var l2 = g.x;
+		var r2 = g.width + l2;
+		var t2 = g.y;
+		var b2 = g.height + t2;
+
+		if (c === client) continue;
+		if (c.specialWindow) continue;
+		if (c.fullScreen) continue;
+		if (c.desktop !== workspace.currentDesktop) continue;
+		if (c.screen !== client.screen) continue;
+		if (config.ignoreMaximized && shallowEquals(g, workspace.clientArea(workspace.MaximizeArea, c))) continue;
+		if (c.activities.length !== 0 && c.activities.indexOf(workspace.currentActivity) === -1) continue;
+
+		var snap = {
+			lr: l1 === r2,
+			ll: l1 === l2,
+			rl: r1 === l2,
+			rr: r1 === r2,
+			tb: t1 === b2,
+			tt: t1 === t2,
+			bt: b1 === t2,
+			bb: b1 === b2,
+			client: c,
+			originalGeometry: c.geometry
+		}
+		if (snap.lr || snap.ll || snap.rl || snap.rr || snap.tb || snap.tt || snap.bt || snap.bb) {
+			snaps.push(snap);
+			if (config.opacityOfSnapped !== 1) {
+				snap.originalOpacity = c.opacity;
+				c.opacity = config.opacityOfSnapped * c.opacity;
+			}
+		}
 	}
 }
 
@@ -129,58 +133,48 @@ function clientStepUserMovedResized(client, rect) {
 
 function clientFinishUserMovedResized(client) {
 	clientResized(client, client.geometry);
-	if (config.opacityOfSnapped != 1) {
-		forallSnaps(function (c) {
-			if (c.originalOpacity === undefined) return;
-			c.opacity = c.originalOpacity;
-			delete c.originalOpacity;
-		});
+	for (var i = 0; i < snaps.length; ++i) {
+		if (snaps[i].originalOpacity !== undefined) {;
+			snaps[i].client.opacity = snaps[i].originalOpacity;
+		}
 	}
 	config.enabledCurrently = config.enabledUsually;
-	clear();
+	snaps.length = 0;
 }
 
 function clientResized(client, rect) {
-	for (var i = 0; i < snaps.lr.length; ++i) moveRto(snaps.lr[i], rect.x, false);
-	for (var i = 0; i < snaps.ll.length; ++i) moveLto(snaps.ll[i], rect.x, true);
-	for (var i = 0; i < snaps.rl.length; ++i) moveLto(snaps.rl[i], rect.x + rect.width, true);
-	for (var i = 0; i < snaps.rr.length; ++i) moveRto(snaps.rr[i], rect.x + rect.width, false);
-	for (var i = 0; i < snaps.tb.length; ++i) moveBto(snaps.tb[i], rect.y, false);
-	for (var i = 0; i < snaps.tt.length; ++i) moveTto(snaps.tt[i], rect.y, true);
-	for (var i = 0; i < snaps.bt.length; ++i) moveTto(snaps.bt[i], rect.y + rect.height, true);
-	for (var i = 0; i < snaps.bb.length; ++i) moveBto(snaps.bb[i], rect.y + rect.height, false);
-}
-
-function clear() {
-	for (var snap in snaps) {
-		snaps[snap].length = 0;
+	for (var i = 0; i < snaps.length; ++i) {
+		var s = snaps[i];
+		var og = s.originalGeometry;
+		var g = {x: og.x, y: og.y, width: og.width, height: og.height};
+		if (s.lr) moveRto(g, rect.x);
+		if (s.ll) moveLto(g, rect.x);
+		if (s.rl) moveLto(g, rect.x + rect.width);
+		if (s.rr) moveRto(g, rect.x + rect.width);
+		if (s.tb) moveBto(g, rect.y);
+		if (s.tt) moveTto(g, rect.y);
+		if (s.bt) moveTto(g, rect.y + rect.height);
+		if (s.bb) moveBto(g, rect.y + rect.height);
+		setGeometry(s.client, g, s.lr || s.rr, s.tb || s.bb);
 	}
 }
 
-function moveLto(client, x, pinRightInsteadLeft) {
-	var rect = client.geometry;
+function moveLto(rect, x) {
+	rect.width += rect.x - x;
 	rect.x = x;
-	rect.width = client.geometry.width + client.geometry.x - x;
-	setGeometry(client, rect, pinRightInsteadLeft, false);
 }
 
-function moveRto(client, x, pinRightInsteadLeft) {
-	var rect = client.geometry;
-	rect.width = x - client.geometry.x;
-	setGeometry(client, rect, pinRightInsteadLeft, false);
+function moveRto(rect, x) {
+	rect.width = x - rect.x;
 }
 
-function moveTto(client, y, pinBottomInsteadTop) {
-	var rect = client.geometry;
+function moveTto(rect, y) {
+	rect.height += rect.y - y;
 	rect.y = y;
-	rect.height = client.geometry.height + client.geometry.y - y;
-	setGeometry(client, rect, false, pinBottomInsteadTop);
 }
 
-function moveBto(client, y, pinBottomInsteadTop) {
-	rect = client.geometry;
-	rect.height = y - client.geometry.y;
-	setGeometry(client, rect, false, pinBottomInsteadTop);
+function moveBto(rect, y) {
+	rect.height = y - rect.y;
 }
 
 function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop) {
@@ -200,14 +194,6 @@ function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop)
 	if (pinBottomInsteadTop) geometry.y = geometry.y + old - geometry.height;
 
 	if (!shallowEquals(client.geometry, geometry)) client.geometry = geometry;
-}
-
-function forallSnaps(f) {
-	for (var snap in snaps) {
-		for (var i = 0; i < snaps[snap].length; ++i) {
-			f(snaps[snap][i]);
-		}
-	}
 }
 
 function shallowEquals(x, y) {
