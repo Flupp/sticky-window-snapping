@@ -22,21 +22,21 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 (function () {
 "use strict";
 
-var config =
-	{ enabledCurrently : true
-	, enabledUsually : true
-	, ignoreMaximized : true
-	, ignoreShaded : true
-	, liveUpdate : true
-	, opacityOfSnapped : 0.75
-	};
+var config = {
+	enabledCurrently: true,
+	enabledUsually: true,
+	ignoreMaximized: true,
+	ignoreShaded: true,
+	liveUpdate: true,
+	opacityOfSnapped: 0.75
+};
 
 /****************************************************************************/
 
 var snaps = [];
 
 function init() {
-	var clients = workspace.clientList(); 
+	var clients = workspace.clientList();
 	for (var i = 0; i < clients.length; i++) {
 		connectClient(clients[i]);
 	}
@@ -44,21 +44,21 @@ function init() {
 	workspace.clientRemoved.connect(clientRemoved);
 
 	var shortcutPrefix = "KWin Script: Sticky Window Snapping: ";
-	registerShortcut
-		( shortcutPrefix + "enable/disable"
-		, shortcutPrefix + "enable/disable"
-		, "Meta+Shift+S"
-		, function () {
-				config.enabledUsually = !config.enabledUsually;
-				config.enabledCurrently = config.enabledUsually;
-			}
-		);
-	registerShortcut
-		( shortcutPrefix + "enable/disable temporarily"
-		, shortcutPrefix + "enable/disable temporarily"
-		, "Ctrl+Shift+S"
-		, function () { config.enabledCurrently = !config.enabledCurrently; }
-		);
+	registerShortcut(
+		shortcutPrefix + "enable/disable",
+		shortcutPrefix + "enable/disable",
+		"Meta+Shift+S",
+		function () {
+			config.enabledUsually = !config.enabledUsually;
+			config.enabledCurrently = config.enabledUsually;
+		}
+	);
+	registerShortcut(
+		shortcutPrefix + "enable/disable temporarily",
+		shortcutPrefix + "enable/disable temporarily",
+		"Ctrl+Shift+S",
+		function () { config.enabledCurrently = !config.enabledCurrently; }
+	);
 }
 
 function connectClient(client) {
@@ -180,10 +180,10 @@ function moveBto(rect, y) {
 }
 
 function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop) {
-	var minSize =
-		{ w: Math.max(client.minSize.w, Math.min(50, client.geometry.width))
-		, h: Math.max(client.minSize.h, Math.min(50, client.geometry.height))
-		};
+	var minSize = {
+		w: Math.max(client.minSize.w, Math.min(50, client.geometry.width)),
+		h: Math.max(client.minSize.h, Math.min(50, client.geometry.height))
+	};
 
 	function applySizeConstraints() {
 		var old = geometry.width;
