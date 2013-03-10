@@ -75,7 +75,7 @@ function clientRemoved(client) {
 		if (snaps[i].client === client) {
 			snaps.splice(i, 1);
 		} else {
-			++i
+			++i;
 		}
 	}
 }
@@ -117,7 +117,7 @@ function clientStartUserMovedResized(client) {
 			bb: b1 === b2,
 			client: c,
 			originalGeometry: c.geometry
-		}
+		};
 		if (snap.lr || snap.ll || snap.rl || snap.rr || snap.tb || snap.tt || snap.bt || snap.bb) {
 			snaps.push(snap);
 			if (config.opacityOfSnapped !== 1) {
@@ -136,7 +136,7 @@ function clientStepUserMovedResized(client, rect) {
 function clientFinishUserMovedResized(client) {
 	clientResized(client, client.geometry);
 	for (var i = 0; i < snaps.length; ++i) {
-		if (snaps[i].originalOpacity !== undefined) {;
+		if (snaps[i].originalOpacity !== undefined) {
 			snaps[i].client.opacity = snaps[i].originalOpacity;
 		}
 	}
