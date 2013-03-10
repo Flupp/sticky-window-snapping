@@ -75,7 +75,6 @@ function connectClient(client) {
 	if (config.liveUpdate)
 		client.clientStepUserMovedResized.connect(clientStepUserMovedResized);
 	client.clientFinishUserMovedResized.connect(clientFinishUserMovedResized);
-	print("connected to " + client.caption);
 }
 
 function clientRemoved(client) {
