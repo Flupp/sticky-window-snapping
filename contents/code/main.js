@@ -104,6 +104,7 @@ function clientStartUserMovedResized(client) {
 		if (clients[i].specialWindow) continue;
 		if (clients[i].fullScreen) continue;
 		if (clients[i].desktop != workspace.currentDesktop) continue;
+		if (clients[i].screen !== client.screen) continue;
 		if (config.ignoreMaximized && shallowEquals(clients[i].geometry, workspace.clientArea(workspace.MaximizeArea, clients[i]))) continue;
 		if (clients[i].activities.length != 0 && clients[i].activities.indexOf(workspace.currentActivity) == -1) continue;
 		var g = clients[i].geometry;
