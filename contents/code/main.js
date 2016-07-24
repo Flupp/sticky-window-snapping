@@ -97,7 +97,7 @@ function clientStartUserMovedResized(client) {
 		var t2 = g.y;
 		var b2 = g.height + t2;
 
-		if (c === client) continue;
+		if (c == client) continue;
 		if (c.specialWindow) continue;
 		if (c.fullScreen) continue;
 		if (c.desktop !== workspace.currentDesktop) continue;
