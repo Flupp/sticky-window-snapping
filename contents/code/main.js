@@ -36,6 +36,9 @@ var config = {
 var snaps = [];
 
 function init() {
+	loadConfig();
+	options.configChanged.connect(loadConfig);  // it is not documented, when this event is triggered; connecting nevertheless
+
 	var clients = workspace.clientList();
 	for (var i = 0; i < clients.length; i++) {
 		connectClient(clients[i]);
@@ -59,6 +62,15 @@ function init() {
 		"Ctrl+Shift+S",
 		function () { config.enabledCurrently = !config.enabledCurrently; }
 	);
+}
+
+function loadConfig() {
+	config.enabledUsually   = true == readConfig("enabledUsually"  ,       config.enabledUsually  );
+	config.enabledCurrently =                                              config.enabledUsually   ;
+	config.ignoreMaximized  = true == readConfig("ignoreMaximized" ,       config.ignoreMaximized );
+	config.ignoreShaded     = true == readConfig("ignoreShaded"    ,       config.ignoreShaded    );
+	config.liveUpdate       = true == readConfig("liveUpdate"      ,       config.liveUpdate      );
+	config.opacityOfSnapped = 0.01 *  readConfig("opacityOfSnapped", 100 * config.opacityOfSnapped);
 }
 
 function connectClient(client) {

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>KWin::StickyWindowSnappingConfigForm</class>
+ <widget class="QWidget" name="KWin::StickyWindowSnappingConfigForm">
+  <property name="windowTitle">
+   <string>Sticky Window Snapping</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QCheckBox" name="kcfg_enabledUsually">
+     <property name="text">
+      <string>enable on startup</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="kcfg_liveUpdate">
+     <property name="text">
+      <string>live update of snapped windows</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>opacity of snapped:</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSpinBox" name="kcfg_opacityOfSnapped">
+       <property name="suffix">
+        <string>%</string>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>75</number>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QSlider" name="slider_opacityOfSnapped">
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>75</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QGroupBox" name="groupBox_filters">
+     <property name="title">
+      <string>filters</string>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QCheckBox" name="kcfg_ignoreMaximized">
+        <property name="text">
+         <string>ignore maximized windows</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="kcfg_ignoreShaded">
+        <property name="text">
+         <string>ignore shaded windows</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+    </spacer>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>slider_opacityOfSnapped</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>kcfg_opacityOfSnapped</receiver>
+   <slot>setValue(int)</slot>
+  </connection>
+  <connection>
+   <sender>kcfg_opacityOfSnapped</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>slider_opacityOfSnapped</receiver>
+   <slot>setValue(int)</slot>
+  </connection>
+ </connections>
+</ui>
