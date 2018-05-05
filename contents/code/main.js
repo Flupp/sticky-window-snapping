@@ -135,10 +135,6 @@ function clientStartUserMovedResized(client) {
 		};
 		if (snap.lr || snap.ll || snap.rl || snap.rr || snap.tb || snap.tt || snap.bt || snap.bb) {
 			snaps.push(snap);
-			if (config.opacityOfSnapped !== 1) {
-				snap.originalOpacity = c.opacity;
-				c.opacity = config.opacityOfSnapped * c.opacity;
-			}
 		}
 	}
 }
@@ -172,7 +168,13 @@ function clientResized(client, rect) {
 		if (s.tt) moveTto(g, rect.y);
 		if (s.bt) moveTto(g, rect.y + rect.height);
 		if (s.bb) moveBto(g, rect.y + rect.height);
-		setGeometry(s.client, g, s.lr || s.rr, s.tb || s.bb);
+		if (  setGeometry(s.client, g, s.lr || s.rr, s.tb || s.bb)
+		   && config.opacityOfSnapped !== 1
+		   && !Object.prototype.hasOwnProperty.call(s, 'originalOpacity')
+		) {
+			s.originalOpacity = s.client.opacity;
+			s.client.opacity = config.opacityOfSnapped * s.originalOpacity;
+		}
 	}
 }
 
@@ -194,6 +196,7 @@ function moveBto(rect, y) {
 	rect.height = y - rect.y;
 }
 
+/* returns true if the client’s geometry is changed, otherwise returns false */
 function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop) {
 	var minSize = {
 		w: Math.max(client.minSize.w, Math.min(50, client.geometry.width)),
@@ -220,7 +223,12 @@ function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop)
 	if (geometry.y + geometry.height > ca.y + ca.height) { moveBto(geometry, ca.y + ca.height); pinBottomInsteadTop = true; }
 	applySizeConstraints();
 
-	if (!shallowEquals(client.geometry, geometry)) client.geometry = geometry;
+	if (shallowEquals(client.geometry, geometry)) {
+		return false;
+	} else {
+		client.geometry = geometry;
+		return true;
+	}
 }
 
 function shallowEquals(x, y) {
