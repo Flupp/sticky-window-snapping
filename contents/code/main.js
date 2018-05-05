@@ -25,6 +25,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 var config = {
 	enabledUsually: true,
 	ignoreMaximized: true,
+	ignoreMinimized: false,
 	ignoreShaded: true,
 	liveUpdate: true,
 	opacityOfSnapped: 0.75
@@ -68,6 +69,7 @@ function init() {
 function loadConfig() {
 	config.enabledUsually   = true == readConfig("enabledUsually"  ,       config.enabledUsually  );
 	config.ignoreMaximized  = true == readConfig("ignoreMaximized" ,       config.ignoreMaximized );
+	config.ignoreMinimized  = true == readConfig("ignoreMinimized" ,       config.ignoreMinimized );
 	config.ignoreShaded     = true == readConfig("ignoreShaded"    ,       config.ignoreShaded    );
 	config.liveUpdate       = true == readConfig("liveUpdate"      ,       config.liveUpdate      );
 	config.opacityOfSnapped = 0.01 *  readConfig("opacityOfSnapped", 100 * config.opacityOfSnapped);
@@ -115,6 +117,7 @@ function clientStartUserMovedResized(client) {
 		if (c.desktop !== workspace.currentDesktop) continue;
 		if (c.screen !== client.screen) continue;
 		if (config.ignoreShaded && c.shade) continue;
+		if (config.ignoreMinimized && c.minimized) continue;
 		if (config.ignoreMaximized && shallowEquals(g, workspace.clientArea(workspace.MaximizeArea, c))) continue;
 		if (c.activities.length !== 0 && c.activities.indexOf(workspace.currentActivity) === -1) continue;
 

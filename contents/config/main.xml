@@ -11,6 +11,9 @@
     <entry name="ignoreMaximized" type="bool">
       <default>true</default>
     </entry>
+    <entry name="ignoreMinimized" type="bool">
+      <default>false</default>
+    </entry>
     <entry name="ignoreShaded" type="bool">
       <default>true</default>
     </entry>

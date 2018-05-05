@@ -80,6 +80,19 @@
        </widget>
       </item>
       <item>
+       <widget class="QCheckBox" name="kcfg_ignoreMinimized">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="text">
+         <string>ignore minimized windows</string>
+        </property>
+        <property name="checked">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
        <widget class="QCheckBox" name="kcfg_ignoreShaded">
         <property name="text">
          <string>ignore shaded windows</string>
