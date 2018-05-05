@@ -149,6 +149,16 @@
     </widget>
    </item>
    <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;You might have to restart KWin or relogin in order to finally adopt your changes.&lt;/p&gt;&lt;p&gt;Furthermore, there are two global keyboard shortcuts: one for enabling/disabling the script permanently, and one for enabling/disabling the script only for the next resize. The shortcuts can be changed via systemsettings: go to global shortcuts and select the component “KWin”. The shortcut’s names are prefixed by “KWin Script: Sticky Window Snapping”.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item>
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
