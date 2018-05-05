@@ -72,7 +72,7 @@ function connectClient(client) {
 function clientRemoved(client) {
 	var i = 0;
 	while (i < snaps.length) {
-		if (snaps[i].client === client) {
+		if (snaps[i].client == client) {
 			snaps.splice(i, 1);
 		} else {
 			++i;
