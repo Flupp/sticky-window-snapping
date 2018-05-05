@@ -28,7 +28,7 @@ var config = {
 	ignoreMinimized: false,
 	ignoreShaded: true,
 	liveUpdate: true,
-	opacityOfSnapped: 0.75,
+	opacityOfSnapped: 0.8,
 	opacityOfUnaffected: 0.2
 };
 enabledCurrently = config.enabledUsually;

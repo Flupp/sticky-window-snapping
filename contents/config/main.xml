@@ -21,7 +21,7 @@
       <default>true</default>
     </entry>
     <entry name="opacityOfSnapped" type="string">
-      <default>75</default>
+      <default>80</default>
     </entry>
     <entry name="opacityOfUnaffected" type="string">
       <default>20</default>
