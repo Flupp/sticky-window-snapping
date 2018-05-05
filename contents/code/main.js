@@ -28,13 +28,15 @@ var config = {
 	ignoreMinimized: false,
 	ignoreShaded: true,
 	liveUpdate: true,
-	opacityOfSnapped: 0.75
+	opacityOfSnapped: 0.75,
+	opacityOfUnaffected: 0.2
 };
 enabledCurrently = config.enabledUsually;
 
 /****************************************************************************/
 
 var snaps = [];
+var ignoreds = [];
 
 function init() {
 	loadConfig();
@@ -67,12 +69,13 @@ function init() {
 }
 
 function loadConfig() {
-	config.enabledUsually   = true == readConfig("enabledUsually"  ,       config.enabledUsually  );
-	config.ignoreMaximized  = true == readConfig("ignoreMaximized" ,       config.ignoreMaximized );
-	config.ignoreMinimized  = true == readConfig("ignoreMinimized" ,       config.ignoreMinimized );
-	config.ignoreShaded     = true == readConfig("ignoreShaded"    ,       config.ignoreShaded    );
-	config.liveUpdate       = true == readConfig("liveUpdate"      ,       config.liveUpdate      );
-	config.opacityOfSnapped = 0.01 *  readConfig("opacityOfSnapped", 100 * config.opacityOfSnapped);
+	config.enabledUsually      = true == readConfig("enabledUsually"     ,       config.enabledUsually     );
+	config.ignoreMaximized     = true == readConfig("ignoreMaximized"    ,       config.ignoreMaximized    );
+	config.ignoreMinimized     = true == readConfig("ignoreMinimized"    ,       config.ignoreMinimized    );
+	config.ignoreShaded        = true == readConfig("ignoreShaded"       ,       config.ignoreShaded       );
+	config.liveUpdate          = true == readConfig("liveUpdate"         ,       config.liveUpdate         );
+	config.opacityOfSnapped    = 0.01 *  readConfig("opacityOfSnapped"   , 100 * config.opacityOfSnapped   );
+	config.opacityOfUnaffected = 0.01 *  readConfig("opacityOfUnaffected", 100 * config.opacityOfUnaffected);
 }
 
 function connectClient(client) {
@@ -84,20 +87,25 @@ function connectClient(client) {
 }
 
 function clientRemoved(client) {
-	var i = 0;
-	while (i < snaps.length) {
-		if (snaps[i].client == client) {
-			snaps.splice(i, 1);
-		} else {
-			++i;
+	function checkArray(arr) {
+		var i = 0;
+		while (i < arr.length) {
+			if (arr[i].client == client) {
+				arr.splice(i, 1);
+			} else {
+				++i;
+			}
 		}
 	}
+	checkArray(snaps);
+	checkArray(ignoreds);
 }
 
 function clientStartUserMovedResized(client) {
 	if (!enabledCurrently) return;
 	if (!client.resize) return;
 	snaps.length = 0;
+	ignoreds.length = 0;
 	var l1 = client.geometry.x;
 	var r1 = client.geometry.width + l1;
 	var t1 = client.geometry.y;
@@ -113,13 +121,28 @@ function clientStartUserMovedResized(client) {
 
 		if (c == client) continue;
 		if (c.specialWindow) continue;
-		if (c.fullScreen) continue;
 		if (c.desktop !== workspace.currentDesktop) continue;
 		if (c.screen !== client.screen) continue;
-		if (config.ignoreShaded && c.shade) continue;
 		if (config.ignoreMinimized && c.minimized) continue;
-		if (config.ignoreMaximized && shallowEquals(g, workspace.clientArea(workspace.MaximizeArea, c))) continue;
 		if (c.activities.length !== 0 && c.activities.indexOf(workspace.currentActivity) === -1) continue;
+
+		function addIgnored(client) {
+			if (config.opacityOfUnaffected === 1) return;
+			ignored = {
+				client: client,
+				originalOpacity: client.opacity
+			};
+			client.opacity = config.opacityOfUnaffected * client.opacity;
+			ignoreds.push(ignored);
+		};
+
+		if (  c.fullScreen
+		   || config.ignoreShaded && c.shade
+		   || config.ignoreMaximized && shallowEquals(g, workspace.clientArea(workspace.MaximizeArea, c))
+		) {
+			addIgnored(c);
+			continue;
+		};
 
 		var snap = {
 			lr: l1 === r2,
@@ -134,7 +157,13 @@ function clientStartUserMovedResized(client) {
 			originalGeometry: c.geometry
 		};
 		if (snap.lr || snap.ll || snap.rl || snap.rr || snap.tb || snap.tt || snap.bt || snap.bb) {
+			snap.originalOpacity = c.opacity;
+			snap.opacity = config.opacityOfUnaffected;
+			if (config.opacityOfUnaffected !== 1)
+				c.opacity = config.opacityOfUnaffected * c.opacity;
 			snaps.push(snap);
+		} else {
+			addIgnored(c);
 		}
 	}
 }
@@ -147,9 +176,12 @@ function clientStepUserMovedResized(client, rect) {
 function clientFinishUserMovedResized(client) {
 	clientResized(client, client.geometry);
 	for (var i = 0; i < snaps.length; ++i) {
-		if (snaps[i].originalOpacity !== undefined) {
+		if (snaps[i].opacity !== 1) {
 			snaps[i].client.opacity = snaps[i].originalOpacity;
 		}
+	}
+	for (var i = 0; i < ignoreds.length; ++i) {
+		ignoreds[i].client.opacity = ignoreds[i].originalOpacity;
 	}
 	enabledCurrently = config.enabledUsually;
 	snaps.length = 0;
@@ -169,10 +201,9 @@ function clientResized(client, rect) {
 		if (s.bt) moveTto(g, rect.y + rect.height);
 		if (s.bb) moveBto(g, rect.y + rect.height);
 		if (  setGeometry(s.client, g, s.lr || s.rr, s.tb || s.bb)
-		   && config.opacityOfSnapped !== 1
-		   && !Object.prototype.hasOwnProperty.call(s, 'originalOpacity')
+		   && config.opacityOfSnapped !== s.opacity
 		) {
-			s.originalOpacity = s.client.opacity;
+			s.opacity        = config.opacityOfSnapped;
 			s.client.opacity = config.opacityOfSnapped * s.originalOpacity;
 		}
 	}

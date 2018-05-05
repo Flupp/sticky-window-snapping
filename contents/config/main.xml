@@ -23,5 +23,8 @@
     <entry name="opacityOfSnapped" type="string">
       <default>75</default>
     </entry>
+    <entry name="opacityOfUnaffected" type="string">
+      <default>20</default>
+    </entry>
   </group>
 </kcfg>
