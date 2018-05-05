@@ -121,7 +121,7 @@ function clientStartUserMovedResized(client) {
 
 		if (c == client) continue;
 		if (c.specialWindow) continue;
-		if (c.desktop !== workspace.currentDesktop) continue;
+		if (c.desktop !== workspace.currentDesktop && !c.onAllDesktops) continue;
 		if (c.screen !== client.screen) continue;
 		if (config.ignoreMinimized && c.minimized) continue;
 		if (c.activities.length !== 0 && c.activities.indexOf(workspace.currentActivity) === -1) continue;
