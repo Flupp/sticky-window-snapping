@@ -23,13 +23,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 "use strict";
 
 var config = {
-	enabledCurrently: true,
 	enabledUsually: true,
 	ignoreMaximized: true,
 	ignoreShaded: true,
 	liveUpdate: true,
 	opacityOfSnapped: 0.75
 };
+enabledCurrently = config.enabledUsually;
 
 /****************************************************************************/
 
@@ -37,6 +37,7 @@ var snaps = [];
 
 function init() {
 	loadConfig();
+	enabledCurrently = config.enabledUsually;
 	options.configChanged.connect(loadConfig);  // it is not documented, when this event is triggered; connecting nevertheless
 
 	var clients = workspace.clientList();
@@ -53,20 +54,19 @@ function init() {
 		"Meta+Shift+S",
 		function () {
 			config.enabledUsually = !config.enabledUsually;
-			config.enabledCurrently = config.enabledUsually;
+			enabledCurrently = config.enabledUsually;
 		}
 	);
 	registerShortcut(
 		shortcutPrefix + "enable/disable temporarily",
 		shortcutPrefix + "enable/disable temporarily",
 		"Ctrl+Shift+S",
-		function () { config.enabledCurrently = !config.enabledCurrently; }
+		function () { enabledCurrently = !enabledCurrently; }
 	);
 }
 
 function loadConfig() {
 	config.enabledUsually   = true == readConfig("enabledUsually"  ,       config.enabledUsually  );
-	config.enabledCurrently =                                              config.enabledUsually   ;
 	config.ignoreMaximized  = true == readConfig("ignoreMaximized" ,       config.ignoreMaximized );
 	config.ignoreShaded     = true == readConfig("ignoreShaded"    ,       config.ignoreShaded    );
 	config.liveUpdate       = true == readConfig("liveUpdate"      ,       config.liveUpdate      );
@@ -93,7 +93,7 @@ function clientRemoved(client) {
 }
 
 function clientStartUserMovedResized(client) {
-	if (!config.enabledCurrently) return;
+	if (!enabledCurrently) return;
 	if (!client.resize) return;
 	snaps.length = 0;
 	var l1 = client.geometry.x;
@@ -152,7 +152,7 @@ function clientFinishUserMovedResized(client) {
 			snaps[i].client.opacity = snaps[i].originalOpacity;
 		}
 	}
-	config.enabledCurrently = config.enabledUsually;
+	enabledCurrently = config.enabledUsually;
 	snaps.length = 0;
 }
 
