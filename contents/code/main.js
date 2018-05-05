@@ -27,6 +27,7 @@ var config = {
 	ignoreMaximized: true,
 	ignoreMinimized: false,
 	ignoreShaded: true,
+	ignoreBorderOfClientArea: true,
 	liveUpdate: true,
 	opacityOfSnapped: 0.8,
 	opacityOfUnaffected: 0.2
@@ -69,13 +70,14 @@ function init() {
 }
 
 function loadConfig() {
-	config.enabledUsually      = true == readConfig("enabledUsually"     ,       config.enabledUsually     );
-	config.ignoreMaximized     = true == readConfig("ignoreMaximized"    ,       config.ignoreMaximized    );
-	config.ignoreMinimized     = true == readConfig("ignoreMinimized"    ,       config.ignoreMinimized    );
-	config.ignoreShaded        = true == readConfig("ignoreShaded"       ,       config.ignoreShaded       );
-	config.liveUpdate          = true == readConfig("liveUpdate"         ,       config.liveUpdate         );
-	config.opacityOfSnapped    = 0.01 *  readConfig("opacityOfSnapped"   , 100 * config.opacityOfSnapped   );
-	config.opacityOfUnaffected = 0.01 *  readConfig("opacityOfUnaffected", 100 * config.opacityOfUnaffected);
+	config.enabledUsually           = true == readConfig("enabledUsually"          ,       config.enabledUsually          );
+	config.ignoreMaximized          = true == readConfig("ignoreMaximized"         ,       config.ignoreMaximized         );
+	config.ignoreMinimized          = true == readConfig("ignoreMinimized"         ,       config.ignoreMinimized         );
+	config.ignoreShaded             = true == readConfig("ignoreShaded"            ,       config.ignoreShaded            );
+	config.ignoreBorderOfClientArea = true == readConfig("ignoreBorderOfClientArea",       config.ignoreBorderOfClientArea);
+	config.liveUpdate               = true == readConfig("liveUpdate"              ,       config.liveUpdate              );
+	config.opacityOfSnapped         = 0.01 *  readConfig("opacityOfSnapped"        , 100 * config.opacityOfSnapped        );
+	config.opacityOfUnaffected      = 0.01 *  readConfig("opacityOfUnaffected"     , 100 * config.opacityOfUnaffected     );
 }
 
 function connectClient(client) {
@@ -110,6 +112,14 @@ function clientStartUserMovedResized(client) {
 	var r1 = client.geometry.width + l1;
 	var t1 = client.geometry.y;
 	var b1 = client.geometry.height + t1;
+	var l1IsSticky = true, r1IsSticky = true, t1IsSticky = true, b1IsSticky = true;
+	if (config.ignoreBorderOfClientArea) {
+		var clientArea = workspace.clientArea(workspace.MaximizeArea, client);
+		var l1IsSticky = l1 !== clientArea.x;
+		var r1IsSticky = r1 !== clientArea.x + clientArea.width;
+		var t1IsSticky = t1 !== clientArea.y;
+		var b1IsSticky = b1 !== clientArea.y + clientArea.height;
+	}
 	var clients = workspace.clientList();
 	for (var i = 0; i < clients.length; i++) {
 		var c = clients[i];
@@ -145,14 +155,14 @@ function clientStartUserMovedResized(client) {
 		};
 
 		var snap = {
-			lr: l1 === r2,
-			ll: l1 === l2,
-			rl: r1 === l2,
-			rr: r1 === r2,
-			tb: t1 === b2,
-			tt: t1 === t2,
-			bt: b1 === t2,
-			bb: b1 === b2,
+			lr: l1IsSticky && l1 === r2,
+			ll: l1IsSticky && l1 === l2,
+			rl: r1IsSticky && r1 === l2,
+			rr: r1IsSticky && r1 === r2,
+			tb: t1IsSticky && t1 === b2,
+			tt: t1IsSticky && t1 === t2,
+			bt: b1IsSticky && b1 === t2,
+			bb: b1IsSticky && b1 === b2,
 			client: c,
 			minimizeWhenFinished: false,
 			originalGeometry: c.geometry

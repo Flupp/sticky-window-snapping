@@ -135,6 +135,16 @@
         </property>
        </widget>
       </item>
+      <item>
+       <widget class="QCheckBox" name="kcfg_ignoreBorderOfClientArea">
+        <property name="text">
+         <string>ignore window edges that touch an edge of the screen</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
