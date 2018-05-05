@@ -154,6 +154,7 @@ function clientStartUserMovedResized(client) {
 			bt: b1 === t2,
 			bb: b1 === b2,
 			client: c,
+			minimizeWhenFinished: false,
 			originalGeometry: c.geometry
 		};
 		if (snap.lr || snap.ll || snap.rl || snap.rr || snap.tb || snap.tt || snap.bt || snap.bb) {
@@ -176,6 +177,9 @@ function clientStepUserMovedResized(client, rect) {
 function clientFinishUserMovedResized(client) {
 	clientResized(client, client.geometry);
 	for (var i = 0; i < snaps.length; ++i) {
+		if (snaps[i].minimizeWhenFinished) {
+			snaps[i].client.minimized = true;
+		}
 		if (snaps[i].opacity !== 1) {
 			snaps[i].client.opacity = snaps[i].originalOpacity;
 		}
@@ -200,11 +204,15 @@ function clientResized(client, rect) {
 		if (s.tt) moveTto(g, rect.y);
 		if (s.bt) moveTto(g, rect.y + rect.height);
 		if (s.bb) moveBto(g, rect.y + rect.height);
-		if (  setGeometry(s.client, g, s.lr || s.rr, s.tb || s.bb)
-		   && config.opacityOfSnapped !== s.opacity
-		) {
-			s.opacity        = config.opacityOfSnapped;
-			s.client.opacity = config.opacityOfSnapped * s.originalOpacity;
+		if (setGeometry(s.client, g, s.lr || s.rr, s.tb || s.bb)) {
+			if (!s.minimizeWhenFinished && s.client.minimized) {
+				s.minimizeWhenFinished = true;
+				s.client.minimized = false;
+			}
+			if (config.opacityOfSnapped !== s.opacity) {
+				s.opacity        = config.opacityOfSnapped;
+				s.client.opacity = config.opacityOfSnapped * s.originalOpacity;
+			}
 		}
 	}
 }
