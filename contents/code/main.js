@@ -145,6 +145,10 @@ function clientStartUserMovedResized(client) {
 				opacity: 1,
 				originalOpacity: client.opacity
 			};
+			if (!config.liveUpdate) {
+				ignored.opacity = config.opacityOfUnaffected;
+				client.opacity = config.opacityOfUnaffected * client.opacity;
+			}
 			ignoreds.push(ignored);
 		};
 
@@ -172,6 +176,14 @@ function clientStartUserMovedResized(client) {
 			originalGeometry: c.geometry
 		};
 		if (snap.lr || snap.ll || snap.rl || snap.rr || snap.tb || snap.tt || snap.bt || snap.bb) {
+			if (!config.liveUpdate) {
+				if (c.minimized) {
+					snap.minimizeWhenFinished = true;
+					c.minimized = false;
+				}
+				snap.opacity = config.opacityOfSnapped;
+				c.opacity = config.opacityOfSnapped * c.opacity;
+			}
 			snaps.push(snap);
 		} else {
 			addIgnored(c);
