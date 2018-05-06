@@ -38,6 +38,7 @@ enabledCurrently = config.enabledUsually;
 
 var snaps = [];
 var ignoreds = [];
+var firstClientStepUserMovedResized = false;
 
 function init() {
 	loadConfig();
@@ -108,6 +109,7 @@ function clientStartUserMovedResized(client) {
 	if (!client.resize) return;
 	snaps.length = 0;
 	ignoreds.length = 0;
+	firstClientStepUserMovedResized = true
 	var l1 = client.geometry.x;
 	var r1 = client.geometry.width + l1;
 	var t1 = client.geometry.y;
@@ -140,9 +142,9 @@ function clientStartUserMovedResized(client) {
 			if (config.opacityOfUnaffected === 1) return;
 			ignored = {
 				client: client,
+				opacity: 1,
 				originalOpacity: client.opacity
 			};
-			client.opacity = config.opacityOfUnaffected * client.opacity;
 			ignoreds.push(ignored);
 		};
 
@@ -165,13 +167,11 @@ function clientStartUserMovedResized(client) {
 			bb: b1IsSticky && b1 === b2,
 			client: c,
 			minimizeWhenFinished: false,
+			opacity: 1,
+			originalOpacity: c.opacity,
 			originalGeometry: c.geometry
 		};
 		if (snap.lr || snap.ll || snap.rl || snap.rr || snap.tb || snap.tt || snap.bt || snap.bb) {
-			snap.originalOpacity = c.opacity;
-			snap.opacity = config.opacityOfUnaffected;
-			if (config.opacityOfUnaffected !== 1)
-				c.opacity = config.opacityOfUnaffected * c.opacity;
 			snaps.push(snap);
 		} else {
 			addIgnored(c);
@@ -182,9 +182,11 @@ function clientStartUserMovedResized(client) {
 function clientStepUserMovedResized(client, rect) {
 	if (!client.resize) return;
 	clientResized(client, rect);
+	firstClientStepUserMovedResized = false;
 }
 
 function clientFinishUserMovedResized(client) {
+	firstClientStepUserMovedResized = false;
 	clientResized(client, client.geometry);
 	for (var i = 0; i < snaps.length; ++i) {
 		if (snaps[i].minimizeWhenFinished) {
@@ -195,7 +197,9 @@ function clientFinishUserMovedResized(client) {
 		}
 	}
 	for (var i = 0; i < ignoreds.length; ++i) {
-		ignoreds[i].client.opacity = ignoreds[i].originalOpacity;
+		if (ignoreds[i].opacity !== 1) {
+			ignoreds[i].client.opacity = ignoreds[i].originalOpacity;
+		}
 	}
 	enabledCurrently = config.enabledUsually;
 	snaps.length = 0;
@@ -219,9 +223,22 @@ function clientResized(client, rect) {
 				s.minimizeWhenFinished = true;
 				s.client.minimized = false;
 			}
-			if (config.opacityOfSnapped !== s.opacity) {
+			if (s.opacity !== config.opacityOfSnapped) {
 				s.opacity        = config.opacityOfSnapped;
 				s.client.opacity = config.opacityOfSnapped * s.originalOpacity;
+			}
+		} else if (firstClientStepUserMovedResized) {
+			if (snaps[i].opacity !== config.opacityOfUnaffected) {
+				snaps[i].opacity        = config.opacityOfUnaffected;
+				snaps[i].client.opacity = config.opacityOfUnaffected * snaps[i].originalOpacity;
+			}
+		}
+	}
+	if (firstClientStepUserMovedResized) {
+		for (var i = 0; i < ignoreds.length; ++i) {
+			if (ignoreds[i].opacity !== config.opacityOfUnaffected) {
+				ignoreds[i].opacity        = config.opacityOfUnaffected;
+				ignoreds[i].client.opacity = config.opacityOfUnaffected * ignoreds[i].originalOpacity;
 			}
 		}
 	}
