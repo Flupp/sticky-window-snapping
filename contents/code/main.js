@@ -28,6 +28,7 @@ var config = {
 	ignoreMaximized: true,
 	ignoreShaded: true,
 	liveUpdate: true,
+	threshold: 5,
 	opacityOfSnapped: 0.75
 };
 
@@ -80,6 +81,10 @@ function clientRemoved(client) {
 	}
 }
 
+function within(a, b, t) {
+	return b - t <= a && a <= b + t
+}
+
 function clientStartUserMovedResized(client) {
 	if (!config.enabledCurrently) return;
 	if (!client.resize) return;
@@ -107,14 +112,14 @@ function clientStartUserMovedResized(client) {
 		if (c.activities.length !== 0 && c.activities.indexOf(workspace.currentActivity) === -1) continue;
 
 		var snap = {
-			lr: l1 === r2,
-			ll: l1 === l2,
-			rl: r1 === l2,
-			rr: r1 === r2,
-			tb: t1 === b2,
-			tt: t1 === t2,
-			bt: b1 === t2,
-			bb: b1 === b2,
+			lr: within(l1, r2, config.threshold),
+			ll: within(l1, l2, config.threshold),
+			rl: within(r1, l2, config.threshold),
+			rr: within(r1, r2, config.threshold),
+			tb: within(t1, b2, config.threshold),
+			tt: within(t1, t2, config.threshold),
+			bt: within(b1, t2, config.threshold),
+			bb: within(b1, b2, config.threshold),
 			client: c,
 			originalGeometry: c.geometry
 		};
