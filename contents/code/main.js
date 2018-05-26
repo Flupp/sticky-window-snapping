@@ -123,10 +123,10 @@ function clientStartUserMovedResized(client) {
 	var l1IsSticky = true, r1IsSticky = true, t1IsSticky = true, b1IsSticky = true;
 	if (config.ignoreBorderOfClientArea) {
 		var clientArea = workspace.clientArea(workspace.MaximizeArea, client);
-		var l1IsSticky = l1 !== clientArea.x;
-		var r1IsSticky = r1 !== clientArea.x + clientArea.width;
-		var t1IsSticky = t1 !== clientArea.y;
-		var b1IsSticky = b1 !== clientArea.y + clientArea.height;
+		var l1IsSticky = ! within(l1, clientArea.x                    , config.threshold);
+		var r1IsSticky = ! within(r1, clientArea.x + clientArea.width , config.threshold);
+		var t1IsSticky = ! within(t1, clientArea.y                    , config.threshold);
+		var b1IsSticky = ! within(b1, clientArea.y + clientArea.height, config.threshold);
 	}
 	var clients = workspace.clientList();
 	for (var i = 0; i < clients.length; i++) {
