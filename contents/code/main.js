@@ -131,6 +131,7 @@ function clientStartUserMovedResized(client) {
 		var t2 = g.y;
 		var b2 = g.height + t2;
 
+		// filter invisible unaffected windows
 		if (c == client) continue;
 		if (c.specialWindow) continue;
 		if (c.desktop !== workspace.currentDesktop && !c.onAllDesktops) continue;
@@ -152,6 +153,7 @@ function clientStartUserMovedResized(client) {
 			ignoreds.push(ignored);
 		};
 
+		// filter potentially visible unaffected windows
 		if (  c.fullScreen
 		   || config.ignoreShaded && c.shade
 		   || config.ignoreMaximized && shallowEquals(g, workspace.clientArea(workspace.MaximizeArea, c))
