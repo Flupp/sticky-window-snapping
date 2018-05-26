@@ -40,6 +40,7 @@ enabledCurrently = config.enabledUsually;
 var snaps = [];
 var ignoreds = [];
 var firstClientStepUserMovedResized = false;
+var resizedClientInfo = null;
 
 function init() {
 	loadConfig();
@@ -128,6 +129,8 @@ function clientStartUserMovedResized(client) {
 		var t1IsSticky = ! within(t1, clientArea.y                    , config.threshold);
 		var b1IsSticky = ! within(b1, clientArea.y + clientArea.height, config.threshold);
 	}
+	resizedClientInfo = { lOrig : l1   , rOrig : r1   , tOrig : t1   , bOrig : b1
+	                    , lMoved: false, rMoved: false, tMoved: false, bMoved: false };
 	var clients = workspace.clientList();
 	for (var i = 0; i < clients.length; i++) {
 		var c = clients[i];
@@ -200,12 +203,15 @@ function clientStartUserMovedResized(client) {
 }
 
 function clientStepUserMovedResized(client, rect) {
+	if (resizedClientInfo === null) return;
 	if (!client.resize) return;
 	clientResized(client, rect);
 	firstClientStepUserMovedResized = false;
 }
 
 function clientFinishUserMovedResized(client) {
+	enabledCurrently = config.enabledUsually;
+	if (resizedClientInfo === null) return;
 	firstClientStepUserMovedResized = false;
 	clientResized(client, client.geometry);
 	for (var i = 0; i < snaps.length; ++i) {
@@ -221,23 +227,27 @@ function clientFinishUserMovedResized(client) {
 			ignoreds[i].client.opacity = ignoreds[i].originalOpacity;
 		}
 	}
-	enabledCurrently = config.enabledUsually;
 	snaps.length = 0;
+	resizedClientInfo = null;
 }
 
 function clientResized(client, rect) {
+	resizedClientInfo.lMoved |= resizedClientInfo.lOrig !== rect.x;
+	resizedClientInfo.rMoved |= resizedClientInfo.rOrig !== rect.x + rect.width;
+	resizedClientInfo.tMoved |= resizedClientInfo.tOrig !== rect.y;
+	resizedClientInfo.bMoved |= resizedClientInfo.bOrig !== rect.y + rect.height;
 	for (var i = 0; i < snaps.length; ++i) {
 		var s = snaps[i];
 		var og = s.originalGeometry;
 		var g = {x: og.x, y: og.y, width: og.width, height: og.height};
-		if (s.lr) moveRto(g, rect.x);
-		if (s.ll) moveLto(g, rect.x);
-		if (s.rl) moveLto(g, rect.x + rect.width);
-		if (s.rr) moveRto(g, rect.x + rect.width);
-		if (s.tb) moveBto(g, rect.y);
-		if (s.tt) moveTto(g, rect.y);
-		if (s.bt) moveTto(g, rect.y + rect.height);
-		if (s.bb) moveBto(g, rect.y + rect.height);
+		if (resizedClientInfo.lMoved && s.lr) moveRto(g, rect.x);
+		if (resizedClientInfo.lMoved && s.ll) moveLto(g, rect.x);
+		if (resizedClientInfo.rMoved && s.rl) moveLto(g, rect.x + rect.width);
+		if (resizedClientInfo.rMoved && s.rr) moveRto(g, rect.x + rect.width);
+		if (resizedClientInfo.tMoved && s.tb) moveBto(g, rect.y);
+		if (resizedClientInfo.tMoved && s.tt) moveTto(g, rect.y);
+		if (resizedClientInfo.bMoved && s.bt) moveTto(g, rect.y + rect.height);
+		if (resizedClientInfo.bMoved && s.bb) moveBto(g, rect.y + rect.height);
 		if (setGeometry(s.client, g, s.lr || s.rr, s.tb || s.bb)) {
 			if (!s.minimizeWhenFinished && s.client.minimized) {
 				s.minimizeWhenFinished = true;
