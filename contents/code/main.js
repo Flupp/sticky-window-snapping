@@ -30,7 +30,8 @@ var config = {
 	ignoreBorderOfClientArea: true,
 	liveUpdate: true,
 	opacityOfSnapped: 0.8,
-	opacityOfUnaffected: 0.2
+	opacityOfUnaffected: 0.2,
+	threshold: 5
 };
 enabledCurrently = config.enabledUsually;
 
@@ -104,6 +105,10 @@ function clientRemoved(client) {
 	checkArray(ignoreds);
 }
 
+function within(a, b, t) {
+	return b - t <= a && a <= b + t
+}
+
 function clientStartUserMovedResized(client) {
 	if (!enabledCurrently) return;
 	if (!client.resize) return;
@@ -163,14 +168,14 @@ function clientStartUserMovedResized(client) {
 		};
 
 		var snap = {
-			lr: l1IsSticky && l1 === r2,
-			ll: l1IsSticky && l1 === l2,
-			rl: r1IsSticky && r1 === l2,
-			rr: r1IsSticky && r1 === r2,
-			tb: t1IsSticky && t1 === b2,
-			tt: t1IsSticky && t1 === t2,
-			bt: b1IsSticky && b1 === t2,
-			bb: b1IsSticky && b1 === b2,
+			lr: l1IsSticky && within(l1, r2, config.threshold),
+			ll: l1IsSticky && within(l1, l2, config.threshold),
+			rl: r1IsSticky && within(r1, l2, config.threshold),
+			rr: r1IsSticky && within(r1, r2, config.threshold),
+			tb: t1IsSticky && within(t1, b2, config.threshold),
+			tt: t1IsSticky && within(t1, t2, config.threshold),
+			bt: b1IsSticky && within(b1, t2, config.threshold),
+			bb: b1IsSticky && within(b1, b2, config.threshold),
 			client: c,
 			minimizeWhenFinished: false,
 			opacity: 1,
