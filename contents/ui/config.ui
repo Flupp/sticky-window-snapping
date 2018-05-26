@@ -94,6 +94,33 @@
        </property>
       </widget>
      </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_threshold">
+       <property name="text">
+        <string>threshold:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QSpinBox" name="kcfg_threshold">
+       <property name="suffix">
+        <string> px</string>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QSlider" name="slider_threshold">
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
     </layout>
    </item>
    <item>
@@ -151,7 +178,7 @@
    <item>
     <widget class="QLabel" name="label">
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;You might have to restart KWin or relogin in order to finally adopt your changes.&lt;/p&gt;&lt;p&gt;Furthermore, there are two global keyboard shortcuts: one for enabling/disabling the script permanently, and one for enabling/disabling the script only for the next resize. The shortcuts can be changed via systemsettings: go to global shortcuts and select the component “KWin”. The shortcut’s names are prefixed by “KWin Script: Sticky Window Snapping”.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;You might have to restart KWin or relogin in order to finally adopt your changes.&lt;/p&gt;&lt;p&gt;If the script does not work, increasing the threshold might help.&lt;/p&gt;&lt;p&gt;Furthermore, there are two global keyboard shortcuts: one for enabling/disabling the script permanently, and one for enabling/disabling the script only for the next resize. The shortcuts can be changed via systemsettings: go to global shortcuts and select the component “KWin”. The shortcut’s names are prefixed by “KWin Script: Sticky Window Snapping”.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
@@ -191,6 +218,18 @@
    <sender>slider_opacityOfUnaffected</sender>
    <signal>valueChanged(int)</signal>
    <receiver>kcfg_opacityOfUnaffected</receiver>
+   <slot>setValue(int)</slot>
+  </connection>
+  <connection>
+   <sender>kcfg_threshold</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>slider_threshold</receiver>
+   <slot>setValue(int)</slot>
+  </connection>
+  <connection>
+   <sender>slider_threshold</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>kcfg_threshold</receiver>
    <slot>setValue(int)</slot>
   </connection>
  </connections>

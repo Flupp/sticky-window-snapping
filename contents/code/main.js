@@ -31,7 +31,7 @@ var config = {
 	liveUpdate: true,
 	opacityOfSnapped: 0.8,
 	opacityOfUnaffected: 0.2,
-	threshold: 5
+	threshold: 0
 };
 enabledCurrently = config.enabledUsually;
 
@@ -80,6 +80,7 @@ function loadConfig() {
 	config.liveUpdate               = true == readConfig("liveUpdate"              ,       config.liveUpdate              );
 	config.opacityOfSnapped         = 0.01 *  readConfig("opacityOfSnapped"        , 100 * config.opacityOfSnapped        );
 	config.opacityOfUnaffected      = 0.01 *  readConfig("opacityOfUnaffected"     , 100 * config.opacityOfUnaffected     );
+	config.threshold                = 1    *  readConfig("threshold"               ,       config.threshold               );
 }
 
 function connectClient(client) {
