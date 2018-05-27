@@ -167,15 +167,23 @@ function clientStartUserMovedResized(client) {
 			continue;
 		};
 
+		lrDist = Math.abs(l1 - r2);
+		llDist = Math.abs(l1 - l2);
+		rlDist = Math.abs(r1 - l2);
+		rrDist = Math.abs(r1 - r2);
+		tbDist = Math.abs(t1 - b2);
+		ttDist = Math.abs(t1 - t2);
+		btDist = Math.abs(b1 - t2);
+		bbDist = Math.abs(b1 - b2);
 		var snap = {
-			lr: l1IsSticky && Math.abs(l1 - r2) <= config.threshold,
-			ll: l1IsSticky && Math.abs(l1 - l2) <= config.threshold,
-			rl: r1IsSticky && Math.abs(r1 - l2) <= config.threshold,
-			rr: r1IsSticky && Math.abs(r1 - r2) <= config.threshold,
-			tb: t1IsSticky && Math.abs(t1 - b2) <= config.threshold,
-			tt: t1IsSticky && Math.abs(t1 - t2) <= config.threshold,
-			bt: b1IsSticky && Math.abs(b1 - t2) <= config.threshold,
-			bb: b1IsSticky && Math.abs(b1 - b2) <= config.threshold,
+			lr:  l1IsSticky  &&  lrDist <= config.threshold  &&  lrDist < llDist,
+			ll:  l1IsSticky  &&  llDist <= config.threshold  &&  llDist < lrDist,
+			rl:  r1IsSticky  &&  rlDist <= config.threshold  &&  rlDist < rrDist,
+			rr:  r1IsSticky  &&  rrDist <= config.threshold  &&  rrDist < rlDist,
+			tb:  t1IsSticky  &&  tbDist <= config.threshold  &&  tbDist < ttDist,
+			tt:  t1IsSticky  &&  ttDist <= config.threshold  &&  ttDist < tbDist,
+			bt:  b1IsSticky  &&  btDist <= config.threshold  &&  btDist < bbDist,
+			bb:  b1IsSticky  &&  bbDist <= config.threshold  &&  bbDist < btDist,
 			client: c,
 			minimizeWhenFinished: false,
 			opacity: 1,
