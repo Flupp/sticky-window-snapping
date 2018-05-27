@@ -107,10 +107,6 @@ function clientRemoved(client) {
 	checkArray(ignoreds);
 }
 
-function within(a, b, t) {
-	return b - t <= a && a <= b + t
-}
-
 function clientStartUserMovedResized(client) {
 	if (!enabledCurrently) return;
 	if (!client.resize) return;
@@ -124,10 +120,10 @@ function clientStartUserMovedResized(client) {
 	var l1IsSticky = true, r1IsSticky = true, t1IsSticky = true, b1IsSticky = true;
 	if (config.ignoreBorderOfClientArea) {
 		var clientArea = workspace.clientArea(workspace.MaximizeArea, client);
-		var l1IsSticky = ! within(l1, clientArea.x                    , config.threshold);
-		var r1IsSticky = ! within(r1, clientArea.x + clientArea.width , config.threshold);
-		var t1IsSticky = ! within(t1, clientArea.y                    , config.threshold);
-		var b1IsSticky = ! within(b1, clientArea.y + clientArea.height, config.threshold);
+		var l1IsSticky = Math.abs(clientArea.x                     - l1) > config.threshold;
+		var r1IsSticky = Math.abs(clientArea.x + clientArea.width  - r1) > config.threshold;
+		var t1IsSticky = Math.abs(clientArea.y                     - t1) > config.threshold;
+		var b1IsSticky = Math.abs(clientArea.y + clientArea.height - b1) > config.threshold;
 	}
 	resizedClientInfo = { lOrig : l1   , rOrig : r1   , tOrig : t1   , bOrig : b1
 	                    , lMoved: false, rMoved: false, tMoved: false, bMoved: false };
@@ -172,14 +168,14 @@ function clientStartUserMovedResized(client) {
 		};
 
 		var snap = {
-			lr: l1IsSticky && within(l1, r2, config.threshold),
-			ll: l1IsSticky && within(l1, l2, config.threshold),
-			rl: r1IsSticky && within(r1, l2, config.threshold),
-			rr: r1IsSticky && within(r1, r2, config.threshold),
-			tb: t1IsSticky && within(t1, b2, config.threshold),
-			tt: t1IsSticky && within(t1, t2, config.threshold),
-			bt: b1IsSticky && within(b1, t2, config.threshold),
-			bb: b1IsSticky && within(b1, b2, config.threshold),
+			lr: l1IsSticky && Math.abs(l1 - r2) <= config.threshold,
+			ll: l1IsSticky && Math.abs(l1 - l2) <= config.threshold,
+			rl: r1IsSticky && Math.abs(r1 - l2) <= config.threshold,
+			rr: r1IsSticky && Math.abs(r1 - r2) <= config.threshold,
+			tb: t1IsSticky && Math.abs(t1 - b2) <= config.threshold,
+			tt: t1IsSticky && Math.abs(t1 - t2) <= config.threshold,
+			bt: b1IsSticky && Math.abs(b1 - t2) <= config.threshold,
+			bb: b1IsSticky && Math.abs(b1 - b2) <= config.threshold,
 			client: c,
 			minimizeWhenFinished: false,
 			opacity: 1,
