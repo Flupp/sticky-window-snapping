@@ -33,7 +33,7 @@ var config = {
 	opacityOfUnaffected: 0.2,
 	threshold: 0
 };
-enabledCurrently = config.enabledUsually;
+var enabledCurrently = config.enabledUsually;
 
 /****************************************************************************/
 
@@ -146,7 +146,7 @@ function clientStartUserMovedResized(client) {
 
 		function addIgnored(client) {
 			if (config.opacityOfUnaffected === 1) return;
-			ignored = {
+			var ignored = {
 				client: client,
 				opacity: 1,
 				originalOpacity: client.opacity
@@ -167,14 +167,14 @@ function clientStartUserMovedResized(client) {
 			continue;
 		};
 
-		lrDist = Math.abs(l1 - r2);
-		llDist = Math.abs(l1 - l2);
-		rlDist = Math.abs(r1 - l2);
-		rrDist = Math.abs(r1 - r2);
-		tbDist = Math.abs(t1 - b2);
-		ttDist = Math.abs(t1 - t2);
-		btDist = Math.abs(b1 - t2);
-		bbDist = Math.abs(b1 - b2);
+		var lrDist = Math.abs(l1 - r2);
+		var llDist = Math.abs(l1 - l2);
+		var rlDist = Math.abs(r1 - l2);
+		var rrDist = Math.abs(r1 - r2);
+		var tbDist = Math.abs(t1 - b2);
+		var ttDist = Math.abs(t1 - t2);
+		var btDist = Math.abs(b1 - t2);
+		var bbDist = Math.abs(b1 - b2);
 		var snap = {
 			lr:  l1IsSticky  &&  lrDist <= config.threshold  &&  lrDist < llDist,
 			ll:  l1IsSticky  &&  llDist <= config.threshold  &&  llDist < lrDist,
@@ -317,14 +317,14 @@ function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop)
 
 	applySizeConstraints();
 	var ca = workspace.clientArea(workspace.MaximizeArea, client);
-	ca.l = Math.min(ca.x, client.geometry.x);
-	ca.t = Math.min(ca.y, client.geometry.y);
-	ca.r = Math.max(ca.x + ca.width , client.geometry.x + client.geometry.width );
-	ca.b = Math.max(ca.y + ca.height, client.geometry.y + client.geometry.height);
-	if (geometry.x                   < ca.l) { moveLto(geometry, ca.l); pinRightInsteadLeft = false; }
-	if (geometry.y                   < ca.t) { moveTto(geometry, ca.t); pinBottomInsteadTop = false; }
-	if (geometry.x + geometry.width  > ca.r) { moveRto(geometry, ca.r); pinRightInsteadLeft = true;  }
-	if (geometry.y + geometry.height > ca.b) { moveBto(geometry, ca.b); pinBottomInsteadTop = true;  }
+	var left = Math.min(ca.x, client.geometry.x);
+	var top = Math.min(ca.y, client.geometry.y);
+	var right = Math.max(ca.x + ca.width , client.geometry.x + client.geometry.width );
+	var bottom = Math.max(ca.y + ca.height, client.geometry.y + client.geometry.height);
+	if (geometry.x                   < left)   { moveLto(geometry, left);   pinRightInsteadLeft = false; }
+	if (geometry.y                   < top)    { moveTto(geometry, top);    pinBottomInsteadTop = false; }
+	if (geometry.x + geometry.width  > right)  { moveRto(geometry, right);  pinRightInsteadLeft = true;  }
+	if (geometry.y + geometry.height > bottom) { moveBto(geometry, bottom); pinBottomInsteadTop = true;  }
 	applySizeConstraints();
 
 	if (shallowEquals(client.geometry, geometry)) {
