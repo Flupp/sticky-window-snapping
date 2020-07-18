@@ -120,10 +120,10 @@ function clientStartUserMovedResized(client) {
 	var l1IsSticky = true, r1IsSticky = true, t1IsSticky = true, b1IsSticky = true;
 	if (config.ignoreBorderOfClientArea) {
 		var clientArea = workspace.clientArea(workspace.MaximizeArea, client);
-		var l1IsSticky = Math.abs(clientArea.x                     - l1) > config.threshold;
-		var r1IsSticky = Math.abs(clientArea.x + clientArea.width  - r1) > config.threshold;
-		var t1IsSticky = Math.abs(clientArea.y                     - t1) > config.threshold;
-		var b1IsSticky = Math.abs(clientArea.y + clientArea.height - b1) > config.threshold;
+		l1IsSticky = Math.abs(clientArea.x                     - l1) > config.threshold;
+		r1IsSticky = Math.abs(clientArea.x + clientArea.width  - r1) > config.threshold;
+		t1IsSticky = Math.abs(clientArea.y                     - t1) > config.threshold;
+		b1IsSticky = Math.abs(clientArea.y + clientArea.height - b1) > config.threshold;
 	}
 	resizedClientInfo = { lOrig : l1   , rOrig : r1   , tOrig : t1   , bOrig : b1
 	                    , lMoved: false, rMoved: false, tMoved: false, bMoved: false };
@@ -226,7 +226,7 @@ function clientFinishUserMovedResized(client) {
 			snaps[i].client.opacity = snaps[i].originalOpacity;
 		}
 	}
-	for (var i = 0; i < ignoreds.length; ++i) {
+	for (i = 0; i < ignoreds.length; ++i) {
 		if (ignoreds[i].opacity !== 1) {
 			ignoreds[i].client.opacity = ignoreds[i].originalOpacity;
 		}
@@ -269,7 +269,7 @@ function clientResized(client, rect) {
 		}
 	}
 	if (firstClientStepUserMovedResized) {
-		for (var i = 0; i < ignoreds.length; ++i) {
+		for (i = 0; i < ignoreds.length; ++i) {
 			if (ignoreds[i].opacity !== config.opacityOfUnaffected) {
 				ignoreds[i].opacity        = config.opacityOfUnaffected;
 				ignoreds[i].client.opacity = config.opacityOfUnaffected * ignoreds[i].originalOpacity;
