@@ -1,0 +1,25 @@
+{
+	"globals": {
+		"options"                : "readonly",
+		"workspace"              : "readonly",
+		"print"                  : "readonly",
+		"readConfig"             : "readonly",
+		"registerScreenEdge"     : "readonly",
+		"registerShortcut"       : "readonly",
+		"assert"                 : "readonly",
+		"assertTrue"             : "readonly",
+		"assertFalse"            : "readonly",
+		"assertEquals"           : "readonly",
+		"assertNull"             : "readonly",
+		"assertNotNull"          : "readonly",
+		"callDBus"               : "readonly",
+		"registerUserActionsMenu": "readonly"
+	},
+	"extends": "eslint:recommended",
+	"parserOptions": {
+		"ecmaVersion": 5
+	},
+	"rules": {
+		"no-mixed-spaces-and-tabs": ["error", "smart-tabs"]
+	}
+}
