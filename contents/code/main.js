@@ -108,6 +108,20 @@ function clientRemoved(client) {
 }
 
 function clientStartUserMovedResized(client) {
+	function addIgnored(client) {
+		if (config.opacityOfUnaffected === 1) return;
+		var ignored = {
+			client: client,
+			opacity: 1,
+			originalOpacity: client.opacity
+		};
+		if (!config.liveUpdate) {
+			ignored.opacity = config.opacityOfUnaffected;
+			client.opacity = config.opacityOfUnaffected * client.opacity;
+		}
+		ignoreds.push(ignored);
+	}
+
 	if (!enabledCurrently) return;
 	if (!client.resize) return;
 	snaps.length = 0;
@@ -143,20 +157,6 @@ function clientStartUserMovedResized(client) {
 		if (c.screen !== client.screen) continue;
 		if (config.ignoreMinimized && c.minimized) continue;
 		if (c.activities.length !== 0 && c.activities.indexOf(workspace.currentActivity) === -1) continue;
-
-		function addIgnored(client) {
-			if (config.opacityOfUnaffected === 1) return;
-			var ignored = {
-				client: client,
-				opacity: 1,
-				originalOpacity: client.opacity
-			};
-			if (!config.liveUpdate) {
-				ignored.opacity = config.opacityOfUnaffected;
-				client.opacity = config.opacityOfUnaffected * client.opacity;
-			}
-			ignoreds.push(ignored);
-		}
 
 		// filter potentially visible unaffected windows
 		if (  c.fullScreen
