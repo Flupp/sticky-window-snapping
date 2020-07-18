@@ -156,7 +156,7 @@ function clientStartUserMovedResized(client) {
 				client.opacity = config.opacityOfUnaffected * client.opacity;
 			}
 			ignoreds.push(ignored);
-		};
+		}
 
 		// filter potentially visible unaffected windows
 		if (  c.fullScreen
@@ -165,7 +165,7 @@ function clientStartUserMovedResized(client) {
 		) {
 			addIgnored(c);
 			continue;
-		};
+		}
 
 		var lrDist = Math.abs(l1 - r2);
 		var llDist = Math.abs(l1 - l2);
