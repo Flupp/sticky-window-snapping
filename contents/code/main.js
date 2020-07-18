@@ -317,13 +317,13 @@ function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop)
 
 	applySizeConstraints();
 	var ca = workspace.clientArea(workspace.MaximizeArea, client);
-	var left = Math.min(ca.x, client.geometry.x);
-	var top = Math.min(ca.y, client.geometry.y);
-	var right = Math.max(ca.x + ca.width , client.geometry.x + client.geometry.width );
+	var left   = Math.min(ca.x, client.geometry.x);
+	var top    = Math.min(ca.y, client.geometry.y);
+	var right  = Math.max(ca.x + ca.width , client.geometry.x + client.geometry.width );
 	var bottom = Math.max(ca.y + ca.height, client.geometry.y + client.geometry.height);
-	if (geometry.x                   < left)   { moveLto(geometry, left);   pinRightInsteadLeft = false; }
-	if (geometry.y                   < top)    { moveTto(geometry, top);    pinBottomInsteadTop = false; }
-	if (geometry.x + geometry.width  > right)  { moveRto(geometry, right);  pinRightInsteadLeft = true;  }
+	if (geometry.x                   < left  ) { moveLto(geometry, left  ); pinRightInsteadLeft = false; }
+	if (geometry.y                   < top   ) { moveTto(geometry, top   ); pinBottomInsteadTop = false; }
+	if (geometry.x + geometry.width  > right ) { moveRto(geometry, right ); pinRightInsteadLeft = true;  }
 	if (geometry.y + geometry.height > bottom) { moveBto(geometry, bottom); pinBottomInsteadTop = true;  }
 	applySizeConstraints();
 
