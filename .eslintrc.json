@@ -2,6 +2,7 @@
 	"globals": {
 		"options"                : "readonly",
 		"workspace"              : "readonly",
+		"KWin"                   : "readonly",
 		"print"                  : "readonly",
 		"readConfig"             : "readonly",
 		"registerScreenEdge"     : "readonly",

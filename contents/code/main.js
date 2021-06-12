@@ -133,7 +133,7 @@ function clientStartUserMovedResized(client) {
 	var b1 = client.geometry.height + t1;
 	var l1IsSticky = true, r1IsSticky = true, t1IsSticky = true, b1IsSticky = true;
 	if (config.ignoreBorderOfClientArea) {
-		var clientArea = workspace.clientArea(workspace.MaximizeArea, client);
+		var clientArea = workspace.clientArea(KWin.PlacementArea, client);
 		l1IsSticky = Math.abs(clientArea.x                     - l1) > config.threshold;
 		r1IsSticky = Math.abs(clientArea.x + clientArea.width  - r1) > config.threshold;
 		t1IsSticky = Math.abs(clientArea.y                     - t1) > config.threshold;
@@ -161,7 +161,7 @@ function clientStartUserMovedResized(client) {
 		// filter potentially visible unaffected windows
 		if (  c.fullScreen
 		   || config.ignoreShaded && c.shade
-		   || config.ignoreMaximized && shallowEquals(g, workspace.clientArea(workspace.MaximizeArea, c))
+		   || config.ignoreMaximized && shallowEquals(g, workspace.clientArea(KWin.MaximizeArea, c))
 		) {
 			addIgnored(c);
 			continue;
@@ -316,7 +316,8 @@ function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop)
 	}
 
 	applySizeConstraints();
-	var ca = workspace.clientArea(workspace.MaximizeArea, client);
+	var ca = workspace.clientArea(KWin.PlacementArea, client);
+	// each updated border position is restricted to the client area except it already lies outside of it
 	var left   = Math.min(ca.x, client.geometry.x);
 	var top    = Math.min(ca.y, client.geometry.y);
 	var right  = Math.max(ca.x + ca.width , client.geometry.x + client.geometry.width );
