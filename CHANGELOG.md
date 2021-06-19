@@ -1,6 +1,12 @@
 # Changelog
 
 
+## 1.0.1
+
+* fixed:
+  * KWin 5.22 compatibility issues
+
+
 ## 1.0
 
 * new:
