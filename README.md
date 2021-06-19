@@ -15,6 +15,7 @@ Their names are prefixed by “KWin Script: Sticky Window Snapping”.
 
 * If the configuration dialog is not reachable via `systemsettings`, then try the following command and restart `systemsettings`:
 
+      mkdir --parents ~/.local/share/kservices5/
       ln --relative --symbolic ~/.local/share/kwin/scripts/sticky-window-snapping/metadata.desktop ~/.local/share/kservices5/kwin-script-sticky-window-snapping.desktop
 
 * If the script does not work, increasing the threshold in the configuration dialog might help.
