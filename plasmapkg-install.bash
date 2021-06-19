@@ -1,6 +1,10 @@
 #!/bin/bash
 
-set -x
+set -Ceux
 
-plasmapkg2 --type KWin/Script --install .
-ln --relative --symbolic ~/.local/share/kwin/scripts/sticky-window-snapping/metadata.desktop ~/.local/share/kservices5/kwin-script-sticky-window-snapping.desktop
+kpackagetool5 --install package
+
+mkdir --parents --verbose ~/.local/share/kservices5/
+ln --relative --symbolic --verbose  \
+	~/.local/share/kwin/scripts/sticky-window-snapping/metadata.desktop  \
+	~/.local/share/kservices5/kwin-script-sticky-window-snapping.desktop

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-set -x
+set -Cux
 
-plasmapkg2 --type KWin/Script --remove .
-plasmapkg  --type KWin/Script --remove .
-rm --recursive --verbose  \
-	~/.local/share/kwin/scripts/sticky-window-snapping  \
-	~/.local/share/kservices5/kwin-script-sticky-window-snapping.desktop
+kpackagetool5 --remove package
+
+rm       --force --recursive --verbose ~/.local/share/kwin/scripts/sticky-window-snapping/
+rm       --force             --verbose ~/.local/share/kservices5/kwin-script-sticky-window-snapping.desktop
+rm --dir --force             --verbose ~/.local/share/kservices5/
