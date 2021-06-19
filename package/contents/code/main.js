@@ -188,7 +188,7 @@ function clientStartUserMovedResized(client) {
 			minimizeWhenFinished: false,
 			opacity: 1,
 			originalOpacity: c.opacity,
-			originalGeometry: c.geometry
+			originalGeometry: shallowCopy(c.geometry)
 		};
 		if (snap.lr || snap.ll || snap.rl || snap.rr || snap.tb || snap.tt || snap.bt || snap.bb) {
 			if (!config.liveUpdate) {
@@ -348,6 +348,18 @@ function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop)
 	} else {
 		client.geometry = geometry;
 		return true;
+	}
+}
+
+function shallowCopy(obj) {
+	if ("assign" in Object) {  // KWin ≥ 5.22
+		return Object.assign({}, obj);
+	} else {  // KWin < 5.22
+		var ret = {};
+		for (var p in obj) {
+			ret[p] = obj[p];
+		}
+		return ret;
 	}
 }
 
