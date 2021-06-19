@@ -296,11 +296,26 @@ function moveBto(rect, y) {
 	rect.height = y - rect.y;
 }
 
+/* Rename properties of QSize to `w` and `h`.
+ *
+ * The property names of QSize changed with KWin 5.22.
+ */
+function sanitizeQSize(size) {
+	if ("width" in size && "height" in size) {  // KWin ≥ 5.22
+		return {w: size.width, h: size.height};
+	} else if ("w" in size && "h" in size) {    // KWin < 5.22
+		return size;
+	} else {
+		print("sanitizeQSize: Argument does not have the expected properties.");
+		return undefined;
+	}
+}
+
 /* returns true if the client’s geometry is changed, otherwise returns false */
 function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop) {
 	var minSize = {
-		w: Math.max(client.minSize.w, Math.min(50, client.geometry.width)),
-		h: Math.max(client.minSize.h, Math.min(50, client.geometry.height))
+		w: Math.max(sanitizeQSize(client.minSize).w, Math.min(50, client.geometry.width)),
+		h: Math.max(sanitizeQSize(client.minSize).h, Math.min(50, client.geometry.height))
 	};
 
 	function applySizeConstraints() {
