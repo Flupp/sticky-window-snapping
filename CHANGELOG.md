@@ -1,7 +1,7 @@
 # Changelog
 
 
-## v1.0
+## 1.0
 
 * new:
   * configuration dialog
@@ -19,12 +19,12 @@
   * crash on resize when a snapped window disappears
 
 
-## v0.2.1
+## 0.2.1
 
 * fixed resizing for windows spanning multiple screens
 
 
-## v0.2
+## 0.2
 
 * maximized windows are ignored now
 * shaded windows are ignored now
@@ -32,6 +32,6 @@
 * changed behavior when windows get very small while resizing
 
 
-## v0.1
+## 0.1
 
 * initial release
