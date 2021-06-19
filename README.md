@@ -28,4 +28,4 @@ Their names are prefixed by “KWin Script: Sticky Window Snapping”.
   There is the function `callDBus`, but I do not know if or how it can be used for that purpose.
   KNotify provides the method `event` via D-Bus, but it expects arguments of types for which I do not know how to produce values with JavaScript.
 * Currently, not only snapped window edges are considered as connected, but even edges which are only on the same row/column are considered as connected.
-  I have not decided, if this is a bug or a feature, yet.
+  I have not decided yet if this is a bug or a feature.
