@@ -31,7 +31,8 @@ var config = {
 	liveUpdate: true,
 	opacityOfSnapped: 0.8,
 	opacityOfUnaffected: 0.2,
-	threshold: 0
+	gap: 0,
+    threshold: 0
 };
 var enabledCurrently = config.enabledUsually;
 
@@ -81,7 +82,9 @@ function loadConfig() {
 	config.liveUpdate               = true == readConfig("liveUpdate"              ,       config.liveUpdate              );
 	config.opacityOfSnapped         = 0.01 *  readConfig("opacityOfSnapped"        , 100 * config.opacityOfSnapped        );
 	config.opacityOfUnaffected      = 0.01 *  readConfig("opacityOfUnaffected"     , 100 * config.opacityOfUnaffected     );
+	config.gap                      = 1    *             readConfig("gap"                     ,       config.gap               );
 	config.threshold                = 1    *  readConfig("threshold"               ,       config.threshold               );
+    config.threshold += config.gap;
 }
 
 function connectClient(client) {
@@ -244,14 +247,14 @@ function clientResized(client, rect) {
 		var s = snaps[i];
 		var og = s.originalGeometry;
 		var g = {x: og.x, y: og.y, width: og.width, height: og.height};
-		if (resizedClientInfo.lMoved && s.lr) moveRto(g, rect.x);
-		if (resizedClientInfo.lMoved && s.ll) moveLto(g, rect.x);
-		if (resizedClientInfo.rMoved && s.rl) moveLto(g, rect.x + rect.width);
-		if (resizedClientInfo.rMoved && s.rr) moveRto(g, rect.x + rect.width);
-		if (resizedClientInfo.tMoved && s.tb) moveBto(g, rect.y);
-		if (resizedClientInfo.tMoved && s.tt) moveTto(g, rect.y);
-		if (resizedClientInfo.bMoved && s.bt) moveTto(g, rect.y + rect.height);
-		if (resizedClientInfo.bMoved && s.bb) moveBto(g, rect.y + rect.height);
+		if (resizedClientInfo.lMoved && s.lr) moveRto(g, rect.x, config.gap);
+		if (resizedClientInfo.lMoved && s.ll) moveLto(g, rect.x, 0);
+		if (resizedClientInfo.rMoved && s.rl) moveLto(g, rect.x + rect.width, config.gap);
+		if (resizedClientInfo.rMoved && s.rr) moveRto(g, rect.x + rect.width, 0);
+		if (resizedClientInfo.tMoved && s.tb) moveBto(g, rect.y, config.gap);
+		if (resizedClientInfo.tMoved && s.tt) moveTto(g, rect.y, 0);
+		if (resizedClientInfo.bMoved && s.bt) moveTto(g, rect.y + rect.height, config.gap);
+		if (resizedClientInfo.bMoved && s.bb) moveBto(g, rect.y + rect.height, 0);
 		if (setGeometry(s.client, g, s.lr || s.rr, s.tb || s.bb)) {
 			if (!s.minimizeWhenFinished && s.client.minimized) {
 				s.minimizeWhenFinished = true;
@@ -278,22 +281,22 @@ function clientResized(client, rect) {
 	}
 }
 
-function moveLto(rect, x) {
-	rect.width += rect.x - x;
-	rect.x = x;
+function moveLto(rect, x, diff) {
+	rect.width += rect.x - x - diff;
+	rect.x = x + diff;
 }
 
-function moveRto(rect, x) {
-	rect.width = x - rect.x;
+function moveRto(rect, x, diff) {
+	rect.width = x - rect.x - diff;
 }
 
-function moveTto(rect, y) {
-	rect.height += rect.y - y;
-	rect.y = y;
+function moveTto(rect, y, diff) {
+	rect.height += rect.y - y - diff;
+	rect.y = y + diff;
 }
 
-function moveBto(rect, y) {
-	rect.height = y - rect.y;
+function moveBto(rect, y, diff) {
+	rect.height = y - rect.y - diff;
 }
 
 /* Rename properties of QSize to `w` and `h`.
