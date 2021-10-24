@@ -32,7 +32,7 @@ var config = {
 	opacityOfSnapped: 0.8,
 	opacityOfUnaffected: 0.2,
 	gap: 0,
-    threshold: 0
+        threshold: 0
 };
 var enabledCurrently = config.enabledUsually;
 
@@ -82,9 +82,9 @@ function loadConfig() {
 	config.liveUpdate               = true == readConfig("liveUpdate"              ,       config.liveUpdate              );
 	config.opacityOfSnapped         = 0.01 *  readConfig("opacityOfSnapped"        , 100 * config.opacityOfSnapped        );
 	config.opacityOfUnaffected      = 0.01 *  readConfig("opacityOfUnaffected"     , 100 * config.opacityOfUnaffected     );
-	config.gap                      = 1    *             readConfig("gap"                     ,       config.gap               );
+	config.gap                      = 1    *  readConfig("gap"                     ,       config.gap                     );
 	config.threshold                = 1    *  readConfig("threshold"               ,       config.threshold               );
-    config.threshold += config.gap;
+        config.threshold += config.gap;
 }
 
 function connectClient(client) {
