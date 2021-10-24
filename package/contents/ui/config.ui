@@ -248,6 +248,18 @@
    <slot>setValue(int)</slot>
   </connection>
   <connection>
+   <sender>kcfg_gap</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>slider_gap</receiver>
+   <slot>setValue(int)</slot>
+  </connection>
+  <connection>
+   <sender>slider_gap</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>kcfg_gap</receiver>
+   <slot>setValue(int)</slot>
+  </connection>
+  <connection>
    <sender>kcfg_threshold</sender>
    <signal>valueChanged(int)</signal>
    <receiver>slider_threshold</receiver>
