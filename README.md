@@ -5,6 +5,8 @@ KWin script to let snapped window edges stick together when one window is resize
 The script provides an easy to use configuration dialog, which can be reached via `systemsettings`.
 (However, note section “Bugs and Workarounds”.)
 
+When windows stick accidentally, you can release them by shaking the mouse while still resizing. The exact behavior is configurable. This feature can also be disabled.
+
 Additionally, the script registers two global shortcuts: one for enabling/disabling the script permanently, and one for enabling/disabling the script only for the next resize.
 The default shortcut keys are Meta+Shift+S and Ctrl+Shift+S, respectively.
 You can change them using `systemsettings` (or `kcmshell4 keys`); they are associated with the component “KWin”.
