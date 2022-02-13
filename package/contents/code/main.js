@@ -31,6 +31,9 @@ var config = {
 	liveUpdate: true,
 	opacityOfSnapped: 0.8,
 	opacityOfUnaffected: 0.2,
+	shakeEnabled: true,
+	shakeThreshold: 200,
+	shakeTurns: 4,
 	threshold: 0
 };
 var enabledCurrently = config.enabledUsually;
@@ -81,6 +84,9 @@ function loadConfig() {
 	config.liveUpdate               = true == readConfig("liveUpdate"              ,       config.liveUpdate              );
 	config.opacityOfSnapped         = 0.01 *  readConfig("opacityOfSnapped"        , 100 * config.opacityOfSnapped        );
 	config.opacityOfUnaffected      = 0.01 *  readConfig("opacityOfUnaffected"     , 100 * config.opacityOfUnaffected     );
+	config.shakeEnabled             = true == readConfig("shakeEnabled"            ,       config.shakeEnabled            );
+	config.shakeThreshold           = 1    *  readConfig("shakeThreshold"          ,       config.shakeThreshold          );
+	config.shakeTurns               = 1    *  readConfig("shakeTurns"              ,       config.shakeTurns              );
 	config.threshold                = 1    *  readConfig("threshold"               ,       config.threshold               );
 }
 
@@ -140,7 +146,9 @@ function clientStartUserMovedResized(client) {
 		b1IsSticky = Math.abs(clientArea.y + clientArea.height - b1) > config.threshold;
 	}
 	resizedClientInfo = { lOrig : l1   , rOrig : r1   , tOrig : t1   , bOrig : b1
-	                    , lMoved: false, rMoved: false, tMoved: false, bMoved: false };
+	                    , lMoved: false, rMoved: false, tMoved: false, bMoved: false
+	                    , wShake: {count: 0, direction: 0, val: client.geometry.width , turnVal: client.geometry.width }
+	                    , hShake: {count: 0, direction: 0, val: client.geometry.height, turnVal: client.geometry.height} };
 	var clients = workspace.clientList();
 	for (var i = 0; i < clients.length; i++) {
 		var c = clients[i];
@@ -206,18 +214,13 @@ function clientStartUserMovedResized(client) {
 	}
 }
 
-function clientStepUserMovedResized(client, rect) {
-	if (resizedClientInfo === null) return;
-	if (!client.resize) return;
-	clientResized(client, rect);
-	firstClientStepUserMovedResized = false;
-}
-
-function clientFinishUserMovedResized(client) {
+function finish(client, abort) {
 	enabledCurrently = config.enabledUsually;
 	if (resizedClientInfo === null) return;
 	firstClientStepUserMovedResized = false;
-	clientResized(client, client.geometry);
+	if (!abort) {
+		clientResized(client, client.geometry);
+	}
 	for (var i = 0; i < snaps.length; ++i) {
 		if (snaps[i].minimizeWhenFinished) {
 			snaps[i].client.minimized = true;
@@ -225,14 +228,47 @@ function clientFinishUserMovedResized(client) {
 		if (snaps[i].opacity !== 1) {
 			snaps[i].client.opacity = snaps[i].originalOpacity;
 		}
+		if (abort) {
+			snaps[i].client.geometry = snaps[i].originalGeometry;
+		}
 	}
+	snaps.length = 0;
 	for (i = 0; i < ignoreds.length; ++i) {
 		if (ignoreds[i].opacity !== 1) {
 			ignoreds[i].client.opacity = ignoreds[i].originalOpacity;
 		}
 	}
-	snaps.length = 0;
+	ignoreds.length = 0;
 	resizedClientInfo = null;
+}
+
+function updateShake(shake, val) {
+	var step = val - shake.val;
+	shake.val = val;
+	if (step !== 0 && Math.sign(step) !== shake.direction && Math.abs(val - shake.turnVal) >= config.shakeThreshold) {
+		shake.turnVal = val;
+		shake.count += 1;
+		shake.direction = Math.sign(step);
+	}
+	return config.shakeEnabled && shake.count > config.shakeTurns;
+}
+
+function clientStepUserMovedResized(client, rect) {
+	if (resizedClientInfo === null) return;
+	if (!client.resize) return;
+
+	if (  updateShake(resizedClientInfo.wShake, rect.width)
+	   || updateShake(resizedClientInfo.hShake, rect.height)) {
+		finish(client, true);
+		return;
+	}
+
+	clientResized(client, rect);
+	firstClientStepUserMovedResized = false;
+}
+
+function clientFinishUserMovedResized(client) {
+	finish(client, false);
 }
 
 function clientResized(client, rect) {
