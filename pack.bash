@@ -9,4 +9,5 @@ zip ../sticky-window-snapping.kwinscript  \
 	contents/config/main.xml  \
 	contents/ui/config.ui  \
 	gpl-2.0.txt  \
+	metadata-backwards-compatibility-fix.bash  \
 	metadata.desktop

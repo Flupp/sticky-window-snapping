@@ -13,10 +13,9 @@ Their names are prefixed by “KWin Script: Sticky Window Snapping”.
 
 ## Bugs and Workarounds
 
-* If the configuration dialog is not reachable via `systemsettings`, then try the following command and restart `systemsettings`:
+* If the configuration dialog is not reachable via `systemsettings`, then try running the following included script and restart `systemsettings`:
 
-      mkdir --parents ~/.local/share/kservices5/
-      ln --relative --symbolic ~/.local/share/kwin/scripts/sticky-window-snapping/metadata.desktop ~/.local/share/kservices5/kwin-script-sticky-window-snapping.desktop
+      ~/.local/share/kwin/scripts/sticky-window-snapping/metadata-backwards-compatibility-fix.bash
 
 * If the script does not work, increasing the threshold in the configuration dialog might help.
 

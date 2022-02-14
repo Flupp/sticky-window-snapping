@@ -1,0 +1,1918 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<office:document xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rpt="http://openoffice.org/2005/report" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:xforms="http://www.w3.org/2002/xforms" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.spreadsheet">
+ <office:meta><meta:creation-date>2022-02-20T15:22:28.617855580</meta:creation-date><dc:date>2022-03-05T18:18:53.251236486</dc:date><meta:editing-duration>PT3H49M39S</meta:editing-duration><meta:editing-cycles>29</meta:editing-cycles><meta:generator>LibreOffice/7.2.5.2.0$Linux_X86_64 LibreOffice_project/20$Build-2</meta:generator><meta:document-statistic meta:table-count="2" meta:cell-count="503" meta:object-count="0"/></office:meta>
+ <office:settings>
+  <config:config-item-set config:name="ooo:view-settings">
+   <config:config-item config:name="VisibleAreaTop" config:type="int">0</config:config-item>
+   <config:config-item config:name="VisibleAreaLeft" config:type="int">0</config:config-item>
+   <config:config-item config:name="VisibleAreaWidth" config:type="int">37761</config:config-item>
+   <config:config-item config:name="VisibleAreaHeight" config:type="int">6697</config:config-item>
+   <config:config-item-map-indexed config:name="Views">
+    <config:config-item-map-entry>
+     <config:config-item config:name="ViewId" config:type="string">view1</config:config-item>
+     <config:config-item-map-named config:name="Tables">
+      <config:config-item-map-entry config:name="configuration button">
+       <config:config-item config:name="CursorPositionX" config:type="int">0</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">0</config:config-item>
+       <config:config-item config:name="HorizontalSplitMode" config:type="short">2</config:config-item>
+       <config:config-item config:name="VerticalSplitMode" config:type="short">0</config:config-item>
+       <config:config-item config:name="HorizontalSplitPosition" config:type="int">1</config:config-item>
+       <config:config-item config:name="VerticalSplitPosition" config:type="int">0</config:config-item>
+       <config:config-item config:name="ActiveSplitRange" config:type="short">2</config:config-item>
+       <config:config-item config:name="PositionLeft" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionRight" config:type="int">1</config:config-item>
+       <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionBottom" config:type="int">0</config:config-item>
+       <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">140</config:config-item>
+       <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
+       <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+       <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
+      </config:config-item-map-entry>
+      <config:config-item-map-entry config:name="transposed">
+       <config:config-item config:name="CursorPositionX" config:type="int">0</config:config-item>
+       <config:config-item config:name="CursorPositionY" config:type="int">0</config:config-item>
+       <config:config-item config:name="HorizontalSplitMode" config:type="short">0</config:config-item>
+       <config:config-item config:name="VerticalSplitMode" config:type="short">0</config:config-item>
+       <config:config-item config:name="HorizontalSplitPosition" config:type="int">0</config:config-item>
+       <config:config-item config:name="VerticalSplitPosition" config:type="int">0</config:config-item>
+       <config:config-item config:name="ActiveSplitRange" config:type="short">2</config:config-item>
+       <config:config-item config:name="PositionLeft" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionRight" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionTop" config:type="int">0</config:config-item>
+       <config:config-item config:name="PositionBottom" config:type="int">0</config:config-item>
+       <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
+       <config:config-item config:name="ZoomValue" config:type="int">140</config:config-item>
+       <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
+       <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+       <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
+      </config:config-item-map-entry>
+     </config:config-item-map-named>
+     <config:config-item config:name="ActiveTable" config:type="string">configuration button</config:config-item>
+     <config:config-item config:name="HorizontalScrollbarWidth" config:type="int">1611</config:config-item>
+     <config:config-item config:name="ZoomType" config:type="short">0</config:config-item>
+     <config:config-item config:name="ZoomValue" config:type="int">140</config:config-item>
+     <config:config-item config:name="PageViewZoomValue" config:type="int">60</config:config-item>
+     <config:config-item config:name="ShowPageBreakPreview" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="ShowZeroValues" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="ShowNotes" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="GridColor" config:type="int">12632256</config:config-item>
+     <config:config-item config:name="ShowPageBreaks" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="HasColumnRowHeaders" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="HasSheetTabs" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="IsOutlineSymbolsSet" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="IsValueHighlightingEnabled" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="IsSnapToRaster" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="RasterIsVisible" config:type="boolean">false</config:config-item>
+     <config:config-item config:name="RasterResolutionX" config:type="int">1000</config:config-item>
+     <config:config-item config:name="RasterResolutionY" config:type="int">1000</config:config-item>
+     <config:config-item config:name="RasterSubdivisionX" config:type="int">1</config:config-item>
+     <config:config-item config:name="RasterSubdivisionY" config:type="int">1</config:config-item>
+     <config:config-item config:name="IsRasterAxisSynchronized" config:type="boolean">true</config:config-item>
+     <config:config-item config:name="AnchoredTextOverflowLegacy" config:type="boolean">false</config:config-item>
+    </config:config-item-map-entry>
+   </config:config-item-map-indexed>
+  </config:config-item-set>
+  <config:config-item-set config:name="ooo:configuration-settings">
+   <config:config-item config:name="AllowPrintJobCancel" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ApplyUserData" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="AutoCalculate" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="CharacterCompressionType" config:type="short">0</config:config-item>
+   <config:config-item config:name="EmbedAsianScriptFonts" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="EmbedComplexScriptFonts" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="EmbedFonts" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="EmbedLatinScriptFonts" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="EmbedOnlyUsedFonts" config:type="boolean">false</config:config-item>
+   <config:config-item-map-indexed config:name="ForbiddenCharacters">
+    <config:config-item-map-entry>
+     <config:config-item config:name="Language" config:type="string">de</config:config-item>
+     <config:config-item config:name="Country" config:type="string">DE</config:config-item>
+     <config:config-item config:name="Variant" config:type="string"/>
+     <config:config-item config:name="BeginLine" config:type="string"/>
+     <config:config-item config:name="EndLine" config:type="string"/>
+    </config:config-item-map-entry>
+   </config:config-item-map-indexed>
+   <config:config-item config:name="GridColor" config:type="int">12632256</config:config-item>
+   <config:config-item config:name="HasColumnRowHeaders" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="HasSheetTabs" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="IsDocumentShared" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsKernAsianPunctuation" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="IsOutlineSymbolsSet" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="IsRasterAxisSynchronized" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="IsSnapToRaster" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="LinkUpdateMode" config:type="short">3</config:config-item>
+   <config:config-item config:name="LoadReadonly" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrinterName" config:type="string">Generic Printer</config:config-item>
+   <config:config-item config:name="PrinterPaperFromSetup" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="PrinterSetup" config:type="base64Binary">pAH+/0dlbmVyaWMgUHJpbnRlcgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU0dFTlBSVAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWAAMAxQAAAAAAAAAIAFZUAAAkbQAASm9iRGF0YSAxCnByaW50ZXI9R2VuZXJpYyBQcmludGVyCm9yaWVudGF0aW9uPVBvcnRyYWl0CmNvcGllcz0xCmNvbGxhdGU9ZmFsc2UKbWFyZ2luYWRqdXN0bWVudD0wLDAsMCwwCmNvbG9yZGVwdGg9MjQKcHNsZXZlbD0wCnBkZmRldmljZT0xCmNvbG9yZGV2aWNlPTAKUFBEQ29udGV4dERhdGEKRHVwbGV4Ok5vbmUAUGFnZVNpemU6TGV0dGVyAAASAENPTVBBVF9EVVBMRVhfTU9ERQ8ARHVwbGV4TW9kZTo6T2Zm</config:config-item>
+   <config:config-item config:name="RasterIsVisible" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="RasterResolutionX" config:type="int">1000</config:config-item>
+   <config:config-item config:name="RasterResolutionY" config:type="int">1000</config:config-item>
+   <config:config-item config:name="RasterSubdivisionX" config:type="int">1</config:config-item>
+   <config:config-item config:name="RasterSubdivisionY" config:type="int">1</config:config-item>
+   <config:config-item config:name="SaveThumbnail" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="SaveVersionOnClose" config:type="boolean">false</config:config-item>
+   <config:config-item config:name="ShowGrid" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ShowNotes" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ShowPageBreaks" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="ShowZeroValues" config:type="boolean">true</config:config-item>
+   <config:config-item config:name="SyntaxStringRef" config:type="short">7</config:config-item>
+   <config:config-item config:name="UpdateFromTemplate" config:type="boolean">true</config:config-item>
+   <config:config-item-map-named config:name="ScriptConfiguration">
+    <config:config-item-map-entry config:name="configuration button">
+     <config:config-item config:name="CodeName" config:type="string">Sheet1</config:config-item>
+    </config:config-item-map-entry>
+    <config:config-item-map-entry config:name="transposed">
+     <config:config-item config:name="CodeName" config:type="string">transposed</config:config-item>
+    </config:config-item-map-entry>
+   </config:config-item-map-named>
+  </config:config-item-set>
+ </office:settings>
+ <office:scripts>
+  <office:script script:language="ooo:Basic">
+   <ooo:libraries xmlns:ooo="http://openoffice.org/2004/office" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <ooo:library-embedded ooo:name="Standard"/>
+   </ooo:libraries>
+  </office:script>
+ </office:scripts>
+ <office:font-face-decls>
+  <style:font-face style:name="Droid Sans Devanagari" svg:font-family="&apos;Droid Sans Devanagari&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
+  <style:font-face style:name="Droid Sans Fallback" svg:font-family="&apos;Droid Sans Fallback&apos;" style:font-family-generic="system" style:font-pitch="variable"/>
+  <style:font-face style:name="Liberation Sans" svg:font-family="&apos;Liberation Sans&apos;" style:font-family-generic="swiss" style:font-pitch="variable"/>
+ </office:font-face-decls>
+ <office:styles>
+  <style:default-style style:family="table-cell">
+   <style:paragraph-properties style:tab-stop-distance="1.25cm"/>
+   <style:text-properties style:font-name="Liberation Sans" fo:font-size="10pt" fo:language="de" fo:country="DE" style:font-name-asian="Droid Sans Fallback" style:font-size-asian="10pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Droid Sans Devanagari" style:font-size-complex="10pt" style:language-complex="hi" style:country-complex="IN"/>
+  </style:default-style>
+  <number:number-style style:name="N0">
+   <number:number number:min-integer-digits="1"/>
+  </number:number-style>
+  <style:style style:name="Default" style:family="table-cell"/>
+  <style:style style:name="Heading" style:family="table-cell" style:parent-style-name="Default">
+   <style:text-properties fo:color="#000000" fo:font-size="24pt" fo:font-style="normal" fo:font-weight="bold" style:font-size-asian="24pt" style:font-style-asian="normal" style:font-weight-asian="bold" style:font-size-complex="24pt" style:font-style-complex="normal" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Heading_20_1" style:display-name="Heading 1" style:family="table-cell" style:parent-style-name="Heading">
+   <style:text-properties fo:color="#000000" fo:font-size="18pt" fo:font-style="normal" fo:font-weight="normal" style:font-size-asian="18pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-size-complex="18pt" style:font-style-complex="normal" style:font-weight-complex="normal"/>
+  </style:style>
+  <style:style style:name="Heading_20_2" style:display-name="Heading 2" style:family="table-cell" style:parent-style-name="Heading">
+   <style:text-properties fo:color="#000000" fo:font-size="12pt" fo:font-style="normal" fo:font-weight="normal" style:font-size-asian="12pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-size-complex="12pt" style:font-style-complex="normal" style:font-weight-complex="normal"/>
+  </style:style>
+  <style:style style:name="Text" style:family="table-cell" style:parent-style-name="Default"/>
+  <style:style style:name="Note" style:family="table-cell" style:parent-style-name="Text">
+   <style:table-cell-properties fo:background-color="#ffffcc" style:diagonal-bl-tr="none" style:diagonal-tl-br="none" fo:border="0.74pt solid #808080"/>
+   <style:text-properties fo:color="#333333" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal" style:font-size-asian="10pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-size-complex="10pt" style:font-style-complex="normal" style:font-weight-complex="normal"/>
+  </style:style>
+  <style:style style:name="Footnote" style:family="table-cell" style:parent-style-name="Text">
+   <style:text-properties fo:color="#808080" fo:font-size="10pt" fo:font-style="italic" fo:font-weight="normal" style:font-size-asian="10pt" style:font-style-asian="italic" style:font-weight-asian="normal" style:font-size-complex="10pt" style:font-style-complex="italic" style:font-weight-complex="normal"/>
+  </style:style>
+  <style:style style:name="Hyperlink" style:family="table-cell" style:parent-style-name="Text">
+   <style:text-properties fo:color="#0000ee" fo:font-size="10pt" fo:font-style="normal" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="#0000ee" fo:font-weight="normal" style:font-size-asian="10pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-size-complex="10pt" style:font-style-complex="normal" style:font-weight-complex="normal"/>
+  </style:style>
+  <style:style style:name="Status" style:family="table-cell" style:parent-style-name="Default"/>
+  <style:style style:name="Good" style:family="table-cell" style:parent-style-name="Status">
+   <style:table-cell-properties fo:background-color="#ccffcc"/>
+   <style:text-properties fo:color="#006600" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal" style:font-size-asian="10pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-size-complex="10pt" style:font-style-complex="normal" style:font-weight-complex="normal"/>
+  </style:style>
+  <style:style style:name="Neutral" style:family="table-cell" style:parent-style-name="Status">
+   <style:table-cell-properties fo:background-color="#ffffcc"/>
+   <style:text-properties fo:color="#996600" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal" style:font-size-asian="10pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-size-complex="10pt" style:font-style-complex="normal" style:font-weight-complex="normal"/>
+  </style:style>
+  <style:style style:name="Bad" style:family="table-cell" style:parent-style-name="Status">
+   <style:table-cell-properties fo:background-color="#ffcccc"/>
+   <style:text-properties fo:color="#cc0000" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal" style:font-size-asian="10pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-size-complex="10pt" style:font-style-complex="normal" style:font-weight-complex="normal"/>
+  </style:style>
+  <style:style style:name="Warning" style:family="table-cell" style:parent-style-name="Status">
+   <style:text-properties fo:color="#cc0000" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal" style:font-size-asian="10pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-size-complex="10pt" style:font-style-complex="normal" style:font-weight-complex="normal"/>
+  </style:style>
+  <style:style style:name="Error" style:family="table-cell" style:parent-style-name="Status">
+   <style:table-cell-properties fo:background-color="#cc0000"/>
+   <style:text-properties fo:color="#ffffff" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="bold" style:font-size-asian="10pt" style:font-style-asian="normal" style:font-weight-asian="bold" style:font-size-complex="10pt" style:font-style-complex="normal" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Accent" style:family="table-cell" style:parent-style-name="Default">
+   <style:text-properties fo:color="#000000" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="bold" style:font-size-asian="10pt" style:font-style-asian="normal" style:font-weight-asian="bold" style:font-size-complex="10pt" style:font-style-complex="normal" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="Accent_20_1" style:display-name="Accent 1" style:family="table-cell" style:parent-style-name="Accent">
+   <style:table-cell-properties fo:background-color="#000000"/>
+   <style:text-properties fo:color="#ffffff" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal" style:font-size-asian="10pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-size-complex="10pt" style:font-style-complex="normal" style:font-weight-complex="normal"/>
+  </style:style>
+  <style:style style:name="Accent_20_2" style:display-name="Accent 2" style:family="table-cell" style:parent-style-name="Accent">
+   <style:table-cell-properties fo:background-color="#808080"/>
+   <style:text-properties fo:color="#ffffff" fo:font-size="10pt" fo:font-style="normal" fo:font-weight="normal" style:font-size-asian="10pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-size-complex="10pt" style:font-style-complex="normal" style:font-weight-complex="normal"/>
+  </style:style>
+  <style:style style:name="Accent_20_3" style:display-name="Accent 3" style:family="table-cell" style:parent-style-name="Accent">
+   <style:table-cell-properties fo:background-color="#dddddd"/>
+  </style:style>
+  <style:style style:name="Result" style:family="table-cell" style:parent-style-name="Default">
+   <style:text-properties fo:color="#000000" fo:font-size="10pt" fo:font-style="italic" style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="#ffffff" fo:font-weight="bold" style:font-size-asian="10pt" style:font-style-asian="italic" style:font-weight-asian="bold" style:font-size-complex="10pt" style:font-style-complex="italic" style:font-weight-complex="bold"/>
+  </style:style>
+  <style:style style:name="bg_20_works" style:display-name="bg works" style:family="table-cell" style:parent-style-name="Default">
+   <style:table-cell-properties fo:background-color="#00ffdd"/>
+  </style:style>
+  <style:style style:name="bg_20_error" style:display-name="bg error" style:family="table-cell" style:parent-style-name="Default">
+   <style:table-cell-properties fo:background-color="#ffff88"/>
+  </style:style>
+  <style:style style:name="bg_20_no_20_button" style:display-name="bg no button" style:family="table-cell" style:parent-style-name="Default">
+   <style:table-cell-properties fo:background-color="#ffaaaa"/>
+  </style:style>
+  <draw:marker draw:name="Arrowheads_20_1" draw:display-name="Arrowheads 1" svg:viewBox="0 0 20 30" svg:d="M10 0l-10 30h20z"/>
+ </office:styles>
+ <office:automatic-styles>
+  <style:style style:name="co1" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="12.104cm"/>
+  </style:style>
+  <style:style style:name="co2" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="2.066cm"/>
+  </style:style>
+  <style:style style:name="co3" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="2.96cm"/>
+  </style:style>
+  <style:style style:name="co4" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="1.852cm"/>
+  </style:style>
+  <style:style style:name="co5" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="2.258cm"/>
+  </style:style>
+  <style:style style:name="co6" style:family="table-column">
+   <style:table-column-properties fo:break-before="auto" style:column-width="1.789cm"/>
+  </style:style>
+  <style:style style:name="ro1" style:family="table-row">
+   <style:table-row-properties style:row-height="0.827cm" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro2" style:family="table-row">
+   <style:table-row-properties style:row-height="0.452cm" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro3" style:family="table-row">
+   <style:table-row-properties style:row-height="2.801cm" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ro4" style:family="table-row">
+   <style:table-row-properties style:row-height="0.841cm" fo:break-before="auto" style:use-optimal-row-height="true"/>
+  </style:style>
+  <style:style style:name="ta1" style:family="table" style:master-page-name="Default">
+   <style:table-properties table:display="true" style:writing-mode="lr-tb"/>
+  </style:style>
+  <number:number-style style:name="N2">
+   <number:number number:decimal-places="2" number:min-decimal-places="2" number:min-integer-digits="1"/>
+  </number:number-style>
+  <number:text-style style:name="N100">
+   <number:text-content/>
+  </number:text-style>
+  <style:style style:name="ce2" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N100">
+   <style:map style:condition="cell-content()=&quot;works&quot;" style:apply-style-name="bg_20_works" style:base-cell-address="&apos;configuration button&apos;.A1"/>
+   <style:map style:condition="cell-content()=&quot;error&quot;" style:apply-style-name="bg_20_error" style:base-cell-address="&apos;configuration button&apos;.A1"/>
+   <style:map style:condition="cell-content()=&quot;no button&quot;" style:apply-style-name="bg_20_no_20_button" style:base-cell-address="&apos;configuration button&apos;.A1"/>
+  </style:style>
+  <style:style style:name="ce3" style:family="table-cell" style:parent-style-name="Default">
+   <style:map style:condition="cell-content()=&quot;works&quot;" style:apply-style-name="bg_20_works" style:base-cell-address="&apos;configuration button&apos;.A1"/>
+   <style:map style:condition="cell-content()=&quot;error&quot;" style:apply-style-name="bg_20_error" style:base-cell-address="&apos;configuration button&apos;.A1"/>
+   <style:map style:condition="cell-content()=&quot;no button&quot;" style:apply-style-name="bg_20_no_20_button" style:base-cell-address="&apos;configuration button&apos;.A1"/>
+  </style:style>
+  <style:style style:name="ce4" style:family="table-cell" style:parent-style-name="Default">
+   <style:table-cell-properties fo:wrap-option="wrap"/>
+   <style:map style:condition="cell-content()=&quot;works&quot;" style:apply-style-name="bg_20_works" style:base-cell-address="transposed.A1"/>
+   <style:map style:condition="cell-content()=&quot;no button&quot;" style:apply-style-name="bg_20_no_20_button" style:base-cell-address="transposed.A1"/>
+   <style:map style:condition="cell-content()=&quot;error&quot;" style:apply-style-name="bg_20_error" style:base-cell-address="transposed.A1"/>
+  </style:style>
+  <style:style style:name="ce5" style:family="table-cell" style:parent-style-name="Default" style:data-style-name="N0">
+   <style:table-cell-properties fo:wrap-option="wrap"/>
+   <style:map style:condition="cell-content()=&quot;works&quot;" style:apply-style-name="bg_20_works" style:base-cell-address="transposed.A1"/>
+   <style:map style:condition="cell-content()=&quot;no button&quot;" style:apply-style-name="bg_20_no_20_button" style:base-cell-address="transposed.A1"/>
+   <style:map style:condition="cell-content()=&quot;error&quot;" style:apply-style-name="bg_20_error" style:base-cell-address="transposed.A1"/>
+  </style:style>
+  <style:style style:name="gr1" style:family="graphic">
+   <style:graphic-properties draw:marker-start="Arrowheads_20_1" draw:marker-start-width="0.2cm" draw:marker-start-center="false" draw:fill="solid" draw:fill-color="#ffffc0" draw:auto-grow-height="true" draw:auto-grow-width="false" fo:min-height="1.976cm" fo:padding-top="0.1cm" fo:padding-bottom="0.1cm" fo:padding-left="0.1cm" fo:padding-right="0.1cm" draw:shadow="hidden" draw:shadow-offset-x="0.1cm" draw:shadow-offset-y="0.1cm" draw:caption-escape-direction="auto"/>
+   <style:paragraph-properties style:text-autospace="none" style:line-break="normal"/>
+   <style:text-properties style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Liberation Sans" fo:font-size="10pt" fo:language="de" fo:country="DE" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:text-underline-mode="continuous" style:text-overline-mode="continuous" style:text-line-through-mode="continuous" style:font-name-asian="Droid Sans Fallback" style:font-size-asian="10pt" style:language-asian="zh" style:country-asian="CN" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-name-complex="Droid Sans Devanagari" style:font-size-complex="10pt" style:language-complex="hi" style:country-complex="IN" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color" fo:hyphenate="false"/>
+  </style:style>
+  <style:style style:name="gr2" style:family="graphic">
+   <style:graphic-properties draw:marker-start="Arrowheads_20_1" draw:marker-start-width="0.2cm" draw:marker-start-center="false" draw:fill="solid" draw:fill-color="#ffffc0" draw:auto-grow-height="true" draw:auto-grow-width="false" fo:min-height="5.531cm" fo:padding-top="0.1cm" fo:padding-bottom="0.1cm" fo:padding-left="0.1cm" fo:padding-right="0.1cm" draw:shadow="hidden" draw:shadow-offset-x="0.1cm" draw:shadow-offset-y="0.1cm" draw:caption-escape-direction="auto"/>
+   <style:paragraph-properties style:text-autospace="none" style:line-break="normal"/>
+   <style:text-properties style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Liberation Sans" fo:font-size="10pt" fo:language="de" fo:country="DE" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:text-underline-mode="continuous" style:text-overline-mode="continuous" style:text-line-through-mode="continuous" style:font-name-asian="Droid Sans Fallback" style:font-size-asian="10pt" style:language-asian="zh" style:country-asian="CN" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-name-complex="Droid Sans Devanagari" style:font-size-complex="10pt" style:language-complex="hi" style:country-complex="IN" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color" fo:hyphenate="false"/>
+  </style:style>
+  <style:style style:name="gr3" style:family="graphic">
+   <style:graphic-properties draw:marker-start="Arrowheads_20_1" draw:marker-start-width="0.2cm" draw:marker-start-center="false" draw:fill="solid" draw:fill-color="#ffffc0" draw:auto-grow-height="true" draw:auto-grow-width="false" fo:min-height="1.599cm" fo:padding-top="0.1cm" fo:padding-bottom="0.1cm" fo:padding-left="0.1cm" fo:padding-right="0.1cm" draw:shadow="hidden" draw:shadow-offset-x="0.1cm" draw:shadow-offset-y="0.1cm" draw:caption-escape-direction="auto"/>
+   <style:paragraph-properties style:text-autospace="none" style:line-break="normal"/>
+   <style:text-properties style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Liberation Sans" fo:font-size="10pt" fo:language="de" fo:country="DE" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:text-underline-mode="continuous" style:text-overline-mode="continuous" style:text-line-through-mode="continuous" style:font-name-asian="Droid Sans Fallback" style:font-size-asian="10pt" style:language-asian="zh" style:country-asian="CN" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-name-complex="Droid Sans Devanagari" style:font-size-complex="10pt" style:language-complex="hi" style:country-complex="IN" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color" fo:hyphenate="false"/>
+  </style:style>
+  <style:page-layout style:name="pm1">
+   <style:page-layout-properties style:writing-mode="lr-tb"/>
+   <style:header-style>
+    <style:header-footer-properties fo:min-height="0.75cm" fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-bottom="0.25cm"/>
+   </style:header-style>
+   <style:footer-style>
+    <style:header-footer-properties fo:min-height="0.75cm" fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0.25cm"/>
+   </style:footer-style>
+  </style:page-layout>
+  <style:page-layout style:name="pm2">
+   <style:page-layout-properties style:writing-mode="lr-tb"/>
+   <style:header-style>
+    <style:header-footer-properties fo:min-height="0.75cm" fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-bottom="0.25cm" fo:border="2.49pt solid #000000" fo:padding="0.018cm" fo:background-color="#c0c0c0">
+     <style:background-image/>
+    </style:header-footer-properties>
+   </style:header-style>
+   <style:footer-style>
+    <style:header-footer-properties fo:min-height="0.75cm" fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0.25cm" fo:border="2.49pt solid #000000" fo:padding="0.018cm" fo:background-color="#c0c0c0">
+     <style:background-image/>
+    </style:header-footer-properties>
+   </style:footer-style>
+  </style:page-layout>
+  <style:style style:name="P1" style:family="paragraph">
+   <style:paragraph-properties style:text-autospace="none" style:line-break="normal" style:writing-mode="page"/>
+   <style:text-properties style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Liberation Sans" fo:font-size="10pt" fo:language="de" fo:country="DE" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:text-underline-mode="continuous" style:text-overline-mode="continuous" style:text-line-through-mode="continuous" style:font-name-asian="Droid Sans Fallback" style:font-size-asian="10pt" style:language-asian="zh" style:country-asian="CN" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-name-complex="Droid Sans Devanagari" style:font-size-complex="10pt" style:language-complex="hi" style:country-complex="IN" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color" fo:hyphenate="false"/>
+  </style:style>
+  <style:style style:name="P2" style:family="paragraph">
+   <loext:graphic-properties draw:fill="solid" draw:fill-color="#ffffc0"/>
+   <style:paragraph-properties style:text-autospace="none" style:line-break="normal" style:writing-mode="page"/>
+   <style:text-properties style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Liberation Sans" fo:font-size="10pt" fo:language="de" fo:country="DE" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:text-underline-mode="continuous" style:text-overline-mode="continuous" style:text-line-through-mode="continuous" style:font-name-asian="Droid Sans Fallback" style:font-size-asian="10pt" style:language-asian="zh" style:country-asian="CN" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-name-complex="Droid Sans Devanagari" style:font-size-complex="10pt" style:language-complex="hi" style:country-complex="IN" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color" fo:hyphenate="false"/>
+  </style:style>
+  <style:style style:name="T1" style:family="text">
+   <style:text-properties style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Liberation Sans" fo:font-size="10pt" fo:language="de" fo:country="DE" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:text-underline-mode="continuous" style:text-overline-mode="continuous" style:text-line-through-mode="continuous" style:font-name-asian="Droid Sans Fallback" style:font-size-asian="10pt" style:language-asian="zh" style:country-asian="CN" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-name-complex="Droid Sans Devanagari" style:font-size-complex="10pt" style:language-complex="hi" style:country-complex="IN" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color"/>
+  </style:style>
+  <style:style style:name="T2" style:family="text">
+   <style:text-properties style:font-name="Liberation Sans" fo:font-size="10pt" fo:font-weight="normal" style:text-underline-style="none" style:text-underline-color="font-color" style:text-line-through-type="none" fo:font-style="normal" style:text-outline="false" fo:text-shadow="none" style:text-line-through-mode="continuous" fo:language="de" fo:country="DE" style:language-asian="zh" style:country-asian="CN" style:language-complex="hi" style:country-complex="IN" style:font-name-asian="Droid Sans Fallback" style:font-name-complex="Droid Sans Devanagari" style:font-size-asian="10pt" style:font-size-complex="10pt" style:font-weight-asian="normal" style:font-weight-complex="normal" style:font-style-asian="normal" style:font-style-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color"/>
+  </style:style>
+ </office:automatic-styles>
+ <office:master-styles>
+  <style:master-page style:name="Default" style:page-layout-name="pm1">
+   <style:header>
+    <text:p><text:sheet-name>???</text:sheet-name></text:p>
+   </style:header>
+   <style:header-left style:display="false"/>
+   <style:header-first style:display="false"/>
+   <style:footer>
+    <text:p>Page <text:page-number>1</text:page-number></text:p>
+   </style:footer>
+   <style:footer-left style:display="false"/>
+   <style:footer-first style:display="false"/>
+  </style:master-page>
+  <style:master-page style:name="Report" style:page-layout-name="pm2">
+   <style:header>
+    <style:region-left>
+     <text:p><text:sheet-name>???</text:sheet-name><text:s/>(<text:title>???</text:title>)</text:p>
+    </style:region-left>
+    <style:region-right>
+     <text:p><text:date style:data-style-name="N2" text:date-value="2022-03-05">00.00.0000</text:date>, <text:time style:data-style-name="N2" text:time-value="17:52:05.955689625">00:00:00</text:time></text:p>
+    </style:region-right>
+   </style:header>
+   <style:header-left style:display="false"/>
+   <style:header-first style:display="false"/>
+   <style:footer>
+    <text:p>Page <text:page-number>1</text:page-number><text:s/>/ <text:page-count>99</text:page-count></text:p>
+   </style:footer>
+   <style:footer-left style:display="false"/>
+   <style:footer-first style:display="false"/>
+  </style:master-page>
+ </office:master-styles>
+ <office:body>
+  <office:spreadsheet>
+   <table:calculation-settings table:automatic-find-labels="false" table:use-regular-expressions="false" table:use-wildcards="true"/>
+   <table:table table:name="configuration button" table:style-name="ta1">
+    <office:forms form:automatic-focus="false" form:apply-design-mode="false"/>
+    <table:table-column table:style-name="co1" table:default-cell-style-name="ce2"/>
+    <table:table-column table:style-name="co2" table:number-columns-repeated="3" table:default-cell-style-name="ce2"/>
+    <table:table-column table:style-name="co3" table:default-cell-style-name="ce2"/>
+    <table:table-column table:style-name="co2" table:default-cell-style-name="ce2"/>
+    <table:table-column table:style-name="co3" table:number-columns-repeated="3" table:default-cell-style-name="ce3"/>
+    <table:table-column table:style-name="co4" table:number-columns-repeated="3" table:default-cell-style-name="ce2"/>
+    <table:table-column table:style-name="co5" table:number-columns-repeated="1012" table:default-cell-style-name="ce2"/>
+    <table:table-row table:style-name="ro1">
+     <table:table-cell office:value-type="string" calcext:value-type="string"><text:p>Distribution</text:p><text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string"><text:p>Arch Linux</text:p><text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string"><text:p>Arch Linux</text:p><text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string"><text:p>Arch Linux</text:p><text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string"><text:p>KDE neon User</text:p><text:p>20220210-0946</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string"><text:p>Arch Linux</text:p><text:p/>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string"><text:p>KDE neon User</text:p><text:p>20211230-0945</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string"><text:p><text:span text:style-name="T2">KDE neon User</text:span></text:p><text:p>20211104-0946</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce2" office:value-type="string" calcext:value-type="string"><text:p>KDE neon User</text:p><text:p>20211021-0945</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string"><text:p>Kubuntu</text:p><text:p>22.10</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string"><text:p>Debian</text:p><text:p>11.2.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string"><text:p>Kubuntu</text:p><text:p>20.04.3</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>kwin_x11 --version</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.24.2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.24.1</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2" office:value-type="string" calcext:value-type="string">
+      <text:p>5.24.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.23.5</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.23.2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.23.1</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.22.5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.20.5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.18.5</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>KDE Plasma Version</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.24.2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.24.1</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2" office:value-type="string" calcext:value-type="string">
+      <text:p>5.24.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.23.5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.23.4</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.23.2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.23.1</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.22.5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.20.5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.18.5</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>KDE Frameworks Version</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2" office:value-type="string" calcext:value-type="string">
+      <text:p>5.91.0</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell table:number-columns-repeated="2" office:value-type="string" calcext:value-type="string">
+      <text:p>5.90.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.89.0</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2" office:value-type="string" calcext:value-type="string">
+      <text:p>5.87.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.86.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.78.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.68.0</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>Qt Version</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2" office:value-type="string" calcext:value-type="string">
+      <text:p>5.15.2</text:p>
+     </table:table-cell>
+     <table:table-cell/>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.15.3</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.15.2</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="3" office:value-type="string" calcext:value-type="string">
+      <text:p>5.15.3</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.12.2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.15.2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>5.12.8</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-ConfigModule / no symlink</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="4" office:value-type="string" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="23.925cm" svg:y="1.133cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-03-05T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="26.885cm" svg:y="1.133cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-03-05T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="5" office:value-type="string" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-ConfigModule / with symlink</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="4" office:value-type="string" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="23.925cm" svg:y="1.585cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-02-26T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="26.885cm" svg:y="1.585cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-03-05T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr2" draw:text-style-name="P2" svg:width="2.899cm" svg:height="5.731cm" svg:x="29.845cm" svg:y="1.585cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-03-05T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The module Sticky Window Snapping is not a valid configuration module.</text:span></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The diagnosis is: </text:span></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The desktop file kwin-script-sticky-window-snapping.desktop does not specify a library.</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr3" draw:text-style-name="P2" svg:width="2.899cm" svg:height="5.731cm" svg:x="32.805cm" svg:y="1.585cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-03-05T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The module Sticky Window Snapping is not a valid configuration module.</text:span></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The diagnosis is: </text:span></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The desktop file kwin-script-sticky-window-snapping.desktop does not specify a library.</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr2" draw:text-style-name="P2" svg:width="2.899cm" svg:height="5.731cm" svg:x="34.657cm" svg:y="1.585cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-03-05T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The module Sticky Window Snapping is not a valid configuration module.</text:span></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The diagnosis is: </text:span></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The desktop file kwin-script-sticky-window-snapping.desktop does not specify a library.</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr2" draw:text-style-name="P2" svg:width="2.899cm" svg:height="5.731cm" svg:x="36.509cm" svg:y="1.585cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-02-26T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The module Sticky Window Snapping is not a valid configuration module.</text:span></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The diagnosis is: </text:span></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The desktop file kwin-script-sticky-window-snapping.desktop does not specify a library.</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr2" draw:text-style-name="P2" svg:width="2.899cm" svg:height="5.731cm" svg:x="38.361cm" svg:y="1.585cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-02-26T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The module Sticky Window Snapping is not a valid configuration module.</text:span></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1"/></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The diagnosis is: </text:span></text:p>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">The desktop file kwin-script-sticky-window-snapping.desktop does not specify a library.</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-ConfigModule, X-KDE-Library / no symlink</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="4" office:value-type="string" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="23.925cm" svg:y="2.036cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-02-26T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="26.885cm" svg:y="2.036cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-03-05T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="5" office:value-type="string" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-ConfigModule, X-KDE-Library / with symlink</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="4" office:value-type="string" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="23.925cm" svg:y="2.488cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-02-26T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="26.885cm" svg:y="2.488cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-03-05T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="5" office:value-type="string" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-Library / no symlink</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="11" office:value-type="string" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-Library / with symlink</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="2" office:value-type="string" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="21.86cm" svg:y="3.391cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-03-05T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="7" office:value-type="string" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-Library, X-KDE-ConfigModule / no symlink</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="4" office:value-type="string" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="23.925cm" svg:y="3.842cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-02-26T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="26.885cm" svg:y="3.842cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-03-05T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="5" office:value-type="string" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-Library, X-KDE-ConfigModule / with symlink</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="4" office:value-type="string" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="23.925cm" svg:y="4.294cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-02-26T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="26.885cm" svg:y="4.294cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-03-05T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="5" office:value-type="string" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <text:p>metadata.json</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="4" office:value-type="string" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="23.925cm" svg:y="4.745cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-02-26T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" calcext:value-type="string">
+      <office:annotation draw:style-name="gr1" draw:text-style-name="P2" svg:width="2.899cm" svg:height="2.176cm" svg:x="26.885cm" svg:y="4.745cm" draw:caption-point-x="-0.61cm" draw:caption-point-y="1.51cm">
+       <dc:date>2022-03-05T00:00:00</dc:date>
+       <text:p text:style-name="P1"><text:span text:style-name="T1">Plugin does not provide configuration file in expected location</text:span></text:p>
+      </office:annotation>
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="5" office:value-type="string" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1012"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2" table:number-rows-repeated="1048561">
+     <table:table-cell table:number-columns-repeated="1024"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:number-columns-repeated="1024"/>
+    </table:table-row>
+    <calcext:conditional-formats>
+     <calcext:conditional-format calcext:target-range-address="&apos;configuration button&apos;.A1:&apos;configuration button&apos;.AMJ1048576">
+      <calcext:condition calcext:apply-style-name="bg works" calcext:value="=&quot;works&quot;" calcext:base-cell-address="&apos;configuration button&apos;.A1"/>
+      <calcext:condition calcext:apply-style-name="bg error" calcext:value="=&quot;error&quot;" calcext:base-cell-address="&apos;configuration button&apos;.A1"/>
+      <calcext:condition calcext:apply-style-name="bg no button" calcext:value="=&quot;no button&quot;" calcext:base-cell-address="&apos;configuration button&apos;.A1"/>
+     </calcext:conditional-format>
+    </calcext:conditional-formats>
+   </table:table>
+   <table:table table:name="transposed" table:style-name="ta1">
+    <office:forms form:automatic-focus="false" form:apply-design-mode="false"/>
+    <table:table-column table:style-name="co3" table:default-cell-style-name="ce4"/>
+    <table:table-column table:style-name="co6" table:number-columns-repeated="2" table:default-cell-style-name="ce4"/>
+    <table:table-column table:style-name="co5" table:default-cell-style-name="ce4"/>
+    <table:table-column table:style-name="co6" table:default-cell-style-name="ce4"/>
+    <table:table-column table:style-name="co5" table:number-columns-repeated="1019" table:default-cell-style-name="ce4"/>
+    <table:table-row table:style-name="ro3">
+     <table:table-cell table:number-matrix-columns-spanned="13" table:number-matrix-rows-spanned="26" table:formula="of:= TRANSPOSE([$&apos;configuration button&apos;.A1:.AB13])" office:value-type="string" office:string-value="Distribution&#x0a;" calcext:value-type="string"><text:p>Distribution</text:p><text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="kwin_x11 --version" calcext:value-type="string">
+      <text:p>kwin_x11 --version</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="KDE Plasma Version" calcext:value-type="string">
+      <text:p>KDE Plasma Version</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="KDE Frameworks Version" calcext:value-type="string">
+      <text:p>KDE Frameworks Version</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="Qt Version" calcext:value-type="string">
+      <text:p>Qt Version</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="metadata.desktop / X-KDE-ConfigModule / no symlink" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-ConfigModule / no symlink</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="metadata.desktop / X-KDE-ConfigModule / with symlink" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-ConfigModule / with symlink</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="metadata.desktop / X-KDE-ConfigModule, X-KDE-Library / no symlink" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-ConfigModule, X-KDE-Library / no symlink</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="metadata.desktop / X-KDE-ConfigModule, X-KDE-Library / with symlink" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-ConfigModule, X-KDE-Library / with symlink</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="metadata.desktop / X-KDE-Library / no symlink" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-Library / no symlink</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="metadata.desktop / X-KDE-Library / with symlink" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-Library / with symlink</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="metadata.desktop / X-KDE-Library, X-KDE-ConfigModule / no symlink" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-Library, X-KDE-ConfigModule / no symlink</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="metadata.desktop / X-KDE-Library, X-KDE-ConfigModule / with symlink" calcext:value-type="string">
+      <text:p>metadata.desktop / X-KDE-Library, X-KDE-ConfigModule / with symlink</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro4">
+     <table:table-cell office:value-type="string" office:string-value="Arch Linux&#x0a;" calcext:value-type="string"><text:p>Arch Linux</text:p><text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.24.2" calcext:value-type="string">
+      <text:p>5.24.2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.24.2" calcext:value-type="string">
+      <text:p>5.24.2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.91.0" calcext:value-type="string">
+      <text:p>5.91.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.15.2" calcext:value-type="string">
+      <text:p>5.15.2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro4">
+     <table:table-cell office:value-type="string" office:string-value="Arch Linux&#x0a;" calcext:value-type="string"><text:p>Arch Linux</text:p><text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.24.1" calcext:value-type="string">
+      <text:p>5.24.1</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.24.1" calcext:value-type="string">
+      <text:p>5.24.1</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.91.0" calcext:value-type="string">
+      <text:p>5.91.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.15.2" calcext:value-type="string">
+      <text:p>5.15.2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro4">
+     <table:table-cell office:value-type="string" office:string-value="Arch Linux&#x0a;" calcext:value-type="string"><text:p>Arch Linux</text:p><text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.24.0" calcext:value-type="string">
+      <text:p>5.24.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.24.0" calcext:value-type="string">
+      <text:p>5.24.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro4">
+     <table:table-cell office:value-type="string" office:string-value="KDE neon User&#x0a;20220210-0946" calcext:value-type="string"><text:p>KDE neon User</text:p><text:p>20220210-0946</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.24.0" calcext:value-type="string">
+      <text:p>5.24.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.24.0" calcext:value-type="string">
+      <text:p>5.24.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.90.0" calcext:value-type="string">
+      <text:p>5.90.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.15.3" calcext:value-type="string">
+      <text:p>5.15.3</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro4">
+     <table:table-cell office:value-type="string" office:string-value="Arch Linux&#x0a;" calcext:value-type="string"><text:p>Arch Linux</text:p><text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.23.5" calcext:value-type="string">
+      <text:p>5.23.5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.23.5" calcext:value-type="string">
+      <text:p>5.23.5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.90.0" calcext:value-type="string">
+      <text:p>5.90.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.15.2" calcext:value-type="string">
+      <text:p>5.15.2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro4">
+     <table:table-cell office:value-type="string" office:string-value="KDE neon User&#x0a;20211230-0945" calcext:value-type="string"><text:p>KDE neon User</text:p><text:p>20211230-0945</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.23.4" calcext:value-type="string">
+      <text:p>5.23.4</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.89.0" calcext:value-type="string">
+      <text:p>5.89.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.15.3" calcext:value-type="string">
+      <text:p>5.15.3</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro4">
+     <table:table-cell office:value-type="string" office:string-value="KDE neon User&#x0a;20211104-0946" calcext:value-type="string"><text:p>KDE neon User</text:p><text:p>20211104-0946</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce5" office:value-type="string" office:string-value="5.23.2" calcext:value-type="string">
+      <text:p>5.23.2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce5" office:value-type="string" office:string-value="5.23.2" calcext:value-type="string">
+      <text:p>5.23.2</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce5" office:value-type="string" office:string-value="5.87.0" calcext:value-type="string">
+      <text:p>5.87.0</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce5" office:value-type="string" office:string-value="5.15.3" calcext:value-type="string">
+      <text:p>5.15.3</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce5" office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce5" office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce5" office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce5" office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce5" office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce5" office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce5" office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell table:style-name="ce5" office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro4">
+     <table:table-cell office:value-type="string" office:string-value="KDE neon User&#x0a;20211021-0945" calcext:value-type="string"><text:p>KDE neon User</text:p><text:p>20211021-0945</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.23.1" calcext:value-type="string">
+      <text:p>5.23.1</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.23.1" calcext:value-type="string">
+      <text:p>5.23.1</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.87.0" calcext:value-type="string">
+      <text:p>5.87.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.15.3" calcext:value-type="string">
+      <text:p>5.15.3</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro4">
+     <table:table-cell office:value-type="string" office:string-value="Kubuntu&#x0a;22.10" calcext:value-type="string"><text:p>Kubuntu</text:p><text:p>22.10</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.22.5" calcext:value-type="string">
+      <text:p>5.22.5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.22.5" calcext:value-type="string">
+      <text:p>5.22.5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.86.0" calcext:value-type="string">
+      <text:p>5.86.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.12.2" calcext:value-type="string">
+      <text:p>5.12.2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro4">
+     <table:table-cell office:value-type="string" office:string-value="Debian&#x0a;11.2.0" calcext:value-type="string"><text:p>Debian</text:p><text:p>11.2.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.20.5" calcext:value-type="string">
+      <text:p>5.20.5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.20.5" calcext:value-type="string">
+      <text:p>5.20.5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.78.0" calcext:value-type="string">
+      <text:p>5.78.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.15.2" calcext:value-type="string">
+      <text:p>5.15.2</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="string" office:string-value="Kubuntu&#x0a;20.04.3" calcext:value-type="string"><text:p>Kubuntu</text:p><text:p>20.04.3</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.18.5" calcext:value-type="string">
+      <text:p>5.18.5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.18.5" calcext:value-type="string">
+      <text:p>5.18.5</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.68.0" calcext:value-type="string">
+      <text:p>5.68.0</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="5.12.8" calcext:value-type="string">
+      <text:p>5.12.8</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="error" calcext:value-type="string">
+      <text:p>error</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="no button" calcext:value-type="string">
+      <text:p>no button</text:p>
+     </table:table-cell>
+     <table:table-cell office:value-type="string" office:string-value="works" calcext:value-type="string">
+      <text:p>works</text:p>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell office:value-type="float" office:value="0" calcext:value-type="float">
+      <text:p/>
+     </table:table-cell>
+     <table:table-cell table:number-columns-repeated="1011"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2" table:number-rows-repeated="1048549">
+     <table:table-cell table:number-columns-repeated="1024"/>
+    </table:table-row>
+    <table:table-row table:style-name="ro2">
+     <table:table-cell table:number-columns-repeated="1024"/>
+    </table:table-row>
+    <calcext:conditional-formats>
+     <calcext:conditional-format calcext:target-range-address="transposed.A1:transposed.AMJ1048576">
+      <calcext:condition calcext:apply-style-name="bg works" calcext:value="=&quot;works&quot;" calcext:base-cell-address="transposed.A1"/>
+      <calcext:condition calcext:apply-style-name="bg no button" calcext:value="=&quot;no button&quot;" calcext:base-cell-address="transposed.A1"/>
+      <calcext:condition calcext:apply-style-name="bg error" calcext:value="=&quot;error&quot;" calcext:base-cell-address="transposed.A1"/>
+     </calcext:conditional-format>
+    </calcext:conditional-formats>
+   </table:table>
+   <table:named-expressions/>
+   <table:database-ranges>
+    <table:database-range table:name="__Anonymous_Sheet_DB__0" table:target-range-address="&apos;configuration button&apos;.A6:&apos;configuration button&apos;.A14" table:contains-header="false">
+     <table:sort>
+      <table:sort-by table:field-number="0" table:data-type="automatic"/>
+     </table:sort>
+    </table:database-range>
+   </table:database-ranges>
+  </office:spreadsheet>
+ </office:body>
+</office:document>
