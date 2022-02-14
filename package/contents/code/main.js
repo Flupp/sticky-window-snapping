@@ -32,7 +32,7 @@ var config = {
 	opacityOfSnapped: 0.8,
 	opacityOfUnaffected: 0.2,
 	gap: 0,
-        threshold: 0
+    threshold: 0
 };
 var enabledCurrently = config.enabledUsually;
 
@@ -84,7 +84,7 @@ function loadConfig() {
 	config.opacityOfUnaffected      = 0.01 *  readConfig("opacityOfUnaffected"     , 100 * config.opacityOfUnaffected     );
 	config.gap                      = 1    *  readConfig("gap"                     ,       config.gap                     );
 	config.threshold                = 1    *  readConfig("threshold"               ,       config.threshold               );
-        config.threshold += config.gap;
+    config.threshold += config.gap;
 }
 
 function connectClient(client) {
@@ -126,7 +126,7 @@ function clientStartUserMovedResized(client) {
 	}
 
 	if (!enabledCurrently) return;
-	if (!client.resize) return;
+	// if (!client.resize) return;
 	snaps.length = 0;
 	ignoreds.length = 0;
 	firstClientStepUserMovedResized = true
@@ -196,7 +196,7 @@ function clientStartUserMovedResized(client) {
 		if (snap.lr || snap.ll || snap.rl || snap.rr || snap.tb || snap.tt || snap.bt || snap.bb) {
 			if (!config.liveUpdate) {
 				if (c.minimized) {
-					snap.minimizeWhenFinished = true;
+					// snap.minimizeWhenFinished = true;
 					c.minimized = false;
 				}
 				snap.opacity = config.opacityOfSnapped;
@@ -257,7 +257,7 @@ function clientResized(client, rect) {
 		if (resizedClientInfo.bMoved && s.bb) moveBto(g, rect.y + rect.height, 0);
 		if (setGeometry(s.client, g, s.lr || s.rr, s.tb || s.bb)) {
 			if (!s.minimizeWhenFinished && s.client.minimized) {
-				s.minimizeWhenFinished = true;
+				// s.minimizeWhenFinished = true;
 				s.client.minimized = false;
 			}
 			if (s.opacity !== config.opacityOfSnapped) {
