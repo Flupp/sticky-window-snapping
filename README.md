@@ -1,5 +1,9 @@
 # Sticky Window Snapping
 
+This is a fork of Toni Dietze's [Sticky Window Snapping](https://github.com/Flupp/sticky-window-snapping) modified for compatibility with my [Tile Gaps](https://github.com/nclarius/tile-gaps). This version adds an option in the configuration to set the tile gap size between windows, and will properly retain the gap when resizing adjacent windows.
+
+<hr>
+
 KWin script to let snapped window edges stick together when one window is resized.
 
 The script provides an easy to use configuration dialog, which can be reached via `systemsettings`.
