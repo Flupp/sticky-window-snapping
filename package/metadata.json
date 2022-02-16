@@ -16,6 +16,7 @@
 			"KWin/Script",
 			"KCModule"
 		],
+		"EnabledByDefault": "true",
 		"Version": "1.0.1",
 		"Website": "https://github.com/Flupp/sticky-window-snapping"
 	},
@@ -23,4 +24,4 @@
 	"X-KDE-PluginKeyword": "sticky-window-snapping",
 	"X-Plasma-API": "javascript",
 	"X-Plasma-MainScript": "code/main.js"
-} 
+}

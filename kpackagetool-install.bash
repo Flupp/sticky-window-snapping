@@ -2,7 +2,7 @@
 
 set -Ceux
 
-kpackagetool5 --install package
+kpackagetool5 --install package || kpackagetool --upgrade package
 
 mkdir --parents --verbose ~/.local/share/kservices5/
 ln --relative --symbolic --verbose  \

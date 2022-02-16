@@ -19,4 +19,6 @@ X-KDE-ConfigModule=kwin/effects/configs/kcm_kwin4_genericscripted
 X-KDE-PluginKeyword=sticky-window-snapping
 X-KDE-ParentComponents=sticky-window-snapping
 
+X-KDE-PluginInfo-EnabledByDefault=true
+
 Type=Service
