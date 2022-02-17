@@ -5,7 +5,7 @@ This is a fork of Toni Dietze's [Sticky Window Snapping](https://github.com/Flup
 ## Installation
 
 1. Clone the repository (top right green button *Code* > *Download ZIP* > unpack, or `git clone https://github.com/nclarius/sticky-window-snapping.git`).
-2. Change into the folder, and run `kpackagetool-install.bash` (click on the file > *Execute*, or `./kpackagetooll-install.sh`).
+2. Change into the folder, and run `kpackagetool-install.bash` (click on the file > *Execute*, or `./kpackagetooll-install.bash`).
 
 ## Configuration
 
