@@ -29,7 +29,10 @@
     <entry name="opacityOfUnaffected" type="string">
       <default>20</default>
     </entry>
-    <entry name="threshold" type="string">
+    <entry name="gap" type="int">
+      <default>0</default>
+    </entry>
+    <entry name="threshold" type="int">
       <default>0</default>
     </entry>
   </group>
