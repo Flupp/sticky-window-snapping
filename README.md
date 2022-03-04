@@ -9,7 +9,7 @@ This is a fork of Toni Dietze's [Sticky Window Snapping](https://github.com/Flup
 
 ## Configuration
 
-*System Settings* > *Window Management* > *KWin scripts* > settings wheel for the script.
+*System Settings* > *Window Management* > *KWin Scripts* > settings button for the script.
 
 You may need to disable and re-enable the script (using the checkbox) in order for the changes to take effect.
 
