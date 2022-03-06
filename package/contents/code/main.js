@@ -62,7 +62,7 @@ function init() {
 	registerShortcut(
 		shortcutPrefix + "enable/disable",
 		shortcutPrefix + "enable/disable",
-		"Meta+Shift+S",
+		"",
 		function () {
 			config.enabledUsually = !config.enabledUsually;
 			enabledCurrently = config.enabledUsually;
@@ -71,7 +71,7 @@ function init() {
 	registerShortcut(
 		shortcutPrefix + "enable/disable temporarily",
 		shortcutPrefix + "enable/disable temporarily",
-		"Ctrl+Shift+S",
+		"",
 		function () { enabledCurrently = !enabledCurrently; }
 	);
 }
