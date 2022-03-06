@@ -27,6 +27,7 @@ var config = {
 	ignoreMaximized: true,
 	ignoreMinimized: false,
 	ignoreShaded: true,
+	ignoreNoncurrentDesktops: true,
 	ignoreBorderOfClientArea: true,
 	liveUpdate: true,
 	opacityOfSnapped: 0.8,
@@ -80,6 +81,7 @@ function loadConfig() {
 	config.ignoreMaximized          = true == readConfig("ignoreMaximized"         ,       config.ignoreMaximized         );
 	config.ignoreMinimized          = true == readConfig("ignoreMinimized"         ,       config.ignoreMinimized         );
 	config.ignoreShaded             = true == readConfig("ignoreShaded"            ,       config.ignoreShaded            );
+	config.ignoreNoncurrentDesktops = true == readConfig("ignoreNoncurrentDesktops",       config.ignoreNoncurrentDesktops);
 	config.ignoreBorderOfClientArea = true == readConfig("ignoreBorderOfClientArea",       config.ignoreBorderOfClientArea);
 	config.liveUpdate               = true == readConfig("liveUpdate"              ,       config.liveUpdate              );
 	config.opacityOfSnapped         = 0.01 *  readConfig("opacityOfSnapped"        , 100 * config.opacityOfSnapped        );
@@ -161,7 +163,7 @@ function clientStartUserMovedResized(client) {
 		// filter invisible unaffected windows
 		if (c == client) continue;
 		if (c.specialWindow) continue;
-		if (c.desktop !== workspace.currentDesktop && !c.onAllDesktops) continue;
+		if (config.ignoreNoncurrentDesktops && c.desktop !== workspace.currentDesktop && !c.onAllDesktops) continue;
 		if (c.screen !== client.screen) continue;
 		if (config.ignoreMinimized && c.minimized) continue;
 		if (c.activities.length !== 0 && c.activities.indexOf(workspace.currentActivity) === -1) continue;
