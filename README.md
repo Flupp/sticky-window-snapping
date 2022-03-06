@@ -8,8 +8,8 @@ The script provides an easy to use configuration dialog, which can be reached vi
 When windows stick accidentally, you can release them by shaking the mouse while still resizing. The exact behavior is configurable. This feature can also be disabled.
 
 Additionally, the script registers two global shortcuts: one for enabling/disabling the script permanently, and one for enabling/disabling the script only for the next resize.
-The default shortcut keys are Meta+Shift+S and Ctrl+Shift+S, respectively.
-You can change them using `systemsettings` (or `kcmshell4 keys`); they are associated with the component “KWin”.
+By default, no key combinations are assigned.
+You can change this using `systemsettings` (or `kcmshell6 keys`); the shortcuts are associated with the component “KWin”.
 Their names are prefixed by “KWin Script: Sticky Window Snapping”.
 
 
