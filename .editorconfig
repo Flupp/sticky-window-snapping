@@ -1,0 +1,21 @@
+root = true
+
+[*]
+end_of_line = lf
+indent_style = tab
+
+[*.svg]
+indent_size = 2
+indent_style = space
+
+[*.yaml]
+indent_size = 2
+indent_style = space
+
+[**/config/*.xml]
+indent_size = 2
+indent_style = space
+
+[**/ui/*.ui]
+indent_size = 1
+indent_style = space
