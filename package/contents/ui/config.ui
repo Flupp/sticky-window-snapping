@@ -107,6 +107,23 @@
         </widget>
        </item>
        <item>
+        <widget class="Line" name="line_general">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_general">
+         <property name="text">
+          <string>There are two global keyboard shortcuts: one for enabling/disabling the script permanently, and one for enabling/disabling the script only for the next resize. The shortcuts can be changed via systemsettings: go to global shortcuts and select the component “KWin”. The shortcut’s names are prefixed by “KWin Script: Sticky Window Snapping”.</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer_general">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -170,6 +187,23 @@
           </widget>
          </item>
         </layout>
+       </item>
+       <item>
+        <widget class="Line" name="line_shake">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_shake">
+         <property name="text">
+          <string>When “shake to abort sticking” is enabled, move the mouse during resize “number of turns” times at least “minimal distance” back and forth in resize direction to stop other windows from sticking.</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
        </item>
        <item>
         <spacer name="verticalSpacer_shake">
@@ -241,35 +275,56 @@
       <attribute name="title">
        <string>Fine Tuning</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayoutFineTuning">
-       <item row="0" column="0">
-        <widget class="QLabel" name="label_threshold">
-         <property name="text">
-          <string>threshold:</string>
-         </property>
-        </widget>
+      <layout class="QVBoxLayout" name="verticalLayout_fineTuning">
+       <item>
+        <layout class="QGridLayout" name="gridLayout_fineTuning">
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_threshold">
+           <property name="text">
+            <string>threshold:</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QSpinBox" name="kcfg_threshold">
+           <property name="suffix">
+            <string> px</string>
+           </property>
+           <property name="maximum">
+            <number>100</number>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QSlider" name="slider_threshold">
+           <property name="maximum">
+            <number>100</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </item>
-       <item row="0" column="1">
-        <widget class="QSpinBox" name="kcfg_threshold">
-         <property name="suffix">
-          <string> px</string>
-         </property>
-         <property name="maximum">
-          <number>100</number>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QSlider" name="slider_threshold">
-         <property name="maximum">
-          <number>100</number>
-         </property>
+       <item>
+        <widget class="Line" name="line_fineTuning">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
        </item>
-       <item row="1" column="0">
+       <item>
+        <widget class="QLabel" name="label_fineTuning">
+         <property name="text">
+          <string>If the script does not work, increasing the threshold might help. Only window edges with a distance smaller than or equal to “threshold” are considered for sticking.</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer_fineTuning">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -278,30 +333,16 @@
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_info">
-      <attribute name="title">
-       <string>Info</string>
-      </attribute>
-      <layout class="QVBoxLayout" name="verticalLayoutInfo">
-       <item>
-        <widget class="QLabel" name="label">
-         <property name="text">
-          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;You might have to restart KWin or relogin in order to finally adopt your changes.&lt;/p&gt;&lt;p&gt;If the script does not work, increasing the threshold might help.&lt;/p&gt;&lt;p&gt;Furthermore, there are two global keyboard shortcuts: one for enabling/disabling the script permanently, and one for enabling/disabling the script only for the next resize. The shortcuts can be changed via systemsettings: go to global shortcuts and select the component “KWin”. The shortcut’s names are prefixed by “KWin Script: Sticky Window Snapping”.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="wordWrap">
-          <bool>true</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <spacer name="verticalSpacer_info">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-        </spacer>
-       </item>
-      </layout>
-     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>In order to finally adopt your changes, you might have to turn the script off and on again, restart KWin, or relogin.</string>
+     </property>
+     <property name="wordWrap">
+      <bool>true</bool>
+     </property>
     </widget>
    </item>
   </layout>
