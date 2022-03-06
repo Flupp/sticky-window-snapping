@@ -253,6 +253,16 @@
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="kcfg_ignoreNoncurrentDesktops">
+         <property name="text">
+          <string>ignore windows that are not on the current virtual desktop</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QCheckBox" name="kcfg_ignoreBorderOfClientArea">
          <property name="text">
           <string>ignore window edges that touch an edge of the screen</string>

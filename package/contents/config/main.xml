@@ -17,6 +17,9 @@
     <entry name="ignoreShaded" type="bool">
       <default>true</default>
     </entry>
+    <entry name="ignoreNoncurrentDesktops" type="bool">
+      <default>true</default>
+    </entry>
     <entry name="ignoreBorderOfClientArea" type="bool">
       <default>true</default>
     </entry>
