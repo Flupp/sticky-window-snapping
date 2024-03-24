@@ -17,7 +17,7 @@ Their names are prefixed by “KWin Script: Sticky Window Snapping”.
 
 * If the configuration dialog is not reachable via `systemsettings`, then try running the following included script and restart `systemsettings`:
 
-      ~/.local/share/kwin/scripts/sticky-window-snapping/metadata-backwards-compatibility-fix.bash
+      ~/.local/share/kwin/scripts/sticky-window-snapping/backwards-compatibility/metadata-backwards-compatibility-fix.bash
 
 * If the script does not work, increasing the threshold in the configuration dialog might help.
 
