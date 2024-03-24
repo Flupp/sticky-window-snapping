@@ -40,6 +40,52 @@ var config = {
 var enabledCurrently = config.enabledUsually;
 
 /****************************************************************************/
+// backwards compatibility layer
+
+var compat
+	= (workspace.windowList !== undefined) ? {  // Plasma 6
+		workspace_windowList                 : function(    ) { return workspace.windowList(); },
+		workspace_windowAdded_connect        : function(   f) { return workspace.windowAdded          .connect(f); },
+		workspace_windowRemoved_connect      : function(   f) { return workspace.windowRemoved        .connect(f); },
+		interactiveMoveResizeStarted_connect : function(w, f) { return w.interactiveMoveResizeStarted .connect(function( ) { return f(w   ); }); },
+		interactiveMoveResizeStepped_connect : function(w, f) { return w.interactiveMoveResizeStepped .connect(function(r) { return f(w, r); }); },
+		interactiveMoveResizeFinished_connect: function(w, f) { return w.interactiveMoveResizeFinished.connect(function( ) { return f(w   ); }); },
+		Window_frameGeometry                 : function(w   ) { return w.frameGeometry; },
+		Window_frameGeometry_set             : function(w, g) { return w.frameGeometry = g; },
+		Window_onCurrentDesktop              : function(w   ) {
+			if (w.onAllDesktops)
+				return true;
+			for (var i = 0; i < w.desktops.length; i++)
+				if (w.desktops[i].id === workspace.currentDesktop.id)
+					return true;
+			return false;
+		}
+	}
+	: (workspace.clientList !== undefined) ? {  // Plasma 5
+		workspace_windowList                 : function(    ) { return workspace.clientList(); },
+		workspace_windowAdded_connect        : function(   f) { return workspace.clientAdded         .connect(f); },
+		workspace_windowRemoved_connect      : function(   f) { return workspace.clientRemoved       .connect(f); },
+		interactiveMoveResizeStarted_connect : function(w, f) { return w.clientStartUserMovedResized .connect(f); },
+		interactiveMoveResizeStepped_connect : function(w, f) { return w.clientStepUserMovedResized  .connect(f); },
+		interactiveMoveResizeFinished_connect: function(w, f) { return w.clientFinishUserMovedResized.connect(f); },
+		Window_frameGeometry                 : function(w   ) { return w.geometry; },
+		Window_frameGeometry_set             : function(w, g) { return w.geometry = g; },
+		Window_onCurrentDesktop              : function(w   ) { return w.onAllDesktops || w.desktop === workspace.currentDesktop; }
+	}
+	: null;
+
+if (compat === null) {
+	print("Sticky Window Snapping is incompatible with this version of KWin.");
+	return;
+}
+
+// compatibility with very old KWin (presumably KWin < 5.22)
+compat.Math_sign
+	= Math.sign !== undefined
+	? Math.sign
+	: function(x) { return x > 0 ? 1 : x < 0 ? -1 : x; };
+
+/****************************************************************************/
 
 var snaps = [];
 var ignoreds = [];
@@ -51,12 +97,12 @@ function init() {
 	enabledCurrently = config.enabledUsually;
 	options.configChanged.connect(loadConfig);  // it is not documented, when this event is triggered; connecting nevertheless
 
-	var clients = workspace.clientList();
+	var clients = compat.workspace_windowList();
 	for (var i = 0; i < clients.length; i++) {
 		connectClient(clients[i]);
 	}
-	workspace.clientAdded.connect(connectClient);
-	workspace.clientRemoved.connect(clientRemoved);
+	compat.workspace_windowAdded_connect(connectClient);
+	compat.workspace_windowRemoved_connect(clientRemoved);
 
 	var shortcutPrefix = "KWin Script: Sticky Window Snapping: ";
 	registerShortcut(
@@ -94,10 +140,10 @@ function loadConfig() {
 
 function connectClient(client) {
 	if (client.specialWindow) return;
-	client.clientStartUserMovedResized.connect(clientStartUserMovedResized);
+	compat.interactiveMoveResizeStarted_connect(client, clientStartUserMovedResized);
 	if (config.liveUpdate || config.shakeEnabled)
-		client.clientStepUserMovedResized.connect(clientStepUserMovedResized);
-	client.clientFinishUserMovedResized.connect(clientFinishUserMovedResized);
+		compat.interactiveMoveResizeStepped_connect(client, clientStepUserMovedResized);
+	compat.interactiveMoveResizeFinished_connect(client, clientFinishUserMovedResized);
 }
 
 function clientRemoved(client) {
@@ -135,10 +181,10 @@ function clientStartUserMovedResized(client) {
 	snaps.length = 0;
 	ignoreds.length = 0;
 	firstClientStepUserMovedResized = true
-	var l1 = client.geometry.x;
-	var r1 = client.geometry.width + l1;
-	var t1 = client.geometry.y;
-	var b1 = client.geometry.height + t1;
+	var l1 = compat.Window_frameGeometry(client).x;
+	var r1 = compat.Window_frameGeometry(client).width + l1;
+	var t1 = compat.Window_frameGeometry(client).y;
+	var b1 = compat.Window_frameGeometry(client).height + t1;
 	var l1IsSticky = true, r1IsSticky = true, t1IsSticky = true, b1IsSticky = true;
 	if (config.ignoreBorderOfClientArea) {
 		var clientArea = workspace.clientArea(KWin.PlacementArea, client);
@@ -149,12 +195,12 @@ function clientStartUserMovedResized(client) {
 	}
 	resizedClientInfo = { lOrig : l1   , rOrig : r1   , tOrig : t1   , bOrig : b1
 	                    , lMoved: false, rMoved: false, tMoved: false, bMoved: false
-	                    , wShake: {count: 0, direction: 0, val: client.geometry.width , turnVal: client.geometry.width }
-	                    , hShake: {count: 0, direction: 0, val: client.geometry.height, turnVal: client.geometry.height} };
-	var clients = workspace.clientList();
+	                    , wShake: {count: 0, direction: 0, val: compat.Window_frameGeometry(client).width , turnVal: compat.Window_frameGeometry(client).width }
+	                    , hShake: {count: 0, direction: 0, val: compat.Window_frameGeometry(client).height, turnVal: compat.Window_frameGeometry(client).height} };
+	var clients = compat.workspace_windowList();
 	for (var i = 0; i < clients.length; i++) {
 		var c = clients[i];
-		var g = c.geometry;
+		var g = compat.Window_frameGeometry(c);
 		var l2 = g.x;
 		var r2 = g.width + l2;
 		var t2 = g.y;
@@ -163,7 +209,7 @@ function clientStartUserMovedResized(client) {
 		// filter invisible unaffected windows
 		if (c == client) continue;
 		if (c.specialWindow) continue;
-		if (config.ignoreNoncurrentDesktops && c.desktop !== workspace.currentDesktop && !c.onAllDesktops) continue;
+		if (config.ignoreNoncurrentDesktops && !compat.Window_onCurrentDesktop(c)) continue;
 		if (c.screen !== client.screen) continue;
 		if (config.ignoreMinimized && c.minimized) continue;
 		if (c.activities.length !== 0 && c.activities.indexOf(workspace.currentActivity) === -1) continue;
@@ -198,7 +244,7 @@ function clientStartUserMovedResized(client) {
 			minimizeWhenFinished: false,
 			opacity: 1,
 			originalOpacity: c.opacity,
-			originalGeometry: shallowCopy(c.geometry)
+			originalGeometry: shallowCopy(compat.Window_frameGeometry(c))
 		};
 		if (snap.lr || snap.ll || snap.rl || snap.rr || snap.tb || snap.tt || snap.bt || snap.bb) {
 			if (!config.liveUpdate) {
@@ -221,7 +267,7 @@ function finish(client, abort) {
 	if (resizedClientInfo === null) return;
 	firstClientStepUserMovedResized = false;
 	if (!abort) {
-		clientResized(client, client.geometry);
+		clientResized(client, compat.Window_frameGeometry(client));
 	}
 	for (var i = 0; i < snaps.length; ++i) {
 		if (snaps[i].minimizeWhenFinished) {
@@ -231,7 +277,7 @@ function finish(client, abort) {
 			snaps[i].client.opacity = snaps[i].originalOpacity;
 		}
 		if (abort) {
-			snaps[i].client.geometry = snaps[i].originalGeometry;
+			compat.Window_frameGeometry_set(snaps[i].client, snaps[i].originalGeometry);
 		}
 	}
 	snaps.length = 0;
@@ -354,8 +400,8 @@ function sanitizeQSize(size) {
 /* returns true if the client’s geometry is changed, otherwise returns false */
 function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop) {
 	var minSize = {
-		w: Math.max(sanitizeQSize(client.minSize).w, Math.min(50, client.geometry.width)),
-		h: Math.max(sanitizeQSize(client.minSize).h, Math.min(50, client.geometry.height))
+		w: Math.max(sanitizeQSize(client.minSize).w, Math.min(50, compat.Window_frameGeometry(client).width)),
+		h: Math.max(sanitizeQSize(client.minSize).h, Math.min(50, compat.Window_frameGeometry(client).height))
 	};
 
 	function applySizeConstraints() {
@@ -373,20 +419,20 @@ function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop)
 	applySizeConstraints();
 	var ca = workspace.clientArea(KWin.PlacementArea, client);
 	// each updated border position is restricted to the client area except it already lies outside of it
-	var left   = Math.min(ca.x, client.geometry.x);
-	var top    = Math.min(ca.y, client.geometry.y);
-	var right  = Math.max(ca.x + ca.width , client.geometry.x + client.geometry.width );
-	var bottom = Math.max(ca.y + ca.height, client.geometry.y + client.geometry.height);
+	var left   = Math.min(ca.x, compat.Window_frameGeometry(client).x);
+	var top    = Math.min(ca.y, compat.Window_frameGeometry(client).y);
+	var right  = Math.max(ca.x + ca.width , compat.Window_frameGeometry(client).x + compat.Window_frameGeometry(client).width );
+	var bottom = Math.max(ca.y + ca.height, compat.Window_frameGeometry(client).y + compat.Window_frameGeometry(client).height);
 	if (geometry.x                   < left  ) { moveLto(geometry, left  ); pinRightInsteadLeft = false; }
 	if (geometry.y                   < top   ) { moveTto(geometry, top   ); pinBottomInsteadTop = false; }
 	if (geometry.x + geometry.width  > right ) { moveRto(geometry, right ); pinRightInsteadLeft = true;  }
 	if (geometry.y + geometry.height > bottom) { moveBto(geometry, bottom); pinBottomInsteadTop = true;  }
 	applySizeConstraints();
 
-	if (shallowEquals(client.geometry, geometry)) {
+	if (shallowEquals(compat.Window_frameGeometry(client), geometry)) {
 		return false;
 	} else {
-		client.geometry = geometry;
+		compat.Window_frameGeometry_set(client, geometry);
 		return true;
 	}
 }
