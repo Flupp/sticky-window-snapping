@@ -99,10 +99,10 @@ function init() {
 
 	var clients = compat.workspace_windowList();
 	for (var i = 0; i < clients.length; i++) {
-		connectClient(clients[i]);
+		windowAdded(clients[i]);
 	}
-	compat.workspace_windowAdded_connect(connectClient);
-	compat.workspace_windowRemoved_connect(clientRemoved);
+	compat.workspace_windowAdded_connect(windowAdded);
+	compat.workspace_windowRemoved_connect(windowRemoved);
 
 	var shortcutPrefix = "KWin Script: Sticky Window Snapping: ";
 	registerShortcut(
@@ -138,15 +138,15 @@ function loadConfig() {
 	config.threshold                = 1    *  readConfig("threshold"               ,       config.threshold               );
 }
 
-function connectClient(client) {
+function windowAdded(client) {
 	if (client.specialWindow) return;
-	compat.interactiveMoveResizeStarted_connect(client, clientStartUserMovedResized);
+	compat.interactiveMoveResizeStarted_connect(client, interactiveMoveResizeStarted);
 	if (config.liveUpdate || config.shakeEnabled)
-		compat.interactiveMoveResizeStepped_connect(client, clientStepUserMovedResized);
-	compat.interactiveMoveResizeFinished_connect(client, clientFinishUserMovedResized);
+		compat.interactiveMoveResizeStepped_connect(client, interactiveMoveResizeStepped);
+	compat.interactiveMoveResizeFinished_connect(client, interactiveMoveResizeFinished);
 }
 
-function clientRemoved(client) {
+function windowRemoved(client) {
 	function checkArray(arr) {
 		var i = 0;
 		while (i < arr.length) {
@@ -161,7 +161,7 @@ function clientRemoved(client) {
 	checkArray(ignoreds);
 }
 
-function clientStartUserMovedResized(client) {
+function interactiveMoveResizeStarted(client) {
 	function addIgnored(client) {
 		if (config.opacityOfUnaffected === 1) return;
 		var ignored = {
@@ -302,7 +302,7 @@ function updateShake(shake, val) {
 	return config.shakeEnabled && shake.count > config.shakeTurns;
 }
 
-function clientStepUserMovedResized(client, rect) {
+function interactiveMoveResizeStepped(client, rect) {
 	if (resizedClientInfo === null) return;
 	if (!client.resize) return;
 
@@ -318,7 +318,7 @@ function clientStepUserMovedResized(client, rect) {
 	firstClientStepUserMovedResized = false;
 }
 
-function clientFinishUserMovedResized(client) {
+function interactiveMoveResizeFinished(client) {
 	finish(client, false);
 }
 
