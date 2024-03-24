@@ -172,10 +172,11 @@ function clientStartUserMovedResized(client) {
 	snaps.length = 0;
 	ignoreds.length = 0;
 	firstClientStepUserMovedResized = true
-	var l1 = compat.client_frameGeometry(client).x;
-	var r1 = compat.client_frameGeometry(client).width + l1;
-	var t1 = compat.client_frameGeometry(client).y;
-	var b1 = compat.client_frameGeometry(client).height + t1;
+	var g1 = compat.client_frameGeometry(client);
+	var l1 = g1.x;
+	var r1 = g1.width + l1;
+	var t1 = g1.y;
+	var b1 = g1.height + t1;
 	var l1IsSticky = true, r1IsSticky = true, t1IsSticky = true, b1IsSticky = true;
 	if (config.ignoreBorderOfClientArea) {
 		var clientArea = workspace.clientArea(KWin.PlacementArea, client);
@@ -186,16 +187,16 @@ function clientStartUserMovedResized(client) {
 	}
 	resizedClientInfo = { lOrig : l1   , rOrig : r1   , tOrig : t1   , bOrig : b1
 	                    , lMoved: false, rMoved: false, tMoved: false, bMoved: false
-	                    , wShake: {count: 0, direction: 0, val: compat.client_frameGeometry(client).width , turnVal: compat.client_frameGeometry(client).width }
-	                    , hShake: {count: 0, direction: 0, val: compat.client_frameGeometry(client).height, turnVal: compat.client_frameGeometry(client).height} };
+	                    , wShake: {count: 0, direction: 0, val: g1.width , turnVal: g1.width }
+	                    , hShake: {count: 0, direction: 0, val: g1.height, turnVal: g1.height} };
 	var clients = compat.workspace_windowList();
 	for (var i = 0; i < clients.length; i++) {
 		var c = clients[i];
-		var g = compat.client_frameGeometry(c);
-		var l2 = g.x;
-		var r2 = g.width + l2;
-		var t2 = g.y;
-		var b2 = g.height + t2;
+		var g2 = compat.client_frameGeometry(c);
+		var l2 = g2.x;
+		var r2 = g2.width + l2;
+		var t2 = g2.y;
+		var b2 = g2.height + t2;
 
 		// filter invisible unaffected windows
 		if (c == client) continue;
@@ -208,7 +209,7 @@ function clientStartUserMovedResized(client) {
 		// filter potentially visible unaffected windows
 		if (  c.fullScreen
 		   || config.ignoreShaded && c.shade
-		   || config.ignoreMaximized && shallowEquals(g, workspace.clientArea(KWin.MaximizeArea, c))
+		   || config.ignoreMaximized && shallowEquals(g2, workspace.clientArea(KWin.MaximizeArea, c))
 		) {
 			addIgnored(c);
 			continue;
@@ -235,7 +236,7 @@ function clientStartUserMovedResized(client) {
 			minimizeWhenFinished: false,
 			opacity: 1,
 			originalOpacity: c.opacity,
-			originalGeometry: shallowCopy(compat.client_frameGeometry(c))
+			originalGeometry: shallowCopy(g2)
 		};
 		if (snap.lr || snap.ll || snap.rl || snap.rr || snap.tb || snap.tt || snap.bt || snap.bb) {
 			if (!config.liveUpdate) {
@@ -390,9 +391,10 @@ function sanitizeQSize(size) {
 
 /* returns true if the client’s geometry is changed, otherwise returns false */
 function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop) {
+	var clientGeometry = compat.client_frameGeometry(client);
 	var minSize = {
-		w: Math.max(sanitizeQSize(client.minSize).w, Math.min(50, compat.client_frameGeometry(client).width)),
-		h: Math.max(sanitizeQSize(client.minSize).h, Math.min(50, compat.client_frameGeometry(client).height))
+		w: Math.max(sanitizeQSize(client.minSize).w, Math.min(50, clientGeometry.width)),
+		h: Math.max(sanitizeQSize(client.minSize).h, Math.min(50, clientGeometry.height))
 	};
 
 	function applySizeConstraints() {
@@ -410,17 +412,17 @@ function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop)
 	applySizeConstraints();
 	var ca = workspace.clientArea(KWin.PlacementArea, client);
 	// each updated border position is restricted to the client area except it already lies outside of it
-	var left   = Math.min(ca.x, compat.client_frameGeometry(client).x);
-	var top    = Math.min(ca.y, compat.client_frameGeometry(client).y);
-	var right  = Math.max(ca.x + ca.width , compat.client_frameGeometry(client).x + compat.client_frameGeometry(client).width );
-	var bottom = Math.max(ca.y + ca.height, compat.client_frameGeometry(client).y + compat.client_frameGeometry(client).height);
+	var left   = Math.min(ca.x, clientGeometry.x);
+	var top    = Math.min(ca.y, clientGeometry.y);
+	var right  = Math.max(ca.x + ca.width , clientGeometry.x + clientGeometry.width );
+	var bottom = Math.max(ca.y + ca.height, clientGeometry.y + clientGeometry.height);
 	if (geometry.x                   < left  ) { moveLto(geometry, left  ); pinRightInsteadLeft = false; }
 	if (geometry.y                   < top   ) { moveTto(geometry, top   ); pinBottomInsteadTop = false; }
 	if (geometry.x + geometry.width  > right ) { moveRto(geometry, right ); pinRightInsteadLeft = true;  }
 	if (geometry.y + geometry.height > bottom) { moveBto(geometry, bottom); pinBottomInsteadTop = true;  }
 	applySizeConstraints();
 
-	if (shallowEquals(compat.client_frameGeometry(client), geometry)) {
+	if (shallowEquals(clientGeometry, geometry)) {
 		return false;
 	} else {
 		compat.client_frameGeometry_set(client, geometry);
