@@ -292,14 +292,22 @@ function finish(client, abort) {
 }
 
 function updateShake(shake, val) {
-	var step = val - shake.val;
-	shake.val = val;
-	if (step !== 0 && Math.sign(step) !== shake.direction && Math.abs(val - shake.turnVal) >= config.shakeThreshold) {
-		shake.turnVal = val;
-		shake.count += 1;
-		shake.direction = Math.sign(step);
+	if (shake.turnVal < val) {
+		if (shake.val < val)
+			shake.val = val
+	} else if (shake.turnVal > val) {
+		if (shake.val > val)
+			shake.val = val
 	}
-	return config.shakeEnabled && shake.count > config.shakeTurns;
+	var distance = shake.val - val;
+	var direction = compat.Math_sign(distance);
+	if (direction !== shake.direction && Math.abs(distance) >= config.shakeThreshold) {
+		shake.turnVal = shake.val;
+		shake.val = val
+		shake.count += 1;
+		shake.direction = direction;
+	}
+	return config.shakeEnabled && shake.count >= config.shakeTurns;
 }
 
 function interactiveMoveResizeStepped(client, rect) {
