@@ -218,7 +218,7 @@ function interactiveMoveResizeStarted(client) {
 		// filter potentially visible unaffected windows
 		if (  c.fullScreen
 		   || config.ignoreShaded && c.shade
-		   || config.ignoreMaximized && shallowEquals(g2, workspace.clientArea(KWin.MaximizeArea, c))
+		   || config.ignoreMaximized && rectEquals(g2, workspace.clientArea(KWin.MaximizeArea, c))
 		) {
 			addIgnored(c);
 			continue;
@@ -391,6 +391,13 @@ function moveBto(rect, y) {
 	rect.height = y - rect.y;
 }
 
+function rectEquals(a, b) {
+	return a.x      === b.x
+	    && a.y      === b.y
+	    && a.width  === b.width
+	    && a.height === b.height;
+}
+
 /* Rename properties of QSize to `w` and `h`.
  *
  * The property names of QSize changed with KWin 5.22.
@@ -439,7 +446,7 @@ function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop)
 	if (geometry.y + geometry.height > bottom) { moveBto(geometry, bottom); pinBottomInsteadTop = true;  }
 	applySizeConstraints();
 
-	if (shallowEquals(oldGeometry, geometry)) {
+	if (rectEquals(oldGeometry, geometry)) {
 		return false;
 	} else {
 		compat.Window_frameGeometry_set(client, geometry);
@@ -457,18 +464,6 @@ function shallowCopy(obj) {
 		}
 		return ret;
 	}
-}
-
-function shallowEquals(x, y) {
-	if (Object.keys(x).length !== Object.keys(y).length) {
-		return false;
-	}
-	for (var p in x) {
-		if (x[p] !== y[p]) {
-			return false;
-		}
-	}
-	return true;
 }
 
 init();
