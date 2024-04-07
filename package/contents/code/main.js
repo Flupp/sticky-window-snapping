@@ -30,6 +30,8 @@ var config = {
 	ignoreNoncurrentDesktops: true,
 	ignoreBorderOfClientArea: true,
 	liveUpdate: true,
+	offsetX: 0,
+	offsetY: 0,
 	opacityOfSnapped: 0.8,
 	opacityOfUnaffected: 0.2,
 	shakeEnabled: true,
@@ -136,6 +138,8 @@ function loadConfig() {
 	config.shakeThreshold           = 1    *  readConfig("shakeThreshold"          ,       config.shakeThreshold          );
 	config.shakeTurns               = 1    *  readConfig("shakeTurns"              ,       config.shakeTurns              );
 	config.threshold                = 1    *  readConfig("threshold"               ,       config.threshold               );
+	config.offsetX                  = 1    *  readConfig("offsetX"                 ,       config.offsetX                 );
+	config.offsetY                  = 1    *  readConfig("offsetY"                 ,       config.offsetY                 );
 }
 
 function windowAdded(client) {
@@ -224,14 +228,14 @@ function interactiveMoveResizeStarted(client) {
 			continue;
 		}
 
-		var lrDist = Math.abs(l1 - r2);
-		var llDist = Math.abs(l1 - l2);
-		var rlDist = Math.abs(r1 - l2);
-		var rrDist = Math.abs(r1 - r2);
-		var tbDist = Math.abs(t1 - b2);
-		var ttDist = Math.abs(t1 - t2);
-		var btDist = Math.abs(b1 - t2);
-		var bbDist = Math.abs(b1 - b2);
+		var lrDist = Math.abs(l1 - r2 - config.offsetX);
+		var llDist = Math.abs(l1 - l2                 );
+		var rlDist = Math.abs(r1 - l2 + config.offsetX);
+		var rrDist = Math.abs(r1 - r2                 );
+		var tbDist = Math.abs(t1 - b2 - config.offsetY);
+		var ttDist = Math.abs(t1 - t2                 );
+		var btDist = Math.abs(b1 - t2 + config.offsetY);
+		var bbDist = Math.abs(b1 - b2                 );
 		var snap = {
 			lr:  l1IsSticky  &&  lrDist <= config.threshold  &&  lrDist < llDist,
 			ll:  l1IsSticky  &&  llDist <= config.threshold  &&  llDist < lrDist,
@@ -339,14 +343,14 @@ function clientResized(client, rect) {
 		var s = snaps[i];
 		var og = s.originalGeometry;
 		var g = {x: og.x, y: og.y, width: og.width, height: og.height};
-		if (resizedClientInfo.lMoved && s.lr) moveRto(g, rect.x);
-		if (resizedClientInfo.lMoved && s.ll) moveLto(g, rect.x);
-		if (resizedClientInfo.rMoved && s.rl) moveLto(g, rect.x + rect.width);
-		if (resizedClientInfo.rMoved && s.rr) moveRto(g, rect.x + rect.width);
-		if (resizedClientInfo.tMoved && s.tb) moveBto(g, rect.y);
-		if (resizedClientInfo.tMoved && s.tt) moveTto(g, rect.y);
-		if (resizedClientInfo.bMoved && s.bt) moveTto(g, rect.y + rect.height);
-		if (resizedClientInfo.bMoved && s.bb) moveBto(g, rect.y + rect.height);
+		if (resizedClientInfo.lMoved && s.lr) moveRto(g, rect.x               - config.offsetX);
+		if (resizedClientInfo.lMoved && s.ll) moveLto(g, rect.x                               );
+		if (resizedClientInfo.rMoved && s.rl) moveLto(g, rect.x + rect.width  + config.offsetX);
+		if (resizedClientInfo.rMoved && s.rr) moveRto(g, rect.x + rect.width                  );
+		if (resizedClientInfo.tMoved && s.tb) moveBto(g, rect.y               - config.offsetY);
+		if (resizedClientInfo.tMoved && s.tt) moveTto(g, rect.y                               );
+		if (resizedClientInfo.bMoved && s.bt) moveTto(g, rect.y + rect.height + config.offsetY);
+		if (resizedClientInfo.bMoved && s.bb) moveBto(g, rect.y + rect.height                 );
 		if (setGeometry(s.client, g, s.lr || s.rr, s.tb || s.bb)) {
 			if (!s.minimizeWhenFinished && s.client.minimized) {
 				s.minimizeWhenFinished = true;

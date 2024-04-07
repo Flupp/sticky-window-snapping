@@ -44,5 +44,11 @@
     <entry name="threshold" type="string">
       <default>0</default>
     </entry>
+    <entry name="offsetX" type="string">
+      <default>0</default>
+    </entry>
+    <entry name="offsetY" type="string">
+      <default>0</default>
+    </entry>
   </group>
 </kcfg>

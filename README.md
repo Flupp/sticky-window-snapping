@@ -19,7 +19,7 @@ Their names are prefixed by “KWin Script: Sticky Window Snapping”.
 
       ~/.local/share/kwin/scripts/sticky-window-snapping/backwards-compatibility/metadata-backwards-compatibility-fix.bash
 
-* If the script does not work, increasing the threshold in the configuration dialog might help.
+* If the script does not work, the options under the “Fine Tuning” tab in the configuration dialog might help.
 
 
 ## Known issues
