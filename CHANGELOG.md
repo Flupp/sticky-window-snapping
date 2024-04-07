@@ -1,6 +1,20 @@
 # Changelog
 
 
+## 2.0
+
+* new:
+  * Plasma 6 support
+  * release sticking windows by shaking the mouse
+  * option for (not) ignoring windows that are not on the current desktop
+  * configurable offsets allowing for gaps or overlapping windows
+* changed:
+  * restructured configuration dialog
+  * no key sequences assigned to shortcuts anymore by default
+* fixed:
+  * fix installation issues with newer Plasma versions by switching to new metadata format (`metadata.json`)
+
+
 ## 1.0.1
 
 * fixed:

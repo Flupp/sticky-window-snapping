@@ -3,7 +3,7 @@
 
  A Script for KWin - the KDE window manager
 
-Copyright (C) 2013 Toni Dietze <sticky-window-snapping@derflupp.e4ward.com>
+Copyright (C) 2024 Toni Dietze <sticky-window-snapping@derflupp.e4ward.com>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
