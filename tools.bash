@@ -13,18 +13,18 @@ function cmd_x_install() {
 
 function cmd_x_remove() {
 	local -; set -x
-	"kpackagetool${V}" --type=KWin/Script --remove sticky-window-snapping
+	"kpackagetool${V}" --type=KWin/Script --remove "${ID}"
 }
 
 function cmd_x_disable() {
 	local -; set -x
-	"kwriteconfig${V}" --file kwinrc --group Plugins --key sticky-window-snappingEnabled false
+	"kwriteconfig${V}" --file kwinrc --group Plugins --key "${ID}Enabled" false
 	qdbus org.kde.KWin /KWin reconfigure
 }
 
 function cmd_x_enable() {
 	local -; set -x
-	"kwriteconfig${V}" --file kwinrc --group Plugins --key sticky-window-snappingEnabled true
+	"kwriteconfig${V}" --file kwinrc --group Plugins --key "${ID}Enabled" true
 	qdbus org.kde.KWin /KWin reconfigure
 }
 
@@ -95,6 +95,8 @@ function main() {
 		exit 1
 	fi
 	declare -gr V=${BASH_REMATCH[1]}
+	declare -g ID
+	ID=$(jq --raw-output '.KPlugin.Id' < package/metadata.json)
 	while ((${#} > 0))
 	do
 		cmd "${1}"
