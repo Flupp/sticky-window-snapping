@@ -249,7 +249,8 @@ function interactiveMoveResizeStarted(client) {
 			minimizeWhenFinished: false,
 			opacity: 1,
 			originalOpacity: c.opacity,
-			originalGeometry: shallowCopy(g2)
+			originalGeometry: shallowCopy(g2),
+			requestedGeometry: shallowCopy(g2)
 		};
 		if (snap.lr || snap.ll || snap.rl || snap.rr || snap.tb || snap.tt || snap.bt || snap.bb) {
 			if (!config.liveUpdate) {
@@ -348,7 +349,7 @@ function clientResized(client, rect) {
 		if (resizedClientInfo.tMoved && s.tt) moveTto(g, rect.y                               );
 		if (resizedClientInfo.bMoved && s.bt) moveTto(g, rect.y + rect.height + config.offsetY);
 		if (resizedClientInfo.bMoved && s.bb) moveBto(g, rect.y + rect.height                 );
-		if (setGeometry(s.client, g, s.lr || s.rr, s.tb || s.bb)) {
+		if (setGeometry(s, g, s.lr || s.rr, s.tb || s.bb)) {
 			if (!s.minimizeWhenFinished && s.client.minimized) {
 				s.minimizeWhenFinished = true;
 				s.client.minimized = false;
@@ -415,8 +416,9 @@ function sanitizeQSize(size) {
 }
 
 /* returns true if the client’s geometry is changed, otherwise returns false */
-function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop) {
-	var oldGeometry = compat.Window_frameGeometry(client);
+function setGeometry(snap, geometry, pinRightInsteadLeft, pinBottomInsteadTop) {
+	var client = snap.client;
+	var oldGeometry = snap.originalGeometry;
 	var minSize = {
 		w: Math.max(sanitizeQSize(client.minSize).w, Math.min(50, oldGeometry.width)),
 		h: Math.max(sanitizeQSize(client.minSize).h, Math.min(50, oldGeometry.height))
@@ -447,9 +449,10 @@ function setGeometry(client, geometry, pinRightInsteadLeft, pinBottomInsteadTop)
 	if (geometry.y + geometry.height > bottom) { moveBto(geometry, bottom); pinBottomInsteadTop = true;  }
 	applySizeConstraints();
 
-	if (rectEquals(oldGeometry, geometry)) {
+	if (rectEquals(snap.requestedGeometry, geometry)) {
 		return false;
 	} else {
+		snap.requestedGeometry = geometry;
 		compat.Window_frameGeometry_set(client, geometry);
 		return true;
 	}
