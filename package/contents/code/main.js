@@ -249,8 +249,8 @@ function interactiveMoveResizeStarted(client) {
 			minimizeWhenFinished: false,
 			opacity: 1,
 			originalOpacity: c.opacity,
-			originalGeometry: shallowCopy(g2),
-			requestedGeometry: shallowCopy(g2)
+			originalGeometry: rectCopy(g2),
+			requestedGeometry: rectCopy(g2)
 		};
 		if (snap.lr || snap.ll || snap.rl || snap.rr || snap.tb || snap.tt || snap.bt || snap.bb) {
 			if (!config.liveUpdate) {
@@ -340,7 +340,7 @@ function clientResized(client, rect) {
 	for (var i = 0; i < snaps.length; ++i) {
 		var s = snaps[i];
 		var og = s.originalGeometry;
-		var g = {x: og.x, y: og.y, width: og.width, height: og.height};
+		var g = rectCopy(og);
 		if (resizedClientInfo.lMoved && s.lr) moveRto(g, rect.x               - config.offsetX);
 		if (resizedClientInfo.lMoved && s.ll) moveLto(g, rect.x                               );
 		if (resizedClientInfo.rMoved && s.rl) moveLto(g, rect.x + rect.width  + config.offsetX);
@@ -391,6 +391,13 @@ function moveTto(rect, y) {
 
 function moveBto(rect, y) {
 	rect.height = y - rect.y;
+}
+
+function rectCopy(rect) {
+	return { x     : rect.x
+	       , y     : rect.y
+	       , width : rect.width
+	       , height: rect.height };
 }
 
 function rectEquals(a, b) {
@@ -455,18 +462,6 @@ function setGeometry(snap, geometry, pinRightInsteadLeft, pinBottomInsteadTop) {
 		snap.requestedGeometry = geometry;
 		compat.Window_frameGeometry_set(client, geometry);
 		return true;
-	}
-}
-
-function shallowCopy(obj) {
-	if ("assign" in Object) {  // KWin ≥ 5.22
-		return Object.assign({}, obj);
-	} else {  // KWin < 5.22
-		var ret = {};
-		for (var p in obj) {
-			ret[p] = obj[p];
-		}
-		return ret;
 	}
 }
 
