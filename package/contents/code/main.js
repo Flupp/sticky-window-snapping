@@ -271,9 +271,6 @@ function finish(client, abort) {
 	enabledCurrently = config.enabledUsually;
 	if (resizedClientInfo === null) return;
 	firstClientStepUserMovedResized = false;
-	if (!abort) {
-		clientResized(client, compat.Window_frameGeometry(client));
-	}
 	for (var i = 0; i < snaps.length; ++i) {
 		if (snaps[i].minimizeWhenFinished) {
 			snaps[i].client.minimized = true;
