@@ -1,2 +1,5 @@
 /.kateproject.d/
+/node_modules/
+/package-lock.json
+/package.json
 *.kwinscript

@@ -4,7 +4,6 @@ jobs:
   ESLint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-      - run: npm install -g eslint
-      - run: eslint package/contents/code/
+      - uses: actions/checkout@v4
+      - run: npm install '@eslint/js' '@stylistic/eslint-plugin-js'
+      - run: npx eslint
