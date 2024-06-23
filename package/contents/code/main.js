@@ -45,7 +45,7 @@ var enabledCurrently = config.enabledUsually;
 // backwards compatibility layer
 
 var compat
-	= (workspace.windowList !== undefined) ? {  // Plasma 6
+	= (typeof workspace.windowList !== "undefined") ? {  // Plasma 6
 		workspace_windowList                 : function(    ) { return workspace.windowList(); },
 		workspace_windowAdded_connect        : function(   f) { return workspace.windowAdded          .connect(f); },
 		workspace_windowRemoved_connect      : function(   f) { return workspace.windowRemoved        .connect(f); },
@@ -53,7 +53,7 @@ var compat
 		interactiveMoveResizeStepped_connect : function(w, f) { return w.interactiveMoveResizeStepped .connect(function(r) { return f(w, r); }); },
 		interactiveMoveResizeFinished_connect: function(w, f) { return w.interactiveMoveResizeFinished.connect(function( ) { return f(w   ); }); },
 		Window_frameGeometry                 : function(w   ) { return w.frameGeometry; },
-		Window_frameGeometry_set             : function(w, g) { return w.frameGeometry = g; },
+		Window_frameGeometry_set             : function(w, g) { w.frameGeometry = g; },
 		Window_onCurrentDesktop              : function(w   ) {
 			if (w.onAllDesktops)
 				return true;
@@ -63,7 +63,7 @@ var compat
 			return false;
 		}
 	}
-	: (workspace.clientList !== undefined) ? {  // Plasma 5
+	: (typeof workspace.clientList !== "undefined") ? {  // Plasma 5
 		workspace_windowList                 : function(    ) { return workspace.clientList(); },
 		workspace_windowAdded_connect        : function(   f) { return workspace.clientAdded         .connect(f); },
 		workspace_windowRemoved_connect      : function(   f) { return workspace.clientRemoved       .connect(f); },
@@ -71,7 +71,7 @@ var compat
 		interactiveMoveResizeStepped_connect : function(w, f) { return w.clientStepUserMovedResized  .connect(f); },
 		interactiveMoveResizeFinished_connect: function(w, f) { return w.clientFinishUserMovedResized.connect(f); },
 		Window_frameGeometry                 : function(w   ) { return w.geometry; },
-		Window_frameGeometry_set             : function(w, g) { return w.geometry = g; },
+		Window_frameGeometry_set             : function(w, g) { w.geometry = g; },
 		Window_onCurrentDesktop              : function(w   ) { return w.onAllDesktops || w.desktop === workspace.currentDesktop; }
 	}
 	: null;
@@ -83,7 +83,7 @@ if (compat === null) {
 
 // compatibility with very old KWin (presumably KWin < 5.22)
 compat.Math_sign
-	= Math.sign !== undefined
+	= typeof Math.sign !== "undefined"
 	? Math.sign
 	: function(x) { return x > 0 ? 1 : x < 0 ? -1 : x; };
 
@@ -125,6 +125,9 @@ function init() {
 }
 
 function loadConfig() {
+	/* eslint-disable eqeqeq, no-implicit-coercion
+	   -- readConfig()’s return type is object in older KWin versions;
+	      conversion to Boolean does not work correctly with explicit conversion. */
 	config.enabledUsually           = true == readConfig("enabledUsually"          ,       config.enabledUsually          );
 	config.ignoreMaximized          = true == readConfig("ignoreMaximized"         ,       config.ignoreMaximized         );
 	config.ignoreMinimized          = true == readConfig("ignoreMinimized"         ,       config.ignoreMinimized         );
@@ -140,6 +143,7 @@ function loadConfig() {
 	config.threshold                = 1    *  readConfig("threshold"               ,       config.threshold               );
 	config.offsetX                  = 1    *  readConfig("offsetX"                 ,       config.offsetX                 );
 	config.offsetY                  = 1    *  readConfig("offsetY"                 ,       config.offsetY                 );
+	/* eslint-enable */
 }
 
 function windowAdded(client) {
@@ -154,7 +158,7 @@ function windowRemoved(client) {
 	function checkArray(arr) {
 		var i = 0;
 		while (i < arr.length) {
-			if (arr[i].client == client) {
+			if (arr[i].client == client) {  // eslint-disable-line eqeqeq
 				arr.splice(i, 1);
 			} else {
 				++i;
@@ -175,7 +179,7 @@ function interactiveMoveResizeStarted(client) {
 		};
 		if (!config.liveUpdate) {
 			ignored.opacity = config.opacityOfUnaffected;
-			client.opacity = config.opacityOfUnaffected * client.opacity;
+			client.opacity *= config.opacityOfUnaffected;
 		}
 		ignoreds.push(ignored);
 	}
@@ -184,13 +188,16 @@ function interactiveMoveResizeStarted(client) {
 	if (!client.resize) return;
 	snaps.length = 0;
 	ignoreds.length = 0;
-	firstClientStepUserMovedResized = true
+	firstClientStepUserMovedResized = true;
 	var g1 = compat.Window_frameGeometry(client);
 	var l1 = g1.x;
 	var r1 = g1.width + l1;
 	var t1 = g1.y;
 	var b1 = g1.height + t1;
-	var l1IsSticky = true, r1IsSticky = true, t1IsSticky = true, b1IsSticky = true;
+	var l1IsSticky = true;
+	var r1IsSticky = true;
+	var t1IsSticky = true;
+	var b1IsSticky = true;
 	if (config.ignoreBorderOfClientArea) {
 		var clientArea = workspace.clientArea(KWin.PlacementArea, client);
 		l1IsSticky = Math.abs(clientArea.x                     - l1) > config.threshold;
@@ -212,7 +219,7 @@ function interactiveMoveResizeStarted(client) {
 		var b2 = g2.height + t2;
 
 		// filter invisible unaffected windows
-		if (c == client) continue;
+		if (c == client) continue;  // eslint-disable-line eqeqeq
 		if (c.specialWindow) continue;
 		if (config.ignoreNoncurrentDesktops && !compat.Window_onCurrentDesktop(c)) continue;
 		if (c.screen !== client.screen) continue;
@@ -259,7 +266,7 @@ function interactiveMoveResizeStarted(client) {
 					c.minimized = false;
 				}
 				snap.opacity = config.opacityOfSnapped;
-				c.opacity = config.opacityOfSnapped * c.opacity;
+				c.opacity *= config.opacityOfSnapped;
 			}
 			snaps.push(snap);
 		} else {
@@ -296,16 +303,16 @@ function finish(client, abort) {
 function updateShake(shake, val) {
 	if (shake.turnVal < val) {
 		if (shake.val < val)
-			shake.val = val
+			shake.val = val;
 	} else if (shake.turnVal > val) {
 		if (shake.val > val)
-			shake.val = val
+			shake.val = val;
 	}
 	var distance = shake.val - val;
 	var direction = compat.Math_sign(distance);
 	if (direction !== shake.direction && Math.abs(distance) >= config.shakeThreshold) {
 		shake.turnVal = shake.val;
-		shake.val = val
+		shake.val = val;
 		shake.count += 1;
 		shake.direction = direction;
 	}
@@ -333,10 +340,10 @@ function interactiveMoveResizeFinished(client) {
 }
 
 function clientResized(client, rect) {
-	resizedClientInfo.lMoved |= resizedClientInfo.lOrig !== rect.x;
-	resizedClientInfo.rMoved |= resizedClientInfo.rOrig !== rect.x + rect.width;
-	resizedClientInfo.tMoved |= resizedClientInfo.tOrig !== rect.y;
-	resizedClientInfo.bMoved |= resizedClientInfo.bOrig !== rect.y + rect.height;
+	resizedClientInfo.lMoved = resizedClientInfo.lMoved || resizedClientInfo.lOrig !== rect.x;
+	resizedClientInfo.rMoved = resizedClientInfo.rMoved || resizedClientInfo.rOrig !== rect.x + rect.width;
+	resizedClientInfo.tMoved = resizedClientInfo.tMoved || resizedClientInfo.tOrig !== rect.y;
+	resizedClientInfo.bMoved = resizedClientInfo.bMoved || resizedClientInfo.bOrig !== rect.y + rect.height;
 	for (var i = 0; i < snaps.length; ++i) {
 		var s = snaps[i];
 		var og = s.originalGeometry;
@@ -417,8 +424,7 @@ function sanitizeQSize(size) {
 	} else if ("w" in size && "h" in size) {    // KWin < 5.22
 		return size;
 	} else {
-		print("sanitizeQSize: Argument does not have the expected properties.");
-		return undefined;
+		throw new Error("sanitizeQSize: Argument does not have the expected properties.");
 	}
 }
 
