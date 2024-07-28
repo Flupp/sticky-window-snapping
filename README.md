@@ -1,5 +1,7 @@
 # Sticky Window Snapping
 
+![screencast showing resizing sticky windows](images/sticky-resizing.gif)
+
 KWin script to let snapped window edges stick together when one window is resized.
 
 The script provides an easy to use configuration dialog, which can be reached via `systemsettings`.
@@ -30,3 +32,14 @@ Their names are prefixed by “KWin Script: Sticky Window Snapping”.
   KNotify provides the method `event` via D-Bus, but it expects arguments of types for which I do not know how to produce values with JavaScript.
 * Currently, not only snapped window edges are considered as connected, but even edges which are only on the same row/column are considered as connected.
   I have not decided yet if this is a bug or a feature.
+
+
+## Configuration dialog
+
+![configuration dialog tab “General”](images/config-tab-1-general.png)
+
+![configuration dialog tab “Shake Gesture”](images/config-tab-2-shake_gesture.png)
+
+![configuration dialog tab “Filters”](images/config-tab-3-filters.png)
+
+![configuration dialog tab “Fine Tuning”](images/config-tab-4-fine_tuning.png)
