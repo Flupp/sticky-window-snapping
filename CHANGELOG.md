@@ -1,6 +1,12 @@
 # Changelog
 
 
+## 2.0.1
+
+* fixed:
+  * fix unsticking on rapid resize
+
+
 ## 2.0
 
 * new:
